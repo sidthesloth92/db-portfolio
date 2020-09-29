@@ -32,6 +32,8 @@ body {
   font-weight: normal;
   background: var(--color-dark);
   color: var(--font-color);
+  padding: 0;
+  margin: 0;
 }
 
 .cursive {
