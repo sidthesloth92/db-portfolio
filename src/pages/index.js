@@ -39,7 +39,7 @@ export default function Home() {
 
       <footer>
         <p>
-          Site under 🧑🏻‍💻 by <span className="name">Dinesh Balaji</span>
+          Site under 💻 by <span className="name">Dinesh Balaji</span>
         </p>
       </footer>
 
