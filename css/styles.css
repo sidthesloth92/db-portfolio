@@ -26,6 +26,10 @@
   src: url("/fonts/NunitoSans-Black.ttf");
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Nunito Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
