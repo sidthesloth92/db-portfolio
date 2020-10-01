@@ -1,10 +1,19 @@
 import Head from "next/head";
 import UnderConstruction from "../components/under-construction/UnderContruction";
+import { trackEvent } from "../lib/ga";
 
 /**
  * The landing page of the application.
  */
 export default function Home() {
+  const onClick = (value) => {
+    trackEvent({
+      action: "click",
+      category: "Social Media",
+      label: value,
+    });
+  };
+
   return (
     <div className="container">
       <Head>
@@ -16,22 +25,46 @@ export default function Home() {
         Hi , I'm <span className="name">Dinesh Balaji</span>
       </h1>
       <div className="social-icons">
-        <a href="https://github.com/sidthesloth92" className="social-icon">
+        <a
+          href="https://github.com/sidthesloth92"
+          className="social-icon"
+          onClick={() => onClick("Github")}
+        >
           <img alt="github icon" src="/icons/github.svg" />
         </a>
-        <a href="https://codepen.io/sidthesloth92" className="social-icon">
+        <a
+          href="https://codepen.io/sidthesloth92"
+          className="social-icon"
+          onClick={() => onClick("Codepen")}
+        >
           <img alt="codepen icon" src="/icons/codepen.svg" />
         </a>
-        <a href="https://twitter.com/sidthesloth92" className="social-icon">
+        <a
+          href="https://twitter.com/sidthesloth92"
+          className="social-icon"
+          onClick={() => onClick("Twitter")}
+        >
           <img alt="twitter icon" src="/icons/twitter.svg" />
         </a>
-        <a href="https://linkedin.com/in/dineshbalajiv" className="social-icon">
+        <a
+          href="https://linkedin.com/in/dineshbalajiv"
+          className="social-icon"
+          onClick={() => onClick("Linkedin")}
+        >
           <img alt="linkedin icon" src="/icons/linkedin.svg" />
         </a>
-        <a href="https://instagram.com/sidthesloth92" className="social-icon">
+        <a
+          href="https://instagram.com/sidthesloth92"
+          className="social-icon"
+          onClick={() => onClick("Instagram")}
+        >
           <img alt="github icon" src="/icons/instagram.svg" />
         </a>
-        <a href="https://www.behance.net/sidthesloth92" className="social-icon">
+        <a
+          href="https://www.behance.net/sidthesloth92"
+          className="social-icon"
+          onClick={() => onClick("Behance")}
+        >
           <img alt="behance icon" src="/icons/behance.svg" />
         </a>
       </div>
