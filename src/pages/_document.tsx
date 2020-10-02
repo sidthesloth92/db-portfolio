@@ -9,6 +9,20 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <meta charSet="UTF-8" />
+          <meta
+            name="description"
+            content="Dinesh Balaji's portfolio website"
+          />
+          <meta
+            name="keywords"
+            content="HTML, CSS, JavaScript, Portfolio, React, Angular, Next, Web"
+          />
+          <meta name="author" content="Dinesh Balaji Venkataraj" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
