@@ -1,11 +1,12 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { GA_TRACKING_ID } from "../lib/ga";
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+
+import { GA_TRACKING_ID } from '../lib/ga';
 
 /**
  * The document of the application.
  */
 class MyDocument extends Document {
-  render() {
+  render(): JSX.Element {
     return (
       <Html lang="en">
         <Head>
@@ -36,7 +37,7 @@ class MyDocument extends Document {
             gtag('config', '${GA_TRACKING_ID}', {
               page_path: window.location.pathname,
             });
-          `,
+          `
             }}
           />
         </Head>

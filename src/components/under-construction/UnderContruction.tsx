@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 /**
  * The under construction animation on the landing page.

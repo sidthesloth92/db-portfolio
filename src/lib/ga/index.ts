@@ -1,9 +1,9 @@
-import { GaEvent } from "./types";
+import { GaEvent } from './types';
 
 /**
  * The unique google analytics tracking id for the website.
  */
-export const GA_TRACKING_ID = "UA-101087503-2";
+export const GA_TRACKING_ID = 'UA-101087503-2';
 
 /**
  * Sends a page view event to Google analytics. Use this when you a page navigation happens.
@@ -11,8 +11,8 @@ export const GA_TRACKING_ID = "UA-101087503-2";
  * @param url The URL of the visited page.
  */
 export const trackPageView = (url: string): void => {
-  window.gtag("config", GA_TRACKING_ID, {
-    page_path: url,
+  window.gtag('config', GA_TRACKING_ID, {
+    page_path: url
   });
 };
 
@@ -25,11 +25,11 @@ export const trackEvent = ({
   action,
   category,
   label,
-  value,
+  value
 }: GaEvent): void => {
-  window.gtag("event", action, {
+  window.gtag('event', action, {
     event_category: category,
     event_label: label,
-    value: value,
+    value: value
   });
 };
