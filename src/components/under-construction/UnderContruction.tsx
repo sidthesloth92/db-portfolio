@@ -3,7 +3,7 @@ import React from "react";
 /**
  * The under construction animation on the landing page.
  */
-const UnderConstruction = () => {
+const UnderConstruction: React.FC = () => {
   return (
     <>
       <div className="uc-container">
