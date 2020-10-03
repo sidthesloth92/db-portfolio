@@ -1,5 +1,5 @@
-import '../../css/theme.css';
-import '../../css/styles.css';
+import '../../css/theme.scss';
+import '../../css/styles.scss';
 
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
