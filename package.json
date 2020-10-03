@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint:code": "eslint ./src --ext .js,.jsx,.ts,.tsx",
-    "lint:code:fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx"
+    "lint:code:fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "dependencies": {
     "next": "9.5.3",
@@ -15,10 +17,12 @@
     "react-dom": "16.13.1"
   },
   "devDependencies": {
+    "@endemolshinegroup/cz-github": "2.0.0",
     "@types/node": "14.11.2",
     "@types/react": "16.9.50",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
+    "commitizen": "4.2.1",
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.12.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
@@ -26,8 +30,25 @@
     "eslint-plugin-react": "7.21.3",
     "eslint-plugin-react-hooks": "4.1.2",
     "eslint-plugin-simple-import-sort": "5.0.3",
+    "husky": "4.3.0",
+    "lint-staged": "10.4.0",
     "prettier": "2.1.2",
     "sass": "1.26.11",
     "typescript": "4.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@endemolshinegroup/cz-github"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache",
+    "*.*": "prettier --check"
   }
 }

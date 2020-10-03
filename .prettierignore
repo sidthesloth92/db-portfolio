@@ -28,3 +28,11 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+# config files
+.eslintrc.js
+.eslintignore
+.gitignore
+.prettierignore
+.prettierrc
+tsconfig.json
