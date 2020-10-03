@@ -8,6 +8,8 @@
     "start": "next start",
     "lint:code": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "lint:code:fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx",
+    "lint:styles": "stylelint './**/*.scss'",
+    "lint:styles:fix": "stylelint --fix './**/*.scss'",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s"
@@ -39,6 +41,12 @@
     "postcss-preset-env": "6.7.0",
     "prettier": "2.1.2",
     "sass": "1.26.11",
+    "stylelint": "13.7.2",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-rational-order": "0.1.2",
+    "stylelint-config-sass-guidelines": "7.1.0",
+    "stylelint-order": "4.1.0",
+    "stylelint-prettier": "1.1.2",
     "tailwindcss": "1.8.10",
     "typescript": "4.0.3"
   },
