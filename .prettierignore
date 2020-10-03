@@ -36,4 +36,5 @@ yarn-error.log*
 .gitignore
 .prettierignore
 .prettierrc
+postcss.config.js
 tsconfig.json
