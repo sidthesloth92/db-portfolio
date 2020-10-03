@@ -1,6 +1,6 @@
 {
   "name": "db-portfolio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,8 @@
     "lint:code": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "lint:code:fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx",
     "prettier:check": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
     "next": "9.5.3",
@@ -23,6 +24,7 @@
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
     "commitizen": "4.2.1",
+    "conventional-changelog-cli": "2.1.0",
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.12.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
