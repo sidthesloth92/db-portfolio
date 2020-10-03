@@ -5,8 +5,9 @@
     "stylelint-prettier/recommended"
   ],
   "rules": {
+    "selector-no-qualifying-type": null,
     "at-rule-no-unknown": null,
-    "scss/at-rule-no-unknown": false,
+    "scss/at-rule-no-unknown": null,
     "order/properties-alphabetical-order": null,
     "plugin/rational-order": [
       true,
