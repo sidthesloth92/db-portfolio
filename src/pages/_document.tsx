@@ -20,10 +20,6 @@ class MyDocument extends Document {
             content="HTML, CSS, JavaScript, Portfolio, React, Angular, Next, Web"
           />
           <meta name="author" content="Dinesh Balaji Venkataraj" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -41,7 +37,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body>
+        <body className={'font-sans text-base text-white bg-dark'}>
           <Main />
           <NextScript />
         </body>

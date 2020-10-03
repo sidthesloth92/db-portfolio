@@ -2,6 +2,7 @@ import '../../css/theme.scss';
 import '../../css/styles.scss';
 
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
@@ -23,7 +24,14 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     };
   }, [router.events]);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <Component {...pageProps} />;
+    </>
+  );
 };
 
 export default MyApp;
