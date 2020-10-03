@@ -2,50 +2,28 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@font-face {
-  font-weight: normal;
-  font-family: 'Adinda Melia';
-  font-style: normal;
-  src: url('/fonts/adinda-melia.regular.otf');
-}
+@layer base {
+  @font-face {
+    font-weight: normal;
+    font-family: 'Adinda Melia';
+    src: url('/fonts/adinda-melia.regular.otf');
+  }
 
-@font-face {
-  font-weight: normal;
-  font-family: 'Nunito Sans';
-  src: url('/fonts/NunitoSans-Regular.ttf');
-  font-display: swap;
-}
+  @font-face {
+    font-weight: normal;
+    font-family: 'Nunito Sans';
+    src: url('/fonts/NunitoSans-Regular.ttf');
+  }
 
-@font-face {
-  font-weight: bold;
-  font-family: 'Nunito Sans';
-  src: url('/fonts/NunitoSans-Bold.ttf');
-  font-display: swap;
-}
+  @font-face {
+    font-weight: bold;
+    font-family: 'Nunito Sans';
+    src: url('/fonts/NunitoSans-Bold.ttf');
+  }
 
-@font-face {
-  font-weight: 900;
-  font-family: 'Nunito Sans';
-  src: url('/fonts/NunitoSans-Black.ttf');
-  font-display: swap;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-
-  color: var(--font-color);
-  font-weight: normal;
-  font-size: 16px;
-  font-family: 'Nunito Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-
-  background: var(--color-dark);
-}
-
-.cursive {
-  font-family: 'Adinda Melia' !important;
+  @font-face {
+    font-weight: 900;
+    font-family: 'Nunito Sans';
+    src: url('/fonts/NunitoSans-Black.ttf');
+  }
 }
