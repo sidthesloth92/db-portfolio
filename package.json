@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "npm run lint:code && npm run lint:styles",
+    "lint:fix": "npm run lint:code:fix && npm run lint:styles:fix",
     "lint:code": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "lint:code:fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx",
     "lint:styles": "stylelint './**/*.scss'",
@@ -63,6 +65,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache",
+    "*.scss": "stylelint",
     "*.*": "prettier --check"
   }
 }
