@@ -1,39 +1,42 @@
-import styles from './UnderConstruction.module.scss';
+import { useMemo } from 'react';
+
+import { addCamelCaseKeys } from '../../../lib';
+import s from './UnderConstruction.module.scss';
 
 /**
  * The under construction animation on the landing page.
  */
 const UnderConstruction: React.FC = () => {
-  console.log(styles);
+  const styles = useMemo(() => addCamelCaseKeys(s), []);
   return (
     <>
-      <div className="uc-container">
-        <div className="cat">
-          <div className="head">
-            <div className="ear-container">
-              <div className="ear--left"></div>
-              <div className="ear--right"></div>
+      <div className={styles.ucContainer}>
+        <div className={styles.cat}>
+          <div className={styles.head}>
+            <div className={styles.earContainer}>
+              <div className={`${styles.ear} ${styles.earLeft}`}></div>
+              <div className={`${styles.ear} ${styles.earRight}`}></div>
             </div>
-            <div className="eye-container">
-              <div className="eye--left"></div>
-              <div className="eye--right"></div>
+            <div className={styles.eyeContainer}>
+              <div className={`${styles.eye} ${styles.eyeLeft}`}></div>
+              <div className={`${styles.eye} ${styles.eyeRight}`}></div>
             </div>
-            <div className="nose"></div>
+            <div className={styles.nose}></div>
           </div>
-          <div className="body"></div>
-          <div className="hand--left"></div>
-          <div className="hand--right"></div>
+          <div className={styles.body}></div>
+          <div className={`${styles.hand} ${styles.handLeft}`}></div>
+          <div className={`${styles.hand} ${styles.handRight}`}></div>
         </div>
-        <div className="lap lap--left">
-          <div className="lid"></div>
-          <div className="keyboard"></div>
+        <div className={`${styles.lap} ${styles.lapLeft}`}>
+          <div className={styles.lid}></div>
+          <div className={styles.keyboard}></div>
         </div>
-        <div className="lap lap--center">
-          <div className="lid"></div>
+        <div className={`${styles.lap} ${styles.lapCenter}`}>
+          <div className={styles.lid}></div>
         </div>
-        <div className="lap lap--right">
-          <div className="lid"></div>
-          <div className="keyboard"></div>
+        <div className={`${styles.lap} ${styles.lapRight}`}>
+          <div className={styles.lid}></div>
+          <div className={styles.keyboard}></div>
         </div>
       </div>
     </>

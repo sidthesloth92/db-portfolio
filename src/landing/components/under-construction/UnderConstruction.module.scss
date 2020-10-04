@@ -1,3 +1,11 @@
+$dark-shade: #13161a;
+$dark-normal: #20252c;
+$dark-tint: #363b41;
+$dark-light: #63666b;
+$pink: #e6096c;
+$white: #fff;
+$border-color: $dark-shade;
+
 .uc-container {
   position: relative;
 
@@ -5,416 +13,351 @@
   height: 300px;
   margin: -40px 0;
 
-  transform: scale(0.6);
-}
-.cat {
-  position: absolute;
-  top: 10%;
-  left: 50%;
+  transform: scale(0.8);
 
-  width: 200px;
-  height: 100px;
+  .cat {
+    position: absolute;
+    top: 10%;
+    left: 50%;
 
-  transform: translateX(-50%);
-}
-.cat .head {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
+    width: 200px;
+    height: 100px;
 
-  width: 130px;
-  height: 100px;
+    transform: translateX(-50%);
 
-  background: #fff;
-  border: 5px solid #13161a;
-  border-radius: 50%;
-  transform: translateX(-50%);
-}
-.cat .head::after,
-.cat .head::before {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: -1;
+    .head {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
 
-  width: 70%;
-  height: 50px;
+      width: 130px;
+      height: 100px;
 
-  background: #13161a;
-  border-radius: 100%;
-  transform-origin: left center;
+      background: $white;
+      border: 5px solid $border-color;
+      border-radius: 50%;
+      transform: translateX(-50%);
 
-  content: '';
-}
-.cat .head::before {
-  transform: translateY(-50%) rotate(45deg) rotateY(180deg) rotate(90deg);
-}
-.cat .head::after {
-  transform: translateY(-50%) rotate(45deg);
-}
-.cat .head .ear-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
+      &::after,
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: -1;
 
-  display: box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 80%;
-  height: 20px;
+        width: 70%;
+        height: 50px;
 
-  transform: translateX(-50%);
-}
-.head .ear-container div[class^='ear'] {
-  position: relative;
+        background: $dark-shade;
+        border-radius: 100%;
+        transform-origin: left center;
 
-  width: 0;
-  height: 0;
+        content: '';
+      }
 
-  border-right: 20px solid transparent;
-  border-bottom: 40px solid #e6096c;
-  border-left: 20px solid transparent;
-}
-.head .ear-container div[class^='ear']::before,
-.head .ear-container div[class^='ear']::after {
-  position: absolute;
-  top: 0;
-  left: 0;
+      &::before {
+        transform: translateY(-50%) rotate(45deg) rotateY(180deg) rotate(90deg);
+      }
 
-  width: 32px;
-  height: 32px;
+      &::after {
+        transform: translateY(-50%) rotate(45deg);
+      }
 
-  background: #13161a;
+      .ear-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
 
-  content: '';
-}
-.head .ear-container div[class^='ear']::before {
-  border-radius: 40px 0;
-  transform: translate(-26px, 4px) rotate(-19deg);
-  transform: translate(-26px, 4px) rotate(-19deg);
-}
-.head .ear-container div[class^='ear']::after {
-  border-radius: 0 40px;
-  transform: translate(-6px, 4px) rotate(19deg);
-  transform: translate(-6px, 4px) rotate(19deg);
-}
-.head .ear-container .ear--left {
-  transform: translateY(-50%) rotate(-41deg) translate(-28px, -11px);
-  transform: translateY(-50%) rotate(-41deg) translate(-28px, -11px);
-}
-.head .ear-container .ear--right {
-  transform: translateY(-50%) rotate(41deg) translate(28px, -11px);
-  transform: translateY(-50%) rotate(41deg) translate(28px, -11px);
-}
-.head .eye-container {
-  position: absolute;
-  top: 25px;
-  left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+        height: 20px;
 
-  display: box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 60%;
-  height: 20px;
+        transform: translateX(-50%);
+        .ear {
+          position: relative;
 
-  transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-.head .eye-container div[class^='eye'] {
-  position: relative;
+          width: 0;
+          height: 0;
 
-  width: 20px;
-  height: 20px;
+          border-right: 20px solid transparent;
+          border-bottom: 40px solid $pink;
+          border-left: 20px solid transparent;
 
-  background: #fff;
-  border-radius: 50%;
-}
-.head .eye-container div[class^='eye']::after {
-  position: absolute;
-  top: 9px;
+          &::before,
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
 
-  width: 12px;
-  height: 12px;
+            width: 32px;
+            height: 32px;
 
-  background: #13161a;
-  border-radius: 50%;
-  transform: translate(-50%);
-  transform: translate(-50%);
+            background: $dark-shade;
 
-  animation-name: eye;
-  animation-name: eye;
-  animation-duration: 3s;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-direction: alternate;
+            content: '';
+          }
 
-  content: '';
-}
-.head .nose {
-  position: absolute;
-  top: 52%;
-  left: 50%;
+          &::before {
+            border-radius: 40px 0;
+            transform: translate(-26px, 4px) rotate(-19deg);
+          }
 
-  width: 12px;
-  height: 9px;
+          &::after {
+            border-radius: 0 40px;
+            transform: translate(-6px, 4px) rotate(19deg);
+          }
+        }
+        .ear--left {
+          transform: translateY(-50%) rotate(-41deg) translate(-28px, -11px);
+        }
+        .ear--right {
+          transform: translateY(-50%) rotate(41deg) translate(28px, -11px);
+        }
+      }
 
-  background: #13161a;
-  border-radius: 2px 2px 50% 50%;
-  transform: translate(-50%);
-  transform: translate(-50%);
-}
-.uc-container .cat .body {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
+      .eye-container {
+        position: absolute;
+        top: 25px;
+        left: 50%;
 
-  width: 100px;
-  height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+        height: 20px;
 
-  background: #fff;
-  border: 5px solid #13161a;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  transform: translate(-50%, 95px);
-  transform: translate(-50%, 95px);
-}
-.uc-container .cat div[class^='hand'] {
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  z-index: -1;
+        transform: translateX(-50%);
+        .eye {
+          position: relative;
 
-  width: 30px;
-  height: 120px;
+          width: 20px;
+          height: 20px;
 
-  background: #fff;
-  background: #13161a;
-  border: 5px solid #13161a;
-  transform-origin: center top;
-  transform-origin: center top;
+          background: $white;
+          border-radius: 50%;
 
-  animation-duration: 0.2s;
-  animation-duration: 0.2s;
-  animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-.uc-container .cat .hand--left {
-  border-radius: 30px 0 10px 30px;
-  transform: translateX(-42px) rotate(80deg);
-  transform: translateX(-42px) rotate(80deg);
+          &::after {
+            position: absolute;
+            top: 9px;
 
-  animation-name: move-left-hand;
-  animation-name: move-left-hand;
-  animation-delay: 0.1s;
-  animation-delay: 0.1s;
-}
-.uc-container .cat .hand--right {
-  border-radius: 0 30px 30px 5px;
-  transform: translateX(12px) rotate(-80deg);
-  transform: translateX(12px) rotate(-80deg);
+            width: 12px;
+            height: 12px;
 
-  animation-name: move-right-hand;
-  animation-name: move-right-hand;
-}
-.uc-container .lap {
-  position: absolute;
+            background: $dark-shade;
+            border-radius: 50%;
+            transform: translate(-50%);
 
-  width: 120px;
-  height: 80px;
-}
-.uc-container .lap .lid {
-  width: 100%;
-  height: 100%;
+            animation-name: eye;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
 
-  background: #e6096c;
-  border: 5px solid #13161a;
-}
-.uc-container .lap .lid::before {
-  position: absolute;
-  top: 40%;
-  left: 50%;
+            content: '';
+          }
+        }
+      }
 
-  width: 0;
-  height: 0;
+      .nose {
+        position: absolute;
+        top: 52%;
+        left: 50%;
 
-  border-top: 10px solid #e6db74;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #e6db74;
-  border-left: 10px solid #e6db74;
-  border-radius: 10px;
-  transform: translate(-50%);
-  transform: translate(-50%);
+        width: 12px;
+        height: 9px;
 
-  content: '';
-}
-.uc-container .lap .lid::after {
-  position: absolute;
-  bottom: 5px;
-  left: 0;
+        background: $dark-shade;
+        border-radius: 2px 2px 50% 50%;
+        transform: translate(-50%);
+      }
+    }
+    .body {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
 
-  box-sizing: border-box;
-  width: 100%;
-  height: 20px;
+      width: 100px;
+      height: 100px;
 
-  background: #e6db74;
-  border: 5px solid #13161a;
-  transform: translateY(100%);
-  transform: translateY(100%);
+      background: $white;
+      border: 5px solid $border-color;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      transform: translate(-50%, 95px);
+    }
 
-  content: '';
-}
-.uc-container .lap .keyboard {
-  position: absolute;
-  top: 0;
-  left: 0;
+    .hand {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      z-index: -1;
 
-  width: 100%;
-  height: 100%;
+      width: 30px;
+      height: 120px;
 
-  background: #63666b;
-  border: 5px solid #13161a;
+      background: $white;
+      background: $dark-shade;
+      border: 5px solid $border-color;
+      transform-origin: center top;
 
-  content: '';
-}
-.uc-container .lap.lap--center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+      animation-duration: 0.2s;
+      animation-iteration-count: infinite;
+    }
 
-  transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-.uc-container .lap.lap--left {
-  top: 50%;
-  left: 0;
-  z-index: -1;
+    .hand--left {
+      border-radius: 30px 0 10px 30px;
+      transform: translateX(-42px) rotate(80deg);
 
-  width: 100px;
+      animation-name: move-left-hand;
+      animation-delay: 0.1s;
+    }
 
-  transform: translate(-90%, -60%) skew(0deg, 15deg);
-  transform: translate(-90%, -60%) skew(0deg, 15deg);
-}
-.uc-container .lap.lap--left .keyboard {
-  z-index: -1;
+    .hand--right {
+      border-radius: 0 30px 30px 5px;
+      transform: translateX(12px) rotate(-80deg);
 
-  border-width: 10px 10px 5px 0;
-  transform: rotateX(70deg) skewX(-30deg) translate(25px, 42px);
-  transform: rotateX(70deg) skewX(-30deg) translate(25px, 42px);
-  transform-origin: center bottom;
-  transform-origin: center bottom;
-}
-.uc-container .lap.lap--right {
-  top: 50%;
-  right: 0;
-  z-index: -1;
-
-  width: 100px;
-
-  transform: translate(90%, -60%) skew(0deg, -15deg);
-  transform: translate(90%, -60%) skew(0deg, -15deg);
-}
-.uc-container .lap.lap--right .keyboard {
-  z-index: -1;
-
-  border-width: 10px 0 5px 10px;
-  transform: rotateX(70deg) skewX(30deg) translate(-25px, 42px);
-  transform: rotateX(70deg) skewX(30deg) translate(-25px, 42px);
-  transform-origin: center bottom;
-  transform-origin: center bottom;
-}
-
-@media screen and (min-width: 577px) {
-  .uc-container {
-    margin: 0;
-
-    transform: scale(1);
+      animation-name: move-right-hand;
+    }
   }
-}
 
-@media screen and (min-width: 769px) {
-  .uc-container {
-    margin: 0;
+  .lap {
+    position: absolute;
 
-    transform: scale(0.8);
+    width: 120px;
+    height: 80px;
+
+    .lid {
+      width: 100%;
+      height: 100%;
+
+      background: $pink;
+      border: 5px solid $border-color;
+
+      &::before {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 0;
+        height: 0;
+
+        border-top: 10px solid #e6db74;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #e6db74;
+        border-left: 10px solid #e6db74;
+        border-radius: 10px;
+        transform: translate(-50%);
+
+        content: '';
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+
+        box-sizing: border-box;
+        width: 100%;
+        height: 20px;
+
+        background: #e6db74;
+        border: 5px solid $border-color;
+        transform: translateY(100%);
+
+        content: '';
+      }
+    }
+
+    .keyboard {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: $dark-light;
+      border: 5px solid $border-color;
+
+      content: '';
+    }
+
+    &.lap--center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translateX(-50%);
+    }
+
+    &.lap--left {
+      top: 50%;
+      left: 0;
+      z-index: -1;
+
+      width: 100px;
+
+      transform: translate(-90%, -60%) skew(0deg, 15deg);
+
+      .keyboard {
+        z-index: -1;
+
+        border-width: 10px 10px 5px 0;
+        transform: rotateX(70deg) skewX(-30deg) translate(25px, 42px);
+        transform-origin: center bottom;
+      }
+    }
+    &.lap--right {
+      top: 50%;
+      right: 0;
+      z-index: -1;
+
+      width: 100px;
+
+      transform: translate(90%, -60%) skew(0deg, -15deg);
+
+      .keyboard {
+        z-index: -1;
+
+        border-width: 10px 0 5px 10px;
+        transform: rotateX(70deg) skewX(30deg) translate(-25px, 42px);
+        transform-origin: center bottom;
+      }
+    }
   }
 }
 
 @keyframes move-left-hand {
   from {
     transform: translateX(-42px) rotate(80deg);
-    transform: translateX(-42px) rotate(80deg);
   }
+
   to {
-    transform: translateX(-42px) rotate(60deg);
     transform: translateX(-42px) rotate(60deg);
   }
 }
 
-@keyframes move-left-hand {
-  from {
-    transform: translateX(-42px) rotate(80deg);
-    transform: translateX(-42px) rotate(80deg);
-  }
-  to {
-    transform: translateX(-42px) rotate(60deg);
-    transform: translateX(-42px) rotate(60deg);
-  }
-}
 @keyframes move-right-hand {
   from {
     transform: translateX(12px) rotate(-80deg);
-    transform: translateX(12px) rotate(-80deg);
   }
+
   to {
-    transform: translateX(12px) rotate(-60deg);
     transform: translateX(12px) rotate(-60deg);
   }
 }
-@keyframes move-right-hand {
-  from {
-    transform: translateX(12px) rotate(-80deg);
-    transform: translateX(12px) rotate(-80deg);
-  }
-  to {
-    transform: translateX(12px) rotate(-60deg);
-    transform: translateX(12px) rotate(-60deg);
-  }
-}
+
 @keyframes eye {
   0% {
     left: 5px;
   }
-  25% {
-    left: 5px;
-  }
+
   50% {
-    left: 10px;
-  }
-  75% {
     left: 15px;
   }
+
   100% {
-    left: 15px;
-  }
-}
-@keyframes eye {
-  0% {
     left: 5px;
-  }
-  25% {
-    left: 5px;
-  }
-  50% {
-    left: 10px;
-  }
-  75% {
-    left: 15px;
-  }
-  100% {
-    left: 15px;
   }
 }
