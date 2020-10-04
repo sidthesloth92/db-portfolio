@@ -1,0 +1,19 @@
+@layer components {
+  .nav-bar-item {
+    @apply relative p-4 cursor-pointer overflow-hidden;
+
+    &:hover {
+      @apply text-primary;
+    }
+  }
+
+  .nav-bar-item::before {
+    // TODO: Button animation on hover.
+    // content: '';
+    @apply absolute top-0 left-0 w-full bg-primary h-px transform -translate-x-full transition-all duration-300;
+  }
+
+  .nav-bar-item:hover::before {
+    @apply translate-x-0;
+  }
+}

@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
+import NavBar from '../components/nav-bar/NavBar';
 import { trackPageView } from '../lib/ga';
 
 /**
@@ -29,6 +30,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
+      <NavBar />
       <Component {...pageProps} />;
     </>
   );
