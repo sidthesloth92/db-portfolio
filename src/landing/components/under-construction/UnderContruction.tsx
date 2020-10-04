@@ -1,9 +1,10 @@
-import React from 'react';
+import styles from './UnderConstruction.module.scss';
 
 /**
  * The under construction animation on the landing page.
  */
 const UnderConstruction: React.FC = () => {
+  console.log(styles);
   return (
     <>
       <div className="uc-container">

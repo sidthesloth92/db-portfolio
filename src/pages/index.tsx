@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import UnderConstruction from '../components/under-construction/UnderContruction';
+import UnderConstruction from '../landing/components/under-construction/UnderContruction';
 import { trackEvent } from '../lib/ga';
 
 /**
@@ -22,8 +22,11 @@ const Home: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="title">
-        Hi , I&apos;m <span className="name">Dinesh Balaji</span>
+      <h1 className="h1">
+        Hi , I&apos;m{' '}
+        <span className="font-cursive text-8xl text-primary">
+          Dinesh Balaji
+        </span>
       </h1>
       <div className="social-icons">
         <a
