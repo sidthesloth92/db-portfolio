@@ -28,6 +28,11 @@ const Footer: React.FC = () => (
                 </Link>
               </li>
               <li className="my-2">
+                <Link href="/works">
+                  <a>Works</a>
+                </Link>
+              </li>
+              <li className="my-2">
                 <Link href="/posts">
                   <a>Posts</a>
                 </Link>
@@ -40,7 +45,7 @@ const Footer: React.FC = () => (
             </ul>
           </section>
           <section className="ml-24">
-            <h5>Links</h5>
+            <h5 className="text-secondary mb-2">Say Hi!</h5>
             <ul>
               <li className="my-2">About</li>
               <li className="my-2">Posts</li>
