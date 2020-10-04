@@ -32,18 +32,16 @@ module.exports = {
         light: 'var(--color-dark-light)'
       }
     },
-    spacing: {
-      '8': '8px',
-      '16': '16px',
-      '32': '32px',
-      '64': '64px'
-    },
     fontFamily: {
       sans: ['Nunito\\ Sans', ...defaultTheme.fontFamily.sans],
       cursive: ['Adinda\\ Melia'],
       mono: [...defaultTheme.fontFamily.mono]
     },
-    extend: {}
+    extend: {
+      fontSize: {
+        '8xl': '6rem'
+      }
+    }
   },
   variants: {},
   plugins: []
