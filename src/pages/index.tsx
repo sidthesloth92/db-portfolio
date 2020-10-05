@@ -67,17 +67,6 @@ const Home: React.FC = () => {
         </a>
       </div>
       <UnderConstruction />
-
-      <footer>
-        <p>
-          Site under{' '}
-          <span role="img" aria-label="coding" aria-labelledby="coding">
-            💻
-          </span>{' '}
-          by <span className="name">Dinesh Balaji</span>
-        </p>
-      </footer>
-
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -110,22 +99,6 @@ const Home: React.FC = () => {
         .social-icon {
           width: 28px;
           margin: 0 8px;
-        }
-
-        footer {
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          bottom: 16px;
-          text-align: center;
-          font-size: 16px;
-        }
-
-        footer .name {
-          margin-left: 8px;
-          font-family: 'Adinda Melia';
-          color: var(--color-primary);
         }
 
         @media screen and (min-width: 577px) {

@@ -55,7 +55,19 @@ const Footer: React.FC = () => (
         </div>
       </div>
 
-      <div className="text-center">© 2020 Dinesh Balaji</div>
+      <div className="text-center">
+        <p className="mb-2">
+          © 2020 | Coded with
+          <span
+            className="align-middle text-lg"
+            role="img"
+            aria-label="coding"
+            aria-labelledby="coding">
+            &nbsp;❤️&nbsp;
+          </span>
+          by <span className="text-primary font-cursive">Dinesh Balaji</span>
+        </p>
+      </div>
     </div>
   </footer>
 );
