@@ -5,7 +5,7 @@ import { addCamelCaseKeys } from '../../lib';
 import s from './BlogTile.module.scss';
 
 /**
- * Tile component for represent each blog post.
+ * Tile component to represent each blog post.
  */
 const BlogTile: React.FC = () => {
   const styles = addCamelCaseKeys(s);
