@@ -1,6 +1,8 @@
-import PageBody from '../components/page-body/PageBody';
-import PageHeader from '../components/page-header/PageHeader';
-import Page from '../components/page/Page';
+import Link from 'next/link';
+
+import PageBody from '../../components/page-body/PageBody';
+import PageHeader from '../../components/page-header/PageHeader';
+import Page from '../../components/page/Page';
 
 /**
  * The snippets page of the application.
@@ -34,8 +36,10 @@ const SnippetsPage: React.FC = () => {
 
           <tbody>
             <tr>
-              <td className="w-3/12 p-4 border-b border-dark-light">
-                Date to JSON
+              <td className="w-3/12 p-4 border-b border-dark-light  hover:text-primary">
+                <Link href="/snippets/id">
+                  <a>Date to JSON</a>
+                </Link>
               </td>
               <td className="w-5/12 p-4 border-b border-dark-light">
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do{' '}
