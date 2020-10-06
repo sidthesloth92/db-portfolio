@@ -20,12 +20,7 @@ interface PageHeaderProps {
 const PageHeader: React.FC<PageHeaderProps> = ({ title, description }) => (
   <header className="mb-20">
     <h3 className="text-primary mb-4 text-8xl font-black">{title}</h3>
-    {description && (
-      <p className="text-xl">
-        A collection of copy paste times that do some standalone work on their
-        own.
-      </p>
-    )}
+    {description && <p className="text-xl">{description}</p>}
   </header>
 );
 
