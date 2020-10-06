@@ -1,0 +1,11 @@
+@layer components {
+  .blog-tile {
+    @media screen and (min-width: 640px) {
+      height: 500px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      height: 580px;
+    }
+  }
+}
