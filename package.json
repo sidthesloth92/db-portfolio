@@ -20,12 +20,15 @@
     "camelcase": "6.0.0",
     "next": "9.5.3",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-copy-to-clipboard": "5.0.2",
+    "react-dom": "16.13.1",
+    "react-syntax-highlighter": "15.1.0"
   },
   "devDependencies": {
     "@endemolshinegroup/cz-github": "2.0.0",
     "@types/node": "14.11.2",
     "@types/react": "16.9.50",
+    "@types/react-syntax-highlighter": "11.0.5",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
     "commitizen": "4.2.1",
