@@ -10,7 +10,7 @@ import s from './NavBar.module.scss';
 const NavBar: React.FC = () => {
   const styles = useMemo(() => addCamelCaseKeys(s), []);
   return (
-    <header className="fixed top-0 left-0 w-full h-20 flex justify-center bg-dark shadow-md">
+    <header className="fixed top-0 left-0 w-full h-20 flex justify-center bg-dark shadow-md z-10">
       <div className="flex w-full max-w-screen-lg h-full justify-between items-center px-8">
         <span className="font-cursive text-3xl text-primary">
           Dinesh Balaji
