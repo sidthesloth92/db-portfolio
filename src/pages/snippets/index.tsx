@@ -16,7 +16,7 @@ const SnippetsPage: React.FC = () => {
         own."
       />
       <PageBody>
-        <div className="table w-full">
+        <table className="table w-full">
           <thead>
             <tr className="text-primary">
               <th className="w-3/12 p-4 pb-8 border-b border-dark-light">
@@ -186,7 +186,7 @@ const SnippetsPage: React.FC = () => {
               <td className="w-2/12 p-4 text-center">May 29, 2017</td>
             </tr>
           </tbody>
-        </div>
+        </table>
       </PageBody>
     </Page>
   );
