@@ -12,9 +12,9 @@ const NavBar: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 w-full h-20 flex justify-center bg-dark shadow-md z-10">
       <div className="flex w-full max-w-screen-lg h-full justify-between items-center px-8">
-        <span className="font-cursive text-3xl text-primary">
-          Dinesh Balaji
-        </span>
+        <Link href="/">
+          <a className="font-cursive text-3xl text-primary">Dinesh Balaji</a>
+        </Link>
         <nav className="nav-bar">
           <Link href="/about">
             <a className={styles.navBarItem}>About</a>

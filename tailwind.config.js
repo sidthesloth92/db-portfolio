@@ -7,7 +7,10 @@ module.exports = {
     purgeLayersByDefault: true
   },
   purge: {
-    content: ['./src/**/*.{js,ts,jsx,tsx}']
+    content: ['./src/**/*.{js,ts,jsx,tsx}'],
+    options: {
+      whitelist: ['bg-primary']
+    }
   },
   theme: {
     colors: {
