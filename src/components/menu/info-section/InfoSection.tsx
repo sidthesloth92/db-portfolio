@@ -42,11 +42,11 @@ const InfoSection: React.FC = () => {
 
   return (
     <motion.div
-      className="lg:w-1/2 h-1/2 lg:h-full flex flex-col justify-center items-center bg-dark-shade"
+      className="lg:w-1/2 h-2/5 lg:h-full flex flex-col justify-center items-center bg-dark-shade"
       variants={sectionVariants}
       initial={false}>
       <motion.div variants={variants} initial={false}>
-        <Logo side={100} />
+        <Logo side={80} />
       </motion.div>
       <motion.div
         className="font-cursive text-5xl lg:text-6xl text-primary mt-8 lg:mt-16"

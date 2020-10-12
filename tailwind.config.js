@@ -43,6 +43,11 @@ module.exports = {
     extend: {
       fontSize: {
         '8xl': '6rem'
+      },
+      height: {
+        '1/2': '50%',
+        '2/5': '40%',
+        '3/5': '60%'
       }
     }
   },

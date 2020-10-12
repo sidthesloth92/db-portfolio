@@ -7,7 +7,7 @@ import MenuTile from './menu-tile/MenuTile';
  */
 const TileSection: React.FC = () => {
   return (
-    <motion.div className="lg:w-1/2 h-1/2 lg:h-full flex flex-wrap">
+    <motion.div className="lg:w-1/2 h-3/5 lg:h-full flex flex-wrap">
       <MenuTile
         direction="bottom"
         title="Works"

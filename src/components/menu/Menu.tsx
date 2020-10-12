@@ -43,7 +43,7 @@ const Menu: React.FC = () => {
         </span>
       </button>
       <motion.nav
-        className="fixed top-0 left-0 w-screen h-screen bg-dark flex flex-col-reverse lg:flex-row flex-wrap z-20 shadow-md"
+        className="fixed top-0 left-0 w-screen h-screen bg-dark flex flex-col lg:flex-row flex-wrap z-20 shadow-md"
         variants={navVariants}
         initial={'closed'}
         animate={isMenuOpen ? 'open' : 'closed'}>
