@@ -1,0 +1,11 @@
+.tile {
+  height: 50%;
+
+  &:nth-child(2),
+  &:nth-child(3) {
+    div {
+      @apply text-secondary;
+      background: #191e23;
+    }
+  }
+}
