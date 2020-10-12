@@ -44,17 +44,17 @@ const InfoSection: React.FC = () => {
     <motion.div
       className="lg:w-1/2 h-1/2 lg:h-full flex flex-col justify-center items-center bg-dark-shade"
       variants={sectionVariants}
-      initial="close">
-      <motion.div variants={variants} initial="close">
+      initial={false}>
+      <motion.div variants={variants} initial={false}>
         <Logo side={100} />
       </motion.div>
       <motion.div
         className="font-cursive text-5xl lg:text-6xl text-primary mt-8 lg:mt-16"
         variants={variants}
-        initial="close">
+        initial={false}>
         Dinesh Balaji
       </motion.div>
-      <motion.div variants={variants} initial="close">
+      <motion.div variants={variants} initial={false}>
         <SocialIcons />
       </motion.div>
     </motion.div>
