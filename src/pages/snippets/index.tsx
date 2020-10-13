@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
@@ -37,7 +38,7 @@ const SnippetsPage: React.FC = () => {
           <tbody>
             <tr>
               <td className="w-3/12 p-4 border-b border-dark-light  hover:text-primary">
-                <Link href="/snippets/id">
+                <Link href="/snippets/[id]" as="/snippets/1">
                   <a>Date to JSON</a>
                 </Link>
               </td>
@@ -192,4 +193,4 @@ const SnippetsPage: React.FC = () => {
   );
 };
 
-export default SnippetsPage;
+export default withPageTransition(SnippetsPage);

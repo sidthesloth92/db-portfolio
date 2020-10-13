@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BlogTile from '../../components/blog-tile/BlogTile';
+import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
@@ -31,4 +32,4 @@ const PostsPage: React.FC = () => {
   );
 };
 
-export default PostsPage;
+export default withPageTransition(PostsPage);

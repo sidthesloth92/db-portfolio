@@ -1,6 +1,7 @@
 import '../../css/theme.scss';
 import '../../css/styles.scss';
 
+import { AnimatePresence } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -35,7 +36,9 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
       <NavBar />
       <Menu />
       <div className="mt-20">
-        <Component {...pageProps} />
+        <AnimatePresence initial={false} exitBeforeEnter>
+          <Component key={router.asPath} {...pageProps} one={'one'} />
+        </AnimatePresence>
       </div>
       <Footer />
     </>

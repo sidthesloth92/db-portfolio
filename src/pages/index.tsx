@@ -1,5 +1,8 @@
+import { motion } from 'framer-motion';
 import Head from 'next/head';
+import React from 'react';
 
+import withPageTransition from '../components/hoc/with-page-transition';
 import SocialIcons from '../components/social-icons/SocialIcons';
 import UnderConstruction from '../landing/components/under-construction/UnderContruction';
 
@@ -69,4 +72,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default withPageTransition(Home);

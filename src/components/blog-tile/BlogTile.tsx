@@ -16,7 +16,7 @@ const BlogTile: React.FC = () => {
         <img className="w-full" src="/img/blog-placeholder.png" alt="img" />
         <div className="p-4">
           <h6 className="text-primary font-bold mb-4">
-            <Link href={'/posts/1'}>
+            <Link href={'/posts/[id]'} as={'/posts/1'}>
               <a>What does that = this mean in Javascript?</a>
             </Link>
           </h6>

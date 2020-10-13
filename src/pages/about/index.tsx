@@ -1,5 +1,6 @@
 import React from 'react';
 
+import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
@@ -56,4 +57,4 @@ const AboutPage: React.FC = () => (
   </>
 );
 
-export default AboutPage;
+export default withPageTransition(AboutPage);

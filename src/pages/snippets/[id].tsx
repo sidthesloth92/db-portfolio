@@ -1,6 +1,7 @@
 import React from 'react';
 
 import CodeSnippet from '../../components/code-snippet/CodeSnippet';
+import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import Page from '../../components/page/Page';
 
@@ -102,4 +103,4 @@ const SnippetPage: React.FC = () => {
   );
 };
 
-export default SnippetPage;
+export default withPageTransition(SnippetPage);

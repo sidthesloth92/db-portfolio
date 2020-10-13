@@ -1,5 +1,6 @@
 import React from 'react';
 
+import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import Page from '../../components/page/Page';
 
@@ -55,4 +56,4 @@ const PostPage: React.FC = () => {
   );
 };
 
-export default PostPage;
+export default withPageTransition(PostPage);
