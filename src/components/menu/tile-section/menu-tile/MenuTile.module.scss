@@ -5,7 +5,7 @@
   &:nth-child(3) {
     div {
       @apply text-secondary;
-      background: #191e23;
+      @apply bg-dark-black;
     }
   }
 }

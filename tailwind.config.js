@@ -29,6 +29,7 @@ module.exports = {
         light: 'var(--color-secondary-light)'
       },
       dark: {
+        black: 'var(--color-dark-black)',
         shade: 'var(--color-dark-shade)',
         default: 'var(--color-dark)',
         tint: 'var(--color-dark-tint)',

@@ -36,9 +36,8 @@ export const PageTransition: React.FC = ({ children }) => {
     enter: {
       transform: 'scaleX(0)',
       transition: {
-        type: 'spring',
-        bounce: 0,
-        damping: 20
+        duration: 0.6,
+        ease: [0.25, 1, 0.5, 1]
       }
     }
   };
@@ -53,9 +52,8 @@ export const PageTransition: React.FC = ({ children }) => {
     exit: {
       transform: 'scaleX(1)',
       transition: {
-        type: 'spring',
-        bounce: 0,
-        damping: 20
+        duration: 0.6,
+        ease: [0.65, 0, 0.35, 1]
       }
     }
   };
@@ -95,13 +93,13 @@ export const PageTransition: React.FC = ({ children }) => {
         {children}
       </motion.div>
       <motion.div
-        className="fixed top-0 left-0 w-screen h-screen z-50 transform origin-left bg-dark-shade"
+        className="fixed top-0 left-0 w-screen h-screen z-50 transform origin-left bg-dark-black"
         variants={enterFillerVariants}
         initial="initial"
         animate="enter"
       />
       <motion.div
-        className="fixed top-0 left-0 w-screen h-screen z-50 transform origin-right bg-dark-shade "
+        className="fixed top-0 left-0 w-screen h-screen z-50 transform origin-right bg-dark-black "
         variants={exitFillerVariants}
         initial="initial"
         animate="enter"
