@@ -15,16 +15,14 @@ export const PageTransition: React.FC = ({ children }) => {
       transform: 'translateX(0px)',
       transition: {
         delay: 0.2,
-        type: 'spring',
-        bounce: 0,
-        damping: 20
+        ease: 'circOut'
       }
     },
     exit: {
       transform: 'translateX(-5%)',
       transition: {
-        duration: 0.6,
-        easing: [0.1, 1, 1, 1]
+        duration: 0.8,
+        ease: 'circIn'
       }
     }
   };
@@ -36,8 +34,8 @@ export const PageTransition: React.FC = ({ children }) => {
     enter: {
       transform: 'scaleX(0)',
       transition: {
-        duration: 0.6,
-        ease: [0.25, 1, 0.5, 1]
+        duration: 0.8,
+        ease: 'circOut'
       }
     }
   };
@@ -52,8 +50,8 @@ export const PageTransition: React.FC = ({ children }) => {
     exit: {
       transform: 'scaleX(1)',
       transition: {
-        duration: 0.6,
-        ease: [0.65, 0, 0.35, 1]
+        duration: 0.8,
+        ease: 'circIn'
       }
     }
   };
