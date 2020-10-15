@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 /**
  * Props for the {@link PageHeader} component.
  */
@@ -18,9 +20,45 @@ interface PageHeaderProps {
  * @param
  */
 const PageHeader: React.FC<PageHeaderProps> = ({ title, description }) => (
-  <header className="mb-20">
-    <h3 className="text-primary mb-4 text-8xl font-black">{title}</h3>
-    {description && <p className="text-xl">{description}</p>}
+  <header className="overflow-hidden mb-20">
+    <div className="overflow-hidden mb-8">
+      <motion.h3
+        style={{
+          margin: '-10px 0px -15px'
+        }}
+        className="text-primary text-8xl font-black leading-none uppercase"
+        initial={{
+          transform: 'translateY(100%)'
+        }}
+        animate={{
+          transform: 'translateY(0px)'
+        }}
+        transition={{
+          duration: 1,
+          ease: 'easeOut'
+        }}>
+        {title}
+      </motion.h3>
+    </div>
+    {description && (
+      <motion.p
+        className="text-xl"
+        initial={{
+          opacity: 0,
+          transform: 'translateY(100%)'
+        }}
+        animate={{
+          opacity: 1,
+          transform: 'translateY(0px)'
+        }}
+        transition={{
+          delay: 0.3,
+          duration: 1,
+          ease: 'easeOut'
+        }}>
+        {description}
+      </motion.p>
+    )}
   </header>
 );
 
