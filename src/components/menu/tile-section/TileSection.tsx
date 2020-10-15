@@ -13,7 +13,7 @@ const TileSection: React.FC = () => {
         title="Works"
         subTitle={"Things I've done"}
       />
-      <MenuTile direction="left" title="About" subTitle={'Get to know me'} />
+      <MenuTile direction="left" title="About" subTitle={'Get to know me.'} />
       <MenuTile
         direction="right"
         title="Nuggets"
@@ -21,7 +21,7 @@ const TileSection: React.FC = () => {
       />
       <MenuTile
         direction="top"
-        title="Works"
+        title="Posts"
         subTitle={'My rumblings about things that excite me.'}
       />
     </motion.div>
