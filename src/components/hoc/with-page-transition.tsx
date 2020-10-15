@@ -23,8 +23,7 @@ export const PageTransition: React.FC = ({ children }) => {
     exit: {
       transform: 'translateX(-5%)',
       transition: {
-        duration: 0.6,
-        easing: [0.1, 1, 1, 1]
+        duration: 0.6
       }
     }
   };
