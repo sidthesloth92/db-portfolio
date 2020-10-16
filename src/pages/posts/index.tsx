@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 
 import BlogTile from '../../components/blog-tile/BlogTile';
@@ -5,6 +6,22 @@ import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
+
+/**
+ * Animation variants for the posts container element.
+ */
+const postsContainerVariants = {
+  initial: {
+    opacity: 0
+  },
+  enter: {
+    delay: 0.6,
+    opacity: 1,
+    transition: {
+      when: 'beforeChildren'
+    }
+  }
+};
 
 /**
  * Page that displays a list of blog posts.
@@ -17,7 +34,9 @@ const PostsPage: React.FC = () => {
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi doloribus laudantium nostrum cum atque dolores id sitod voluptate."
       />
       <PageBody>
-        <div className="flex flex-wrap justify-start -mx-4">
+        <motion.div
+          className="flex flex-wrap justify-start -mx-4"
+          variants={postsContainerVariants}>
           <BlogTile />
           <BlogTile />
           <BlogTile />
@@ -26,7 +45,7 @@ const PostsPage: React.FC = () => {
           <BlogTile />
           <BlogTile />
           <BlogTile />
-        </div>
+        </motion.div>
       </PageBody>
     </Page>
   );

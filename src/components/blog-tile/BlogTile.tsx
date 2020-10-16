@@ -12,8 +12,19 @@ const BlogTile: React.FC = () => {
   const delay = Math.random() * 1;
   const styles = addCamelCaseKeys(s);
   return (
-    <div className={`w-full md:w-1/2 lg:w-4/12 p-4 overflow-hidden`}>
-      <div className="relative overflow-hidden h-full">
+    <div className="w-full md:w-1/2 lg:w-4/12 p-4 overflow-hidden">
+      <motion.div
+        className="relative overflow-hidden h-full"
+        initial={{
+          scale: 1
+        }}
+        exit={{
+          transition: {
+            duration: 0.3,
+            ease: 'circIn'
+          },
+          scale: 0
+        }}>
         <motion.div
           // initial={{
           //   opacity: 0,
@@ -23,7 +34,7 @@ const BlogTile: React.FC = () => {
           //   opacity: 1,
           //   scale: 1,
           //   transition: {
-          //     delay: 0.6 + delay,
+          //     delay,
           //     duration: 0.6
           //   }
           // }}
@@ -33,7 +44,7 @@ const BlogTile: React.FC = () => {
           animate={{
             opacity: 1,
             transition: {
-              delay: 0.6 + delay + 0.75,
+              delay: delay + 0.75,
               duration: 0.6
             }
           }}
@@ -62,7 +73,11 @@ const BlogTile: React.FC = () => {
           </div>
         </motion.div>
         <motion.div
-          className="absolute top-0 left-0 w-full h-full bg-secondary"
+          className="absolute top-0 left-0 w-full h-full"
+          style={{
+            background:
+              delay > 0.4 ? 'var(--color-secondary)' : 'var(--color-primary)'
+          }}
           initial={{
             transform: 'translateX(-101%)'
           }}
@@ -74,14 +89,14 @@ const BlogTile: React.FC = () => {
               'translateX(101%)'
             ],
             transition: {
-              delay: 0.6 + delay,
+              delay,
               duration: 1.5,
               ease: [0.6, 0, 0.4, 1],
               times: [0, 0.5, 0.6, 1]
             }
           }}
         />
-      </div>
+      </motion.div>
     </div>
   );
 };
