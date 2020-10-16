@@ -1,3 +1,26 @@
+# [0.3.0](https://github.com/sidthesloth92/db-portfolio/compare/v0.2.0...v0.3.0) (2020-10-16)
+
+
+### Bug Fixes
+
+* **menu:** fix broken mobile menu ([8341322](https://github.com/sidthesloth92/db-portfolio/commit/8341322d9d53e4c26950901349490390a187531e))
+* **menu:** fix initial mounting not working for info section ([991fab5](https://github.com/sidthesloth92/db-portfolio/commit/991fab5c7bc1056f87523fa5fd1a9381ef634888))
+* **styles:** fix broken styles due to tailwind module issues ([967014f](https://github.com/sidthesloth92/db-portfolio/commit/967014f01977ea27da7eba133affd392461e5741))
+* **works:** increase slider width to have tile in one line ([4dea017](https://github.com/sidthesloth92/db-portfolio/commit/4dea017373abc9127fbdb0000d5b30e3774d3128))
+
+
+### Features
+
+* **global:** add animation to page title and sub title ([376e2ff](https://github.com/sidthesloth92/db-portfolio/commit/376e2ff2ee3654c276c274c3885ed54a3cb35517))
+* **global:** add menu component ([1dcf069](https://github.com/sidthesloth92/db-portfolio/commit/1dcf069b9412f6fc489cb9182e4f02c2e9ddad6a))
+* **global:** add page transitions ([5f14c10](https://github.com/sidthesloth92/db-portfolio/commit/5f14c1022d508fd5d13232945df7169f4f2d6b7f))
+* **posts:** add load animation to blog tiles ([c070ea2](https://github.com/sidthesloth92/db-portfolio/commit/c070ea2cf886a334ab07fa126c76a52f0864c62e))
+* **posts:** add tile load animation to posts ([c6489f8](https://github.com/sidthesloth92/db-portfolio/commit/c6489f81c73102ac3b8a2c6e26a90faef0bbb642))
+* **snippets:** add loading animation to snippet table ([0889ca1](https://github.com/sidthesloth92/db-portfolio/commit/0889ca114226a2f4d2bdd20d23ec8891e7ee1aef))
+* **works:** add works slider ([a0c5914](https://github.com/sidthesloth92/db-portfolio/commit/a0c5914e04eb9645785a28b7d40650cdd27fc56d))
+
+
+
 # [0.2.0](https://github.com/sidthesloth92/db-portfolio/compare/v0.1.1...v0.2.0) (2020-10-07)
 
 
