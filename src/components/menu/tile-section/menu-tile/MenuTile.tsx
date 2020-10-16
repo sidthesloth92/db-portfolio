@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import React, { useMemo } from 'react';
 
 import { addCamelCaseKeys } from '../../../../lib';
@@ -57,13 +58,29 @@ interface MenuTileProps {
    * The sub title of the tile.
    */
   subTitle: string;
+
+  /**
+   * The url of the page.
+   */
+  url: string;
+
+  /**
+   * Function to be called menu tile is clicked.
+   */
+  onClick: () => unknown;
 }
 
 /**
  * The individual menu tiles with the tile section of the menu.
  * @param Params of type {@link MenuTileProps}.
  */
-const MenuTile: React.FC<MenuTileProps> = ({ direction, title, subTitle }) => {
+const MenuTile: React.FC<MenuTileProps> = ({
+  direction,
+  title,
+  subTitle,
+  url,
+  onClick = () => ({})
+}) => {
   const styles = useMemo(() => addCamelCaseKeys(s), []);
   const variants = {
     open: {
@@ -107,12 +124,17 @@ const MenuTile: React.FC<MenuTileProps> = ({ direction, title, subTitle }) => {
         className={`flex h-full flex-col justify-end px-4 py-8 bg-dark-shade text-primary`}
         variants={variants}
         initial={'closed'}>
-        <motion.h1
-          className="text-3xl lg:text-5xl font-black uppercase"
-          variants={contentVariants}
-          initial={'closed'}>
-          {title}
-        </motion.h1>
+        <Link href={url}>
+          <motion.a
+            className="block text-3xl lg:text-5xl font-black uppercase cursor-pointer"
+            variants={contentVariants}
+            initial={'closed'}
+            onClick={() => {
+              onClick();
+            }}>
+            {title}
+          </motion.a>
+        </Link>
         <motion.p
           className="text-base lg:text-2xl"
           variants={contentVariants}

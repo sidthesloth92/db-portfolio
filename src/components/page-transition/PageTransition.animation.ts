@@ -19,6 +19,7 @@ export const contentVariants = {
   exit: {
     transform: 'translateX(-5%)',
     transition: {
+      delay: 0.6,
       duration: 0.6
     }
   }
@@ -53,6 +54,7 @@ export const exitFillerVariants = {
   exit: {
     transform: 'scaleX(1)',
     transition: {
+      delay: 0.6,
       duration: 0.6,
       ease: [0.65, 0, 0.35, 1]
     }
@@ -70,7 +72,10 @@ export const svgVariants = {
     opacity: 0
   },
   exit: {
-    opacity: 1
+    opacity: 1,
+    transition: {
+      delay: 0.6
+    }
   }
 };
 
@@ -86,6 +91,10 @@ export const pathVariants = {
   },
   exit: {
     pathLength: 1,
-    transition: { duration: 0.7, ease: [0.65, 0, 0.35, 1] }
+    transition: {
+      delay: 0.6,
+      duration: 0.7,
+      ease: [0.65, 0, 0.35, 1]
+    }
   }
 };

@@ -38,8 +38,8 @@ const Menu: React.FC = () => {
       <button
         className={`${styles.menuButton} fixed z-30`}
         onClick={() => setIsMenuOpen((isMenuOpen) => !isMenuOpen)}>
-        <span role="img" aria-label="fairy">
-          🧚🏼
+        <span className="text-3xl" role="img" aria-label="menu">
+          {isMenuOpen ? '╳' : '☰'}
         </span>
       </button>
       <motion.nav
@@ -47,7 +47,11 @@ const Menu: React.FC = () => {
         variants={navVariants}
         initial={'closed'}
         animate={isMenuOpen ? 'open' : 'closed'}>
-        <TileSection />
+        <TileSection
+          closeMenu={() => {
+            setIsMenuOpen(false);
+          }}
+        />
         <InfoSection />
       </motion.nav>
     </>
