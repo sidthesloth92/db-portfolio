@@ -55,7 +55,7 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
   return (
     <motion.div
       className="relative m-auto"
-      style={{ height: '70vh', width: '85%', minHeight: '70vh' }}>
+      style={{ height: '70vh', width: '90%', minHeight: '70vh' }}>
       <AnimatePresence exitBeforeEnter>
         <motion.div
           key={item.title}
