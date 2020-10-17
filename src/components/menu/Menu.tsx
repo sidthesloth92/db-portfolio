@@ -39,7 +39,7 @@ const Menu: React.FC = () => {
         className={`${styles.menuButton} fixed z-30`}
         onClick={() => setIsMenuOpen((isMenuOpen) => !isMenuOpen)}>
         <span className="text-3xl" role="img" aria-label="menu">
-          {isMenuOpen ? '╳' : '☰'}
+          {isMenuOpen ? '⚔️' : '☰'}
         </span>
       </button>
       <motion.nav
