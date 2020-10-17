@@ -12,7 +12,7 @@ const SocialIcons: React.FC = () => {
     });
   };
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex items-center">
       <a
         href="https://github.com/sidthesloth92"
         className="w-8 m-1 lg:m-2"
