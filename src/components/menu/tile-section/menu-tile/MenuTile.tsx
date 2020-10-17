@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 
 import { addCamelCaseKeys } from '../../../../lib';
@@ -82,6 +83,8 @@ const MenuTile: React.FC<MenuTileProps> = ({
   onClick = () => ({})
 }) => {
   const styles = useMemo(() => addCamelCaseKeys(s), []);
+  const router = useRouter();
+
   const variants = {
     open: {
       opacity: 1,
@@ -129,8 +132,10 @@ const MenuTile: React.FC<MenuTileProps> = ({
             className="block text-3xl lg:text-5xl font-black uppercase cursor-pointer"
             variants={contentVariants}
             initial={'closed'}
-            onClick={() => {
+            onClick={(event) => {
               onClick();
+              setTimeout(() => router.push(url), 400);
+              event.preventDefault();
             }}>
             {title}
           </motion.a>
