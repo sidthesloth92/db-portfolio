@@ -23,22 +23,31 @@ interface PageHeaderProps {
  */
 const PageHeader: React.FC<PageHeaderProps> = ({ title, description }) => {
   return (
-    <header className="overflow-hidden mb-20">
-      <div className="overflow-hidden mb-8">
-        <motion.h3
-          style={{
-            margin: '-10px 0px -15px'
-          }}
-          className="text-primary text-8xl font-black leading-none uppercase"
+    <header className="overflow-hidden mb-10 md:mb-20">
+      <div className="overflow-hidden mb-4 lg:mb-8">
+        <motion.h1
+          className="title text-primary text-5xl md:text-8xl font-black leading-none uppercase"
           variants={titleVariants}>
           {title}
-        </motion.h3>
+        </motion.h1>
       </div>
       {description && (
-        <motion.p className="text-xl" variants={descriptionVariants}>
+        <motion.p className="text-lg md:text-xl" variants={descriptionVariants}>
           {description}
         </motion.p>
       )}
+
+      <style jsx>{`
+        .title {
+          margin: '-6px 0px -7px';
+        }
+
+        @media screen and min-width(540px) {
+          .title {
+            margin: '-10px 0px -15px';
+          }
+        }
+      `}</style>
     </header>
   );
 };

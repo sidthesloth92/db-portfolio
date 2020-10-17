@@ -134,7 +134,7 @@ const MenuTile: React.FC<MenuTileProps> = ({
             initial={'closed'}
             onClick={(event) => {
               onClick();
-              setTimeout(() => router.push(url), 400);
+              setTimeout(() => router.push(url), 300);
               event.preventDefault();
             }}>
             {title}
