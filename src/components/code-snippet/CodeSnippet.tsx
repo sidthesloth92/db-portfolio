@@ -16,7 +16,7 @@ interface CodeSnippetProps {
   /**
    * The name of the file to be show in the title bar.
    */
-  fileName: string;
+  fileName?: string;
 
   /**
    * The language of the snippet. Needs to match ones supported by the react-syntax-highlight package.
@@ -39,7 +39,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
   language
 }) => {
   return (
-    <div className="rounded overflow-hidden mb-8 max-w-screen-sm">
+    <div className="rounded overflow-hidden mb-8">
       <div className="flex items-center px-4 py-2 bg-dark-light">
         <h6 className="flex-grow font-mono text-base">{fileName}</h6>
         <CopyToClipboard

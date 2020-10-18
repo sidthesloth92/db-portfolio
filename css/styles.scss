@@ -53,3 +53,62 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
+
+/* Styling for the MdContent Component */
+.md-content {
+  p {
+    @apply text-xl;
+    @apply mb-8;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-secondary;
+  }
+
+  a {
+    @apply text-primary;
+    @apply font-bold;
+    @apply underline;
+    @apply cursor-pointer;
+  }
+
+  code:not([class]) {
+    @apply font-mono;
+    @apply text-base;
+    @apply bg-dark-light;
+    padding: 0.1em 0.25em;
+  }
+
+  blockquote {
+    @apply border-primary;
+    @apply border-l-4;
+    @apply bg-dark-shade;
+
+    p {
+      @apply p-2;
+    }
+  }
+
+  strong {
+    @apply font-bold;
+  }
+
+  ul {
+    list-style-type: '◉';
+    list-style-position: inside;
+
+    li {
+      @apply ml-4;
+      @apply mb-4;
+      p {
+        display: inline;
+        @apply pl-4;
+      }
+    }
+  }
+}
