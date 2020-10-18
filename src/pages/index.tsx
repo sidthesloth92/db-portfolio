@@ -14,7 +14,6 @@ const Home: React.FC = () => {
     <div className="container">
       <Head>
         <title>DB Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <h1 className="h1">
