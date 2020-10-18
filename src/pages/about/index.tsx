@@ -17,12 +17,12 @@ const AboutPage: React.FC = () => {
 
   return (
     <>
-      <div
-        style={{
-          height: 'calc(100vh - 80px)'
-        }}
-        className="flex flex-wrap">
-        <div className="relative order-2 lg:order-1 w-full lg:w-1/2 h-full">
+      <div className="flex flex-wrap">
+        <div
+          style={{
+            height: 'calc(100vh - 80px)'
+          }}
+          className="relative order-2 lg:order-1 w-full lg:w-1/2 h-full">
           <div
             style={{
               top: '50%',
@@ -49,7 +49,11 @@ const AboutPage: React.FC = () => {
             </motion.div>
           </div>
         </div>
-        <div className="order-1 lg-order-2 w-full lg:w-1/2 h-full">
+        <div
+          style={{
+            height: 'calc(100vh - 80px)'
+          }}
+          className="order-1 lg-order-2 w-full lg:w-1/2 h-full">
           <canvas
             id="canvas"
             style={{
