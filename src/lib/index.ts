@@ -16,3 +16,15 @@ export function addCamelCaseKeys(
 
   return output;
 }
+
+/**
+ * Rounds the given value a even number.
+ * @param val The value to be rounded to a even number.
+ */
+export function roundToEven(val: number): number {
+  val = Math.floor(val);
+  if (val % 2) {
+    return val + 1;
+  }
+  return val;
+}
