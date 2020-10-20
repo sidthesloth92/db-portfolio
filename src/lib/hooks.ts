@@ -269,7 +269,12 @@ export function useDrawFaceOnCanvas(): void {
   /**
    * The springiness of the animation.
    */
-  const SPRING_COEFFICIENT = 0.009;
+  const SPRING_COEFFICIENT = 0.09;
+
+  /**
+   * The friction of the particles.
+   */
+  const FRICTION = 0.8;
 
   /**
    * The stages of rendering of the face.
@@ -284,7 +289,7 @@ export function useDrawFaceOnCanvas(): void {
   /**
    * The radius for hover affects.
    */
-  const HOVER_CIRCLE_RADIUS = 100;
+  const HOVER_CIRCLE_RADIUS = 70;
 
   /**
    * The radius of the particle when they are hovered.
@@ -306,6 +311,9 @@ export function useDrawFaceOnCanvas(): void {
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
     canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('touchstart', handleTouchStartAndEnd);
+    canvas.addEventListener('touchmove', handleMouseMove);
+    canvas.addEventListener('touchEnd', handleTouchStartAndEnd);
 
     const canvasDimensions = canvas.getBoundingClientRect();
     const { left: canvasStartX, top: canvasStartY } = canvasDimensions;
@@ -320,7 +328,7 @@ export function useDrawFaceOnCanvas(): void {
     const halfCanvasWidth = canvasWidth / 2;
     const halfCanvasHeight = canvasHeight / 2;
 
-    const imageSide = roundToEven(0.7 * Math.max(canvasWidth, canvasHeight));
+    const imageSide = roundToEven(0.9 * Math.min(canvasWidth, canvasHeight));
     const imageStartX = halfCanvasWidth - imageSide / 2;
     const imageStartY = halfCanvasHeight - imageSide / 2;
 
@@ -382,7 +390,8 @@ export function useDrawFaceOnCanvas(): void {
      * Create the particles and spring points based on the pixel positions in the canvas.
      */
     function initializeParticles() {
-      positions.forEach((position) => {
+      positions.forEach((position, index) => {
+        // TODO: Remove for mobile.
         const springPoint = new Particle({
           radius: PARTICLE_RADIUS,
           position
@@ -394,7 +403,7 @@ export function useDrawFaceOnCanvas(): void {
             Math.round(Math.random() * canvasWidth),
             Math.round(Math.random() * canvasHeight)
           ),
-          friction: 0.8
+          friction: FRICTION
         });
 
         springPairs.push({
@@ -432,35 +441,37 @@ export function useDrawFaceOnCanvas(): void {
         let { springPoint } = springPairs[i];
         const { particle } = springPairs[i];
 
-        // The current most position if canvas is hovered.
-        const newMousePoint = new Particle({
-          radius: PARTICLE_RADIUS,
-          position: new Vector(mouseX, mouseY)
-        });
+        if (mouseX && mouseY) {
+          // The current most position if canvas is hovered.
+          const newMousePoint = new Particle({
+            radius: PARTICLE_RADIUS,
+            position: new Vector(mouseX, mouseY)
+          });
 
-        // If the distance between the current particle and mouse point is than said radius.
-        if (newMousePoint.distanceTo(springPoint) < HOVER_CIRCLE_RADIUS) {
-          // Find the angle to the particle's spring point from the mouse point.
-          const angleToSpringPoint = newMousePoint.angleTo(springPoint);
-          particle.radius = PARTICLE_HOVER_RADIUS;
+          // If the distance between the current particle and mouse point is than said radius.
+          if (newMousePoint.distanceTo(springPoint) < HOVER_CIRCLE_RADIUS) {
+            // Find the angle to the particle's spring point from the mouse point.
+            const angleToSpringPoint = newMousePoint.angleTo(springPoint);
+            particle.radius = PARTICLE_HOVER_RADIUS;
 
-          // Say if the angle between the mouse point and spring point is 30 degrees and the
-          // distance is less than HOVER_CIRCLE_RADIUS, then creaste a vector setting it in the same
-          // direction and set the distance to HOVER_CIRCLE_RADIUS.
-          const addition = new Vector();
-          addition.setAngle(angleToSpringPoint);
-          addition.setLength(HOVER_CIRCLE_RADIUS);
+            // Say if the angle between the mouse point and spring point is 30 degrees and the
+            // distance is less than HOVER_CIRCLE_RADIUS, then creaste a vector setting it in the same
+            // direction and set the distance to HOVER_CIRCLE_RADIUS.
+            const addition = new Vector();
+            addition.setAngle(angleToSpringPoint);
+            addition.setLength(HOVER_CIRCLE_RADIUS);
 
-          // Now add the above vector to the mouse point to get a new point that is at HOVER_CIRCLE_RADIUS distance
-          // from the mouse point and in the same direction as the original spring point.
-          newMousePoint.position.add(addition);
-          springPoint = newMousePoint;
+            // Now add the above vector to the mouse point to get a new point that is at HOVER_CIRCLE_RADIUS distance
+            // from the mouse point and in the same direction as the original spring point.
+            newMousePoint.position.add(addition);
+            springPoint = newMousePoint;
 
-          // Since particle's udpate is set to false when springiness subsides,
-          // set it to true to animate on hover.
-          particle.update = true;
-        } else {
-          particle.radius = PARTICLE_RADIUS;
+            // Since particle's udpate is set to false when springiness subsides,
+            // set it to true to animate on hover.
+            particle.update = true;
+          } else {
+            particle.radius = PARTICLE_RADIUS;
+          }
         }
 
         if (particle.update) {
@@ -495,13 +506,26 @@ export function useDrawFaceOnCanvas(): void {
       requestAnimationFrame(render);
     }
 
+    function handleTouchStartAndEnd(event) {
+      mouseX = mouseY = undefined;
+    }
+
     /**
      * Handles mouse movement on the canvas.
      * @param param0 Ha
      */
-    function handleMouseMove({ pageX, pageY }) {
-      mouseX = pageX - canvasStartX;
-      mouseY = pageY - canvasStartY;
+    function handleMouseMove(event) {
+      let x, y;
+      if (event.touches) {
+        x = event.touches[0].pageX;
+        y = event.touches[0].pageY;
+      } else {
+        x = event.pageX;
+        y = event.pageY;
+      }
+
+      mouseX = x - canvasStartX;
+      mouseY = y - canvasStartY;
 
       mouseX = mouseX < 0 ? -5000 : mouseX;
       mouseY = mouseY < 0 ? -5000 : mouseY;
