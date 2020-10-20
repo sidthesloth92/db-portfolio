@@ -22,7 +22,7 @@ export function useLandingPageCanvasEffect(): void {
       /**
        * The total number of small fish.
        */
-      COUNT: 100,
+      COUNT: 200,
 
       /**
        * The color of the small fish.
@@ -39,6 +39,16 @@ export function useLandingPageCanvasEffect(): void {
        */
       MOUSE_ATTRACTION_RADIUS: 100
     };
+
+    /**
+     * The food particle color.
+     */
+    const FOOD_COLOR = '#e6db74';
+
+    /**
+     * The number of food particles droppen when double tapped.
+     */
+    const FOOD_DROP_COUNT = 100;
 
     let mouseX = 0;
     let mouseY = 0;
@@ -181,7 +191,7 @@ export function useLandingPageCanvasEffect(): void {
 
       // Render food particles.
       for (let i = 0; i < foods.length; i++) {
-        ctx.fillStyle = '#ff2286';
+        ctx.fillStyle = FOOD_COLOR;
         foods[i].render(ctx);
       }
 
@@ -227,13 +237,18 @@ export function useLandingPageCanvasEffect(): void {
      * Handles doubletap events on the canvas.
      * Create a new food particle at the touch location.
      */
-    function handleDoubleClick({ pageX, pageY }) {
-      const food = new Particle({
-        radius: 2,
-        position: new Vector(pageX, pageY)
-      });
+    function handleDoubleClick() {
+      for (let i = 0; i < FOOD_DROP_COUNT; i++) {
+        const food = new Particle({
+          radius: 1,
+          position: new Vector(
+            Math.random() * canvasWidth,
+            Math.random() * canvasHeight
+          )
+        });
 
-      foods.push(food);
+        foods.push(food);
+      }
     }
 
     return () => {
