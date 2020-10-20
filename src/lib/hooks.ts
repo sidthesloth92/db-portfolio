@@ -250,6 +250,502 @@ export function useLandingPageCanvasEffect(): void {
   }, []);
 }
 
+// export function useLandingPageCanvasEffect(): void {
+//   /**
+//    * The default radius of the particle.
+//    */
+//   const PARTICLE_RADIUS = 5;
+
+//   useEffect(() => {
+//     setTimeout(() => {
+//       let mouseX = 0;
+//       let mouseY = 0;
+
+//       const canvas: HTMLCanvasElement = <HTMLCanvasElement>(
+//         document.getElementById('home-canvas')
+//       );
+//       const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
+
+//       canvas.addEventListener('mousemove', handleMouseMove);
+
+//       const canvasDimensions = canvas.getBoundingClientRect();
+//       const {
+//         left: canvasStartX,
+//         top: canvasStartY,
+//         width: canvasWidth,
+//         height: canvasHeight
+//       } = canvas.getBoundingClientRect();
+
+//       canvas.width = canvasWidth;
+//       canvas.height = canvasHeight;
+
+//       const halfCanvasWidth = roundToEven(canvasWidth / 2);
+//       const halfCanvasHeight = roundToEven(canvasHeight / 2);
+
+//       const particleColors = ['#ff2286', '#eefac9', '#363b41'];
+//       const textString = 'Dinesh balaji';
+//       let textWidth;
+//       const textHeight = 200;
+//       let textStartX;
+//       let textStartY;
+//       let data;
+
+//       const positions = getTextPixelPositions();
+//       console.log('pos length', positions.length);
+
+//       const springPairs = [];
+//       initializeParticles();
+//       console.log(springPairs.length);
+//       render();
+
+//       function getTextPixelPositions(): Vector[] {
+//         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+//         ctx.fillStyle = '#ffffff';
+//         ctx.strokeStyle = '#ffffff';
+//         ctx.font = '90px Adinda Melia';
+
+//         textWidth = roundToEven(ctx.measureText(textString).width) + 10;
+//         textStartX = halfCanvasWidth - textWidth / 2 - 5;
+//         textStartY = halfCanvasHeight - textHeight / 2;
+
+//         ctx.strokeText(textString, textStartX, halfCanvasHeight);
+//         // console.log(textWidth);
+//         const imgData = ctx.getImageData(
+//           textStartX,
+//           textStartY,
+//           textWidth,
+//           textHeight
+//         );
+
+//         data = imgData.data;
+//         const pixelPositions = [];
+
+//         // Iterate through each pixel data.
+//         for (let i = 0, index = 0; i < data.length; i += 4, index++) {
+//           const red = data[i];
+//           const green = data[i + 1];
+//           const blue = data[i + 2];
+//           // console.log(textStartY);
+
+//           // Initial image is black and white. So, we find all black pixels and find their x and y positions
+//           // on the canvas.
+//           if (red >= 255 && green >= 255 && blue >= 255) {
+//             const x = textStartX + (index % textWidth);
+//             const y = textStartY + Math.floor(index / textWidth);
+//             const position = new Vector(x, y);
+//             pixelPositions.push(position);
+//           }
+//         }
+
+//         // We clear the canvas of the original image.
+//         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+//         return pixelPositions;
+//       }
+
+//       /**
+//        * Create the particles and spring points based on the pixel positions in the canvas.
+//        */
+//       function initializeParticles() {
+//         for (let i = 0; i < positions.length; i++) {
+//           if (true) {
+//             const velocity = new Vector(0, 0);
+//             velocity.setAngle(Math.random() * 2 * Math.PI);
+//             velocity.setLength(Math.random() * 5 + 3);
+
+//             const springPoint = new Particle({
+//               radius: 1,
+//               position: new Vector(positions[i].x, positions[i].y),
+//               velocity
+//             });
+
+//             let position;
+//             const random = Math.random();
+
+//             if (positions[i].y <= halfCanvasHeight) {
+//               position = new Vector(Math.random() * canvasWidth, 0);
+//             } else if (positions[i].y > halfCanvasHeight) {
+//               position = new Vector(Math.random() * canvasWidth, canvasHeight);
+//             }
+//             // if (random < 0.2) {
+//             //   position = new Vector(Math.random() * canvasWidth, 0);
+//             // } else if (random < 0.4) {
+//             //   position = new Vector(Math.random() * canvasWidth, canvasHeight);
+//             // } else if (random < 0.6) {
+//             //   position = new Vector(0, Math.random() * canvasHeight);
+//             // } else {
+//             //   position = new Vector(Math.random() * canvasHeight, canvasWidth);
+//             // }
+
+//             const particle = new Particle({
+//               radius: 1,
+//               position,
+//               velocity,
+//               friction: 0.8
+//             });
+//             springPairs.push({
+//               particle,
+//               springPoint
+//             });
+//           }
+//         }
+//       }
+
+//       /**
+//        * Renders the particles on the screen.
+//        */
+//       function render() {
+//         // Clear the canvas.
+//         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+//         // ctx.fillStyle = 'rgba(25, 30, 35, .001)';
+//         // ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+//         // For each particle within the limit.
+
+//         for (let i = 0; i < springPairs.length; i++) {
+//           const { particle, springPoint } = springPairs[i];
+
+//           const distance = Vector.subtract(
+//             springPoint.position,
+//             particle.position
+//           );
+//           const springForce = Vector.multiply(distance, 0.5);
+//           particle.velocity.add(springForce);
+
+//           particle.updatePosition();
+
+//           const index = Math.floor(Math.random() * particleColors.length);
+//           ctx.fillStyle = particleColors[index];
+
+//           particle.render(ctx);
+
+//           particle.addFriction();
+
+//           // const mousePoint = new Particle({
+//           //   radius: PARTICLE_RADIUS,
+//           //   position: new Vector(mouseX, mouseY),
+//           //   mass: 30000
+//           // });
+
+//           // // If the distance between the current particle and mouse point is than said radius.
+//           // if (mousePoint.distanceTo(particle) < 100) {
+//           //   // Find thep angle to the particle's spring point from the mouse point.
+//           //   particle.radius = 20;
+//           //   // particle.gravitateTo(mousePoint);
+//           // } else {
+//           //   particle.radius = 5;
+//           // }
+
+//           // const angle = particle.angleTo(springPoint);
+//           // particle.updatePosition();
+
+//           // const index = Math.floor(Math.random() * particleColors.length);
+//           // ctx.fillStyle = particleColors[1];
+
+//           // particle.render(ctx);
+//           // springPoint.render(ctx);
+
+//           // if (particle.distanceTo(springPoint) < 5) {
+//           //   particle.update = false;
+//           // }
+
+//           // particle.screenWrap(canvasWidth, canvasHeight);
+
+//           // if (Math.random() > 0.2) {
+//           //   particle.velocity.setAngle(angle);
+//           // } else {
+//           //   particle.velocity.setAngle(Math.random() * 2 * Math.PI);
+//           // }
+//           // particle.velocity.setLength(1);
+
+//           // let { x, y } = particle.position;
+
+//           // x = Math.round(x);
+//           // y = Math.round(y);
+//           // const ind = (y * textWidth + x) * 4 + 3;
+
+//           // if (data[ind] > 0) {
+//           //   particle.update = false;
+//           // }
+//         }
+
+//         // ctx.fillStyle = 'rgba(25, 30, 35)';
+//         // ctx.font = '90px Adinda Melia';
+
+//         // ctx.fillText(textString, textStartX, halfCanvasHeight);
+
+//         requestAnimationFrame(render);
+//       }
+
+//       /**
+//        * Handles mouse movement on the canvas.
+//        * @param param0 Ha
+//        */
+//       function handleMouseMove({ pageX, pageY }) {
+//         mouseX = pageX - canvasStartX;
+//         mouseY = pageY - canvasStartY;
+
+//         // mouseX = mouseX < 0 ? -5000 : mouseX;
+//         // mouseY = mouseY < 0 ? -5000 : mouseY;
+//       }
+
+//       // return () => {
+//       //   canvas.removeEventListener('mousemove', handleMouseMove);
+//       // };
+//     }, 1000);
+//   }, []);
+// }
+
+// export function useLandingPageCanvasEffect(): void {
+//   /**
+//    * The default radius of the particle.
+//    */
+//   const PARTICLE_RADIUS = 5;
+
+//   useEffect(() => {
+//     let mouseX = 0;
+//     let mouseY = 0;
+
+//     const canvas: HTMLCanvasElement = <HTMLCanvasElement>(
+//       document.getElementById('home-canvas')
+//     );
+//     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
+
+//     canvas.addEventListener('mousemove', handleMouseMove);
+
+//     const canvasDimensions = canvas.getBoundingClientRect();
+//     const {
+//       left: canvasStartX,
+//       top: canvasStartY,
+//       width: canvasWidth,
+//       height: canvasHeight
+//     } = canvas.getBoundingClientRect();
+
+//     canvas.width = canvasWidth;
+//     canvas.height = canvasHeight;
+
+//     const halfCanvasWidth = canvasWidth / 2;
+//     const halfCanvasHeight = canvasHeight / 2;
+
+//     const particleColors = ['#ff2286', '#eefac9', '#363b41'];
+//     const PARTICLE_COUNT = 300;
+//     const particles = [];
+
+//     initializeParticles();
+
+//     render();
+
+//     /**
+//      * Create the particles and spring points based on the pixel positions in the canvas.
+//      */
+//     function initializeParticles() {
+//       for (let i = 0; i < PARTICLE_COUNT; i++) {
+//         const velocity = new Vector(0, 0);
+//         velocity.setAngle(Math.random() * 2 * Math.PI);
+//         velocity.setLength(Math.random() * 5 + 3);
+
+//         const particle = new Particle({
+//           radius: 1,
+//           position: new Vector(
+//             Math.round(Math.random() * canvasWidth),
+//             Math.round(Math.random() * canvasHeight)
+//           ),
+//           velocity
+//         });
+//         particles.push(particle);
+//       }
+//     }
+
+//     /**
+//      * Renders the particles on the screen.
+//      */
+//     function render() {
+//       // Clear the canvas.
+//       // ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+//       // ctx.fillStyle = 'rgba(25, 30, 35, .001)';
+//       // ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+//       // For each particle within the limit.
+//       for (let i = 0; i < PARTICLE_COUNT; i++) {
+//         const particle = particles[i];
+
+//         // const mousePoint = new Particle({
+//         //   radius: PARTICLE_RADIUS,
+//         //   position: new Vector(mouseX, mouseY),
+//         //   mass: 30000
+//         // });
+
+//         // // If the distance between the current particle and mouse point is than said radius.
+//         // if (mousePoint.distanceTo(particle) < 100) {
+//         //   // Find thep angle to the particle's spring point from the mouse point.
+//         //   particle.radius = 20;
+//         //   // particle.gravitateTo(mousePoint);
+//         // } else {
+//         //   particle.radius = 5;
+//         // }
+
+//         particle.updatePosition();
+
+//         const index = Math.floor(Math.random() * particleColors.length);
+//         ctx.fillStyle = particleColors[index];
+
+//         particle.render(ctx);
+
+//         particle.screenWrap(canvasWidth, canvasHeight);
+
+//         // particle.velocity.setAngle(
+//         //   Math.random() > 0.5
+//         //     ? Math.random() * 2 * Math.PI
+//         //     : Math.random() * -2 * Math.PI
+//         // );
+//         particle.velocity.setAngle(Math.random() * 2 * Math.PI);
+//         particle.velocity.setLength(Math.random() * 5);
+//       }
+
+//       requestAnimationFrame(render);
+//     }
+
+//     /**
+//      * Handles mouse movement on the canvas.
+//      * @param param0 Ha
+//      */
+//     function handleMouseMove({ pageX, pageY }) {
+//       mouseX = pageX - canvasStartX;
+//       mouseY = pageY - canvasStartY;
+
+//       // mouseX = mouseX < 0 ? -5000 : mouseX;
+//       // mouseY = mouseY < 0 ? -5000 : mouseY;
+//     }
+
+//     return () => {
+//       canvas.removeEventListener('mousemove', handleMouseMove);
+//     };
+//   }, []);
+// }
+
+// export function useLandingPageCanvasEffect(): void {
+//   /**
+//    * The default radius of the particle.
+//    */
+//   const PARTICLE_RADIUS = 5;
+
+//   useEffect(() => {
+//     let mouseX = 0;
+//     let mouseY = 0;
+
+//     const canvas: HTMLCanvasElement = <HTMLCanvasElement>(
+//       document.getElementById('home-canvas')
+//     );
+//     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
+
+//     canvas.addEventListener('mousemove', handleMouseMove);
+
+//     const canvasDimensions = canvas.getBoundingClientRect();
+//     const {
+//       left: canvasStartX,
+//       top: canvasStartY,
+//       width: canvasWidth,
+//       height: canvasHeight
+//     } = canvas.getBoundingClientRect();
+
+//     canvas.width = canvasWidth;
+//     canvas.height = canvasHeight;
+
+//     const halfCanvasWidth = canvasWidth / 2;
+//     const halfCanvasHeight = canvasHeight / 2;
+
+//     const particleColors = ['#ff2286', '#eefac9', '#191e23'];
+//     const PARTICLE_COUNT = 100;
+//     const particles = [];
+
+//     initializeParticles();
+
+//     render();
+
+//     /**
+//      * Create the particles and spring points based on the pixel positions in the canvas.
+//      */
+//     function initializeParticles() {
+//       for (let i = 0; i < PARTICLE_COUNT; i++) {
+//         const velocity = new Vector(0, 0);
+//         velocity.setAngle(Math.random() * 2 * Math.PI);
+//         velocity.setLength(1);
+
+//         const particle = new Particle({
+//           radius: 1,
+//           position: new Vector(
+//             Math.round(Math.random() * canvasWidth),
+//             Math.round(Math.random() * canvasHeight)
+//           ),
+//           velocity
+//         });
+//         particles.push(particle);
+//       }
+//     }
+
+//     /**
+//      * Renders the particles on the screen.
+//      */
+//     function render() {
+//       // Clear the canvas.
+//       // ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+//       // For each particle within the limit.
+//       for (let i = 0; i < PARTICLE_COUNT; i++) {
+//         const particle = particles[i];
+
+//         // const mousePoint = new Particle({
+//         //   radius: PARTICLE_RADIUS,
+//         //   position: new Vector(mouseX, mouseY),
+//         //   mass: 30000
+//         // });
+
+//         // // If the distance between the current particle and mouse point is than said radius.
+//         // if (mousePoint.distanceTo(particle) < 100) {
+//         //   // Find thep angle to the particle's spring point from the mouse point.
+//         //   particle.radius = 20;
+//         //   // particle.gravitateTo(mousePoint);
+//         // } else {
+//         //   particle.radius = 5;
+//         // }
+
+//         particle.updatePosition();
+
+//         const index = Math.floor(Math.random() * particleColors.length);
+//         ctx.fillStyle = particleColors[1];
+
+//         particle.render(ctx);
+
+//         particle.screenWrap(canvasWidth, canvasHeight);
+//         // particle.velocity.setAngle(
+//         //   Math.random() > 0.5
+//         //     ? Math.random() * 2 * Math.PI
+//         //     : Math.random() * -2 * Math.PI
+//         // );
+//         particle.velocity.x += Math.random() > 0.5 ? 0.1 : -0.1;
+//         particle.velocity.y += Math.random() > 0.5 ? 0.1 : -0.1;
+//         // particle.velocity.setLength(1);
+//       }
+
+//       requestAnimationFrame(render);
+//     }
+
+//     /**
+//      * Handles mouse movement on the canvas.
+//      * @param param0 Ha
+//      */
+//     function handleMouseMove({ pageX, pageY }) {
+//       mouseX = pageX - canvasStartX;
+//       mouseY = pageY - canvasStartY;
+
+//       // mouseX = mouseX < 0 ? -5000 : mouseX;
+//       // mouseY = mouseY < 0 ? -5000 : mouseY;
+//     }
+
+//     return () => {
+//       canvas.removeEventListener('mousemove', handleMouseMove);
+//     };
+//   }, []);
+// }
+
 export function useDrawFaceOnCanvas(): void {
   /**
    * The springiness of the animation.
