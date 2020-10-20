@@ -392,24 +392,26 @@ export function useDrawFaceOnCanvas(): void {
     function initializeParticles() {
       positions.forEach((position, index) => {
         // TODO: Remove for mobile.
-        const springPoint = new Particle({
-          radius: PARTICLE_RADIUS,
-          position
-        });
+        if (index % 2) {
+          const springPoint = new Particle({
+            radius: PARTICLE_RADIUS,
+            position
+          });
 
-        const particle = new Particle({
-          radius: PARTICLE_RADIUS,
-          position: new Vector(
-            Math.round(Math.random() * canvasWidth),
-            Math.round(Math.random() * canvasHeight)
-          ),
-          friction: FRICTION
-        });
+          const particle = new Particle({
+            radius: PARTICLE_RADIUS,
+            position: new Vector(
+              Math.round(Math.random() * canvasWidth),
+              Math.round(Math.random() * canvasHeight)
+            ),
+            friction: FRICTION
+          });
 
-        springPairs.push({
-          springPoint,
-          particle
-        });
+          springPairs.push({
+            springPoint,
+            particle
+          });
+        }
       });
     }
 
