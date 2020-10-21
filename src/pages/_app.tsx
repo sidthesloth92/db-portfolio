@@ -41,7 +41,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
           <Component key={router.asPath} {...pageProps} one={'one'} />
         </AnimatePresence>
       </div>
-      <Footer />
+      {router.pathname.length > 1 && <Footer />}
     </>
   );
 };
