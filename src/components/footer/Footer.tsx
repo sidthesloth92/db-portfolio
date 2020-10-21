@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import SocialIcons from '../social-icons/SocialIcons';
+
 const Footer: React.FC = () => (
   <footer className="bg-dark-shade flex justify-center">
     <div className="max-w-screen-lg p-8">
@@ -20,7 +22,7 @@ const Footer: React.FC = () => (
         </section>
         <div className="flex w-full sm:w-8/12 sm:justify-end">
           <section>
-            <h5 className="text-secondary mb-2">Links</h5>
+            <h5 className="text-primary mb-2">Links</h5>
             <ul>
               <li className="my-2">
                 <Link href="/about">
@@ -45,12 +47,16 @@ const Footer: React.FC = () => (
             </ul>
           </section>
           <section className="ml-24">
-            <h5 className="text-secondary mb-2">Say Hi!</h5>
-            <ul>
-              <li className="my-2">About</li>
-              <li className="my-2">Posts</li>
-              <li className="my-2">Snippets</li>sdpo
-            </ul>
+            <h5 className="text-primary mb-2">Say Hi!</h5>
+            <div className="-ml-2">
+              <SocialIcons />
+            </div>
+            <h5 className="text-primary mt-4 mb-0">Email Me</h5>
+            <div>
+              <a href="mailto:www.sidthesloth@gmail.com">
+                www.sidthesloth@gmail.com
+              </a>
+            </div>
           </section>
         </div>
       </div>
