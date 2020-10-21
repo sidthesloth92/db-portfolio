@@ -4,7 +4,7 @@ import SocialIcons from '../social-icons/SocialIcons';
 
 const Footer: React.FC = () => (
   <footer className="bg-dark-shade flex justify-center">
-    <div className="max-w-screen-lg p-8">
+    <div className="w-full max-w-screen-lg p-4 md:p-8">
       <div className="flex flex-wrap w-full justify-between mb-4">
         <section className="w-full sm:w-4/12 mb-8 sm:mb-0">
           <h5 className="text-primary font-cursive mb-4">Dinesh Balaji</h5>
@@ -46,7 +46,7 @@ const Footer: React.FC = () => (
               </li>
             </ul>
           </section>
-          <section className="ml-24">
+          <section className="ml-16 md:m-24">
             <h5 className="text-primary mb-2">Say Hi!</h5>
             <div className="-ml-2">
               <SocialIcons />

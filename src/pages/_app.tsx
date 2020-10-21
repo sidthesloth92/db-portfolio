@@ -36,12 +36,18 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
       </Head>
       <NavBar />
       <Menu />
-      <div className="mt-20">
+      <div
+        className="mt-20"
+        style={{
+          maxWidth: '100vw',
+          width: '100vw',
+          overflow: 'hidden'
+        }}>
         <AnimatePresence initial={false} exitBeforeEnter>
           <Component key={router.asPath} {...pageProps} one={'one'} />
         </AnimatePresence>
+        {router.pathname.length > 1 && <Footer />}
       </div>
-      {router.pathname.length > 1 && <Footer />}
     </>
   );
 };
