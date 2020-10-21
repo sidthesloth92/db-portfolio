@@ -51,7 +51,7 @@ const Footer: React.FC = () => (
             <div className="-ml-2">
               <SocialIcons />
             </div>
-            <h5 className="text-primary mt-4 mb-0">Email Me</h5>
+            <h5 className="text-primary mt-4">Email Me</h5>
             <div>
               <a href="mailto:www.sidthesloth@gmail.com">
                 www.sidthesloth@gmail.com
