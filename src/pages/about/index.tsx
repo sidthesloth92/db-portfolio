@@ -17,25 +17,18 @@ const AboutPage: React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-wrap">
-        <div
-          style={{
-            height: 'calc(100vh - 80px)'
-          }}
-          className="relative order-2 lg:order-1 w-full lg:w-1/2 h-full">
-          <div
-            style={{
-              top: '50%',
-              left: '10%'
-            }}
-            className="absolute max-w-xl transform -translate-y-1/2">
-            <motion.div>
-              <span className="text-5xl">Hi! I&apos;m </span>
-              <span className="text-6xl font-cursive text-primary">
+      <div className="flex flex-wrap items-center">
+        <div className="order-2 lg:order-1 lg:w-1/2">
+          <div className="max-w-xl flex flex-col justify-center align-center m-auto p-4">
+            <motion.div className="mb-4">
+              <span className="text-3xl md:text-4xl lg:text-5xl ">
+                Hi! I&apos;m
+              </span>
+              <span className="text-5xl md:text-5xl lg:text-6xl font-cursive text-primary">
                 Dinesh Balaji
               </span>
             </motion.div>
-            <motion.p className="text-2xl">
+            <motion.p className="text-base md:text-2xl mb-4">
               I am a developer and designer from India
               <span role="img" aria-label="India">
                 🇮🇳
@@ -53,9 +46,10 @@ const AboutPage: React.FC = () => {
           style={{
             height: 'calc(100vh - 80px)'
           }}
-          className="order-1 lg-order-2 w-full lg:w-1/2 h-full">
+          className="relative order-1 lg-order-2 w-full lg:w-1/2 h-full">
           <canvas
-            id="canvas"
+            id="about-face-canvas"
+            className="absolute"
             style={{
               width: '100%',
               height: '100%'

@@ -57,7 +57,7 @@ export function useLandingPageCanvasEffect(): void {
     let animationId;
 
     const canvas: HTMLCanvasElement = <HTMLCanvasElement>(
-      document.getElementById('home-canvas')
+      document.getElementById('landing-canvas')
     );
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
@@ -306,7 +306,7 @@ export function useDrawFaceOnCanvas(): void {
     let mouseY = 0;
 
     const canvas: HTMLCanvasElement = <HTMLCanvasElement>(
-      document.getElementById('canvas')
+      document.getElementById('about-face-canvas')
     );
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 

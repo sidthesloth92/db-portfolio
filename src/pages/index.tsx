@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       <div className="home-container w-screen h-screen bg-dark-black flex justify-center items-center -mt-20">
         <canvas
           className="absolute top-0 left-0 w-full h-full"
-          id="home-canvas"></canvas>
+          id="landing-canvas"></canvas>
         <div className="flex flex-col items-center z-10 p-4 select-none">
           <h1 className="text-2xl md:text-3xl lg:text-4xl">
             Hi , I&apos;m
