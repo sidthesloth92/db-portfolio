@@ -328,7 +328,7 @@ export function useDrawFaceOnCanvas(): void {
     const halfCanvasWidth = canvasWidth / 2;
     const halfCanvasHeight = canvasHeight / 2;
 
-    const imageSide = roundToEven(0.9 * Math.min(canvasWidth, canvasHeight));
+    const imageSide = roundToEven(Math.min(canvasWidth, canvasHeight));
     const imageStartX = halfCanvasWidth - imageSide / 2;
     const imageStartY = halfCanvasHeight - imageSide / 2;
 

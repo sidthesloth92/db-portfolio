@@ -18,8 +18,8 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <div className="flex flex-wrap items-center">
-        <div className="order-2 lg:order-1 lg:w-1/2">
-          <div className="max-w-xl flex flex-col justify-center align-center m-auto p-4">
+        <div className="order-2 lg:order-1 lg:w-1/2 mt-8 lg:mt-0">
+          <div className="lg:max-w-xl flex flex-col justify-center align-center m-auto p-4 text-center lg:text-left">
             <motion.div className="mb-4">
               <span className="text-3xl md:text-4xl lg:text-5xl ">
                 Hi! I&apos;m
@@ -37,16 +37,12 @@ const AboutPage: React.FC = () => {
               myself a Jack of all trades but master of none. I am addicted to
               Cats, Ice cream, JS and anything Open Source.
             </motion.p>
-            <motion.div>
+            <motion.div className="m-auto lg:mx-0">
               <SocialIcons />
             </motion.div>
           </div>
         </div>
-        <div
-          style={{
-            height: 'calc(100vh - 80px)'
-          }}
-          className="relative order-1 lg-order-2 w-full lg:w-1/2 h-full">
+        <div className="canvas-container relative order-1 lg-order-2 w-full lg:w-1/2 h-full">
           <canvas
             id="about-face-canvas"
             className="absolute"
@@ -99,6 +95,17 @@ const AboutPage: React.FC = () => {
           />
         </PageBody>
       </Page>
+      <style jsx>{`
+        .canvas-container {
+          height: calc(100vw - 80px);
+        }
+
+        @media screen and (min-width: 769px) {
+          .canvas-container {
+            height: calc(100vh - 80px);
+          }
+        }
+      `}</style>
     </>
   );
 };
