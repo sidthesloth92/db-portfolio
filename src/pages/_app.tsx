@@ -37,7 +37,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
       <NavBar />
       <Menu />
       <div
-        className="mt-20"
+        className="pt-20"
         style={{
           maxWidth: '100vw',
           width: '100vw',
