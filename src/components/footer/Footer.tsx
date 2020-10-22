@@ -46,7 +46,7 @@ const Footer: React.FC = () => (
               </li>
             </ul>
           </section>
-          <section className="ml-16 md:m-24">
+          <section className="ml-16 md:ml-24">
             <h5 className="text-primary mb-2">Say Hi!</h5>
             <div className="-ml-2">
               <SocialIcons />
