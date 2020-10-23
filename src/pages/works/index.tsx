@@ -94,7 +94,7 @@ const WorksPage: React.FC = () => {
         description="These are some of the stuff I have done over the years. I love to program and at the same time I love to design too.  So I’ve never managed to hit the full stride in either. Neverthless, bear with me."
       />
       <PageBody>
-        <motion.div variants={sliderContainerVariants}>
+        <motion.div variants={sliderContainerVariants} className="mt-32">
           <WorksSlider items={worksSliderItems} />
         </motion.div>
       </PageBody>
