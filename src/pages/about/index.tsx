@@ -10,6 +10,36 @@ import SocialIcons from '../../components/social-icons/SocialIcons';
 import { useDrawFaceOnCanvas } from '../../lib/hooks';
 
 /**
+ * Placeholder variants for staggering about info.
+ */
+const aboutInfoContainerVariants = {
+  enter: {
+    transition: {
+      staggerChildren: 0.5,
+      when: 'beforeChildren'
+    }
+  }
+};
+
+/**
+ * Animation variants for the about info.
+ */
+const aboutInfoVariants = {
+  initial: {
+    opacity: 0,
+    transform: 'translateY(50%)'
+  },
+  enter: {
+    opacity: 1,
+    transform: 'translateY(0%)',
+    transition: {
+      duration: 1,
+      ease: 'easeOut'
+    }
+  }
+};
+
+/**
  * Represents the about page of the application.
  */
 const AboutPage: React.FC = () => {
@@ -18,9 +48,11 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <div className="flex flex-wrap items-center">
-        <div className="order-2 lg:order-1 lg:w-1/2 mt-8 lg:mt-0">
-          <div className="lg:max-w-xl flex flex-col justify-center align-center m-auto p-4 text-center lg:text-left">
-            <motion.div className="mb-4">
+        <div className="order-2 lg:order-1 lg:w-1/2 mt-8 lg:mt-0 mb-16">
+          <motion.div
+            className="lg:max-w-xl flex flex-col justify-center align-center m-auto p-4 text-center lg:text-left"
+            variants={aboutInfoContainerVariants}>
+            <motion.div className="mb-4" variants={aboutInfoVariants}>
               <span className="text-3xl md:text-4xl lg:text-5xl ">
                 Hi! I&apos;m
               </span>
@@ -28,7 +60,9 @@ const AboutPage: React.FC = () => {
                 Dinesh Balaji
               </span>
             </motion.div>
-            <motion.p className="text-base md:text-2xl mb-4">
+            <motion.p
+              className="text-base md:text-2xl mb-4"
+              variants={aboutInfoVariants}>
               I am a developer and designer from India
               <span role="img" aria-label="India">
                 🇮🇳
@@ -37,10 +71,10 @@ const AboutPage: React.FC = () => {
               myself a Jack of all trades but master of none. I am addicted to
               Cats, Ice cream, JS and anything Open Source.
             </motion.p>
-            <motion.div className="m-auto lg:mx-0">
+            <motion.div className="m-auto lg:mx-0" variants={aboutInfoVariants}>
               <SocialIcons />
             </motion.div>
-          </div>
+          </motion.div>
         </div>
         <div className="canvas-container relative order-1 lg-order-2 w-full lg:w-1/2 h-full">
           <canvas
