@@ -68,13 +68,32 @@
   h5,
   h6 {
     @apply text-secondary;
+    @apply font-black;
   }
 
   a {
+    @apply relative;
+    @apply inline-block;
     @apply text-primary;
     @apply font-bold;
-    @apply underline;
     @apply cursor-pointer;
+  }
+
+  a::after {
+    content: '';
+    @apply absolute;
+    @apply bottom-0;
+    @apply left-0;
+    @apply w-full;
+    @apply bg-primary;
+    @apply transform;
+    @apply duration-200;
+    height: 2px;
+    transform: scale(0);
+  }
+
+  a:hover::after {
+    transform: scale(1);
   }
 
   code:not([class]) {
