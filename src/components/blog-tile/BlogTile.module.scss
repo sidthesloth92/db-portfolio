@@ -1,9 +1,23 @@
-.blog-tile {
-  @media screen and (min-width: 640px) {
-    height: 500px;
-  }
+.text-fill {
+  color: var(--color-secondary-text);
+}
 
-  @media screen and (min-width: 1024px) {
-    height: 580px;
-  }
+.text-fill::before {
+  position: absolute;
+  z-index: 2;
+
+  height: 100%;
+  overflow: hidden;
+
+  color: var(--color-secondary);
+
+  transform: scale(0);
+
+  transition: all 0.4s;
+
+  content: attr(title);
+}
+
+.text-fill:hover::before {
+  transform: scale(1);
 }
