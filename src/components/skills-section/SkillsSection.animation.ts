@@ -54,10 +54,7 @@ export const headerVariants = {
     transform: 'translate(0%, -50%) scaleY(0)'
   },
   open: {
-    transform: 'translate(0%, -50%) scaleY(1)',
-    transition: {
-      when: 'beforeChildren'
-    }
+    transform: 'translate(0%, -50%) scaleY(1)'
   }
 };
 
@@ -66,11 +63,10 @@ export const headerVariants = {
  */
 export const headerContentVariants = {
   closed: {
-    transform: 'translateX(150%)'
+    width: '0%'
   },
   open: {
-    delay: 0.5,
-    transform: 'translateX(0%)',
+    width: '100%',
     transition: {
       duration: 0.6,
       ease: [0.79, -0.01, 0, 0.99]

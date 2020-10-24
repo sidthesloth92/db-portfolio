@@ -9,7 +9,7 @@ module.exports = {
   purge: {
     content: ['./src/**/*.{js,ts,jsx,tsx}'],
     options: {
-      whitelist: ['bg-primary']
+      whitelist: ['bg-primary', 'border-primary', 'border-secondary']
     }
   },
   theme: {

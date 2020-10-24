@@ -58,16 +58,15 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
         <motion.div
           variants={headerVariants}
           style={{ left: '5%' }}
-          className={`skill-title absolute top-0 font-black text-4xl lg:text-6xl bg-${
-            theme === 'primary' ? 'primary-tint' : 'secondary-tint'
-          } text-dark px-8 py-2 overflow-hidden`}>
+          className={`absolute top-0 text-4xl lg:text-6xl font-black bg-dark text-${theme} overflow-hidden px-1 py-1`}>
+          {title}
           <motion.div
-            variants={headerContentBackgroundVariants}
-            className={`absolute top-0 left-0 bg-${theme} w-full h-full`}></motion.div>
-          <motion.div className="w-full" variants={headerContentVariants}>
+            variants={headerContentVariants}
+            className={`absolute top-0 left-0 text-4xl lg:text-6xl text-dark bg-${theme} h-full overflow-hidden px-1 py-1`}>
             {title}
           </motion.div>
         </motion.div>
+
         <motion.ul
           className="w-1/2 mx-2 lg:mx-4 text-center"
           variants={skillsListVariants}>
