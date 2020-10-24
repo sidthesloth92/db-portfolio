@@ -66,7 +66,7 @@ const headerVariants = {
 export const headerChildrenVariants = {
   initial: {
     opacity: 0,
-    transform: 'translateY(100%)'
+    transform: 'translateY(50%)'
   },
   enter: {
     opacity: 1,
@@ -91,7 +91,7 @@ const hrVariants = {
     scale: 1,
     transition: {
       delay: 1.2,
-      duration: 1.5,
+      duration: 1,
       ease: 'easeOut'
     }
   }
@@ -129,22 +129,22 @@ const PostPage: React.FC = () => {
   return (
     <Page>
       <motion.div
-        className="text-center mb-16 overflow-hidden"
+        className="text-center mb-8 lg:mb-16 overflow-hidden"
         variants={headerVariants}>
         <motion.h1
-          className="font-black text-primary leading-tight"
+          className="font-black text-3xl lg:text-6xl text-primary leading-tight"
           variants={headerChildrenVariants}>
           {post.title}
         </motion.h1>
         <motion.div
-          className="font-bold text-2xl text-secondary"
+          className="font-bold text-lg lg:text-2xl text-secondary"
           variants={headerChildrenVariants}>
           <span>{new Date(post.published_timestamp).toLocaleDateString()}</span>
           <span className="px-2">•</span>
           <span>15 mins</span>
         </motion.div>
         <motion.div
-          className="text-secondary-text text-lg font-bold"
+          className="text-secondary-text text-md lg:text-lg font-bold"
           variants={headerChildrenVariants}>
           {post.tag_list.map((tag) => {
             return (
@@ -158,7 +158,7 @@ const PostPage: React.FC = () => {
 
       <PageBody>
         <motion.div
-          className="bg-dark-light mb-8"
+          className="bg-dark-light sm: mb-8"
           style={{ height: '1px' }}
           variants={hrVariants}
         />

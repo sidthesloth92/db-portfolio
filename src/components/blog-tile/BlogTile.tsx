@@ -14,9 +14,19 @@ const BlogTile: React.FC = () => {
   const ref = useRef(undefined);
 
   const handleMouseMove = (event) => {
+    let x, y;
+
+    if (event.touches) {
+      x = event.touches[0].clientX;
+      y = event.touches[0].clientY;
+    } else {
+      x = event.clientX;
+      y = event.clientY;
+    }
+
     const r = ref?.current?.getBoundingClientRect();
-    const dx = ((event.clientX - (r.left + Math.floor(r.width / 2))) * -1) / 20;
-    const dy = ((event.clientY - (r.top + Math.floor(r.height / 2))) * -1) / 20;
+    const dx = ((x - (r.left + Math.floor(r.width / 2))) * -1) / 10;
+    const dy = ((y - (r.top + Math.floor(r.height / 2))) * -1) / 10;
     ref.current.style.transform = `translate3d(${dx}px, ${dy}px, 0px)`;
   };
 
@@ -53,7 +63,8 @@ const BlogTile: React.FC = () => {
           <motion.div
             ref={ref}
             className="relative p-4 transtition duration-100"
-            onTouchEnd={(event) => event.preventDefault()}
+            onTouchMove={handleMouseMove}
+            onTouchEnd={handleMouseLeave}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}>
             <Link href={'/posts/[id]'} as={'/posts/1'}>
@@ -65,7 +76,7 @@ const BlogTile: React.FC = () => {
                 </div>
               </a>
             </Link>
-            <div className="text-xs text-secondary font-bold mt-2 mb-4">
+            <div className="text-xs text-secondary font-black mt-2 mb-4">
               <div className="mb-1">
                 <span>August 7, 2017</span>
                 <span className="px-2">•</span>
