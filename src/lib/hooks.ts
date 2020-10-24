@@ -508,7 +508,7 @@ export function useDrawFaceOnCanvas(): void {
       requestAnimationFrame(render);
     }
 
-    function handleTouchStartAndEnd(event) {
+    function handleTouchStartAndEnd() {
       mouseX = mouseY = undefined;
     }
 
