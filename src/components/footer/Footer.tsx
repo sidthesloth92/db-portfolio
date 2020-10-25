@@ -7,7 +7,9 @@ const Footer: React.FC = () => (
     <div className="w-full max-w-screen-lg p-4 md:p-8">
       <div className="flex flex-wrap w-full justify-between mb-4">
         <section className="w-full sm:w-4/12 mb-8 sm:mb-0">
-          <h5 className="text-primary font-cursive mb-4">Dinesh Balaji</h5>
+          <h5 className="text-primary text-2xl font-cursive mb-4">
+            Dinesh Balaji
+          </h5>
           <p>
             Thank You for visiting my website. Hopefully you learned something
             new..
@@ -22,7 +24,7 @@ const Footer: React.FC = () => (
         </section>
         <div className="flex w-full sm:w-8/12 sm:justify-end">
           <section>
-            <h5 className="text-primary mb-2">Links</h5>
+            <h5 className="text-primary text-2xl mb-2">Links</h5>
             <ul>
               <li className="my-2">
                 <Link href="/about">
@@ -47,11 +49,11 @@ const Footer: React.FC = () => (
             </ul>
           </section>
           <section className="ml-16 md:ml-24">
-            <h5 className="text-primary mb-2">Say Hi!</h5>
+            <h5 className="text-primary text-2xl mb-2">Say Hi!</h5>
             <div className="-ml-2">
               <SocialIcons />
             </div>
-            <h5 className="text-primary mt-4">Email Me</h5>
+            <h5 className="text-primary text-2xl mt-4">Email Me</h5>
             <div>
               <a
                 className="ul-hover-effect"

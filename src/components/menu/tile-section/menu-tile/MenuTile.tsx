@@ -141,7 +141,7 @@ const MenuTile: React.FC<MenuTileProps> = ({
           </motion.a>
         </Link>
         <motion.p
-          className="text-base lg:text-2xl"
+          className="text-base lg:text-xl"
           variants={contentVariants}
           initial={'closed'}>
           {subTitle}

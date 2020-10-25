@@ -132,12 +132,12 @@ const PostPage: React.FC = () => {
         className="text-center mb-8 lg:mb-16 overflow-hidden"
         variants={headerVariants}>
         <motion.h1
-          className="font-black text-3xl lg:text-6xl text-primary leading-tight"
+          className="font-black text-primary leading-tight"
           variants={headerChildrenVariants}>
           {post.title}
         </motion.h1>
         <motion.div
-          className="font-bold text-lg lg:text-2xl text-secondary"
+          className="font-bold text-lg lg:text-xl text-secondary"
           variants={headerChildrenVariants}>
           <span>{new Date(post.published_timestamp).toLocaleDateString()}</span>
           <span className="px-2">•</span>

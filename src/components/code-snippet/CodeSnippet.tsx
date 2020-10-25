@@ -41,7 +41,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
   return (
     <div className="rounded overflow-hidden mb-8">
       <div className="flex items-center px-4 py-2 bg-dark-light">
-        <h6 className="flex-grow font-mono text-base">{fileName}</h6>
+        <div className="flex-grow font-mono text-base">{fileName}</div>
         <CopyToClipboard
           text={code}
           options={{ message: 'Copied to clipboard' }}>
