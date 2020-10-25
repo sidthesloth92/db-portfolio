@@ -99,7 +99,7 @@ const SnippetsPage: React.FC = () => {
         <motion.table
           className="table w-full"
           variants={tableContainerVariants}>
-          <thead>
+          <thead className="hidden md:table-header-group">
             <tr className="text-primary border-b border-dark-light">
               <th className="w-3/12 p-4 pb-8">Name</th>
               <th className="w-5/12 p-4 pb-8">Description</th>
@@ -111,18 +111,24 @@ const SnippetsPage: React.FC = () => {
           <tbody>
             {SNIPPETS.map((snippet, index) => {
               return (
-                <tr className="border-b border-dark-light" key={index}>
-                  <td className="w-3/12 p-4 hover:text-primary">
+                <tr
+                  className="flex flex-wrap md:table-row bg-dark-tint md:bg-dark p-2 md:p-0 my-6 lg:my-0 rounded border-b-2 border-secondary-text md:border-b md:border-dark-light "
+                  key={index}>
+                  <td className="w-full md:w-3/12 p-2 md:py-4 md:px-2 lg:p-4 text-secondary-text md:md:text-primary font-bold text-lg">
                     <Link href="/snippets/[id]" as="/snippets/1">
-                      <a>Date to JSON</a>
+                      <a className="ul-hover-effect">Date to JSON</a>
                     </Link>
                   </td>
-                  <td className="w-5/12 p-4 ">
+                  <td className="w-full md:w-5/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4 ">
                     Amet minim mollit non deserunt ullamco est sit aliqua dolor
                     do{' '}
                   </td>
-                  <td className="w-2/12 p-4 text-center">JSON Typescript</td>
-                  <td className="w-2/12 p-4 text-center">May 29, 2017</td>
+                  <td className="w-1/2 md:w-2/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4 text-sm text-secondary font-bold  md:text-center">
+                    JSON, Typescript
+                  </td>
+                  <td className="w-1/2 md:w-2/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4 text-sm text-secondary md:text-white md:text-base font-bold md:font-normal md:text-center ">
+                    May 29, 2017
+                  </td>
                 </tr>
               );
             })}
