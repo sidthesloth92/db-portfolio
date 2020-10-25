@@ -49,7 +49,7 @@ const InfoSection: React.FC = () => {
         <Logo side={80} />
       </motion.div>
       <motion.div
-        className="font-cursive text-5xl lg:text-6xl text-primary mt-8 lg:mt-16"
+        className="font-cursive text-5xl lg:text-6xl text-primary mt-4 lg:mt-16"
         variants={variants}
         initial={false}>
         Dinesh Balaji

@@ -22,7 +22,7 @@ const Home: React.FC = () => {
           id="landing-canvas"></canvas>
         <div className="flex flex-col items-center z-10 p-4 select-none">
           <h1 className="text-2xl md:text-3xl lg:text-4xl">
-            Hi , I&apos;m
+            Hi, I&apos;m
             <span className="font-cursive text-4xl md:text-6xl lg:text-8xl text-primary">
               Dinesh Balaji
             </span>

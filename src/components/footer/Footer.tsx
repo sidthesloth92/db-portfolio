@@ -26,22 +26,22 @@ const Footer: React.FC = () => (
             <ul>
               <li className="my-2">
                 <Link href="/about">
-                  <a>About</a>
+                  <a className="ul-hover-effect">About</a>
                 </Link>
               </li>
               <li className="my-2">
                 <Link href="/works">
-                  <a>Works</a>
+                  <a className="ul-hover-effect">Works</a>
                 </Link>
               </li>
               <li className="my-2">
                 <Link href="/posts">
-                  <a>Posts</a>
+                  <a className="ul-hover-effect">Posts</a>
                 </Link>
               </li>
               <li className="my-2">
                 <Link href="/snippets">
-                  <a>Snippets</a>
+                  <a className="ul-hover-effect">Snippets</a>
                 </Link>
               </li>
             </ul>
@@ -53,7 +53,9 @@ const Footer: React.FC = () => (
             </div>
             <h5 className="text-primary mt-4">Email Me</h5>
             <div>
-              <a href="mailto:www.sidthesloth@gmail.com">
+              <a
+                className="ul-hover-effect"
+                href="mailto:www.sidthesloth@gmail.com">
                 www.sidthesloth@gmail.com
               </a>
             </div>
