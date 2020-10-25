@@ -102,17 +102,11 @@ const BlogTile: React.FC = () => {
             transform: 'translateX(-101%)'
           }}
           animate={{
-            transform: [
-              'translateX(-101%)',
-              'translateX(0%)',
-              'translateX(0%)',
-              'translateX(98%)'
-            ],
+            transform: 'translateX(98%)',
             transition: {
               delay,
               duration: 1.5,
-              ease: [0.6, 0, 0.4, 1],
-              times: [0, 0.5, 0.6, 1]
+              ease: 'easeInOut'
             }
           }}
         />
