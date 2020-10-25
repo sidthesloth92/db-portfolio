@@ -40,8 +40,8 @@ const Footer: React.FC = () => (
                 </Link>
               </li>
               <li className="my-2">
-                <Link href="/snippets">
-                  <a className="ul-hover-effect">Snippets</a>
+                <Link href="/nuggets">
+                  <a className="ul-hover-effect">Nuggets</a>
                 </Link>
               </li>
             </ul>

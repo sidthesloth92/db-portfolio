@@ -6,7 +6,7 @@ import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
 
-const SNIPPETS = [
+const NUGGETS = [
   {
     name: 'Date to JSON',
     description:
@@ -85,13 +85,13 @@ const tableContainerVariants = {
 };
 
 /**
- * The snippets page of the application.
+ * The nuggets page of the application.
  */
-const SnippetsPage: React.FC = () => {
+const NuggetsPage: React.FC = () => {
   return (
     <Page>
       <PageHeader
-        title="Snippets"
+        title="Nuggets"
         description="A collection of copy paste times that do some standalone work on their
         own."
       />
@@ -109,13 +109,13 @@ const SnippetsPage: React.FC = () => {
           </thead>
 
           <tbody>
-            {SNIPPETS.map((snippet, index) => {
+            {NUGGETS.map((snippet, index) => {
               return (
                 <tr
                   className="flex flex-wrap md:table-row bg-dark-tint md:bg-dark p-2 md:p-0 my-6 lg:my-0 rounded border-b-2 border-secondary-text md:border-b md:border-dark-light "
                   key={index}>
                   <td className="w-full md:w-3/12 p-2 md:py-4 md:px-2 lg:p-4 text-secondary-text md:md:text-primary font-bold text-lg">
-                    <Link href="/snippets/[id]" as="/snippets/1">
+                    <Link href="/nuggets/[id]" as="/nuggets/1">
                       <a className="ul-hover-effect">Date to JSON</a>
                     </Link>
                   </td>
@@ -139,4 +139,4 @@ const SnippetsPage: React.FC = () => {
   );
 };
 
-export default withPageTransition(SnippetsPage);
+export default withPageTransition(NuggetsPage);
