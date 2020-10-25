@@ -50,6 +50,31 @@
   }
 }
 
+.ul-hover-effect {
+  @apply relative;
+  @apply inline-block;
+  @apply cursor-pointer;
+}
+
+.ul-hover-effect::after {
+  bottom: -3px;
+
+  height: 2px;
+
+  background: currentColor;
+  transform: scale(0);
+
+  content: '';
+  @apply absolute;
+  @apply left-0;
+  @apply w-full;
+  @apply duration-300;
+}
+
+.ul-hover-effect:hover::after {
+  transform: scale(1);
+}
+
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
@@ -80,6 +105,10 @@
   }
 
   a::after {
+    height: 2px;
+
+    transform: scale(0);
+
     content: '';
     @apply absolute;
     @apply bottom-0;
@@ -88,8 +117,6 @@
     @apply bg-primary;
     @apply transform;
     @apply duration-200;
-    height: 2px;
-    transform: scale(0);
   }
 
   a:hover::after {
