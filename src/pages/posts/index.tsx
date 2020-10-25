@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import BlogTile from '../../components/blog-tile/BlogTile';
 import withPageTransition from '../../components/hoc/with-page-transition';
@@ -26,28 +27,65 @@ const postsContainerVariants = {
 /**
  * Page that displays a list of blog posts.
  */
+
+const POSTS = [
+  BlogTile,
+  BlogTile,
+  BlogTile,
+  BlogTile,
+  BlogTile,
+  BlogTile,
+  BlogTile,
+  BlogTile,
+  BlogTile,
+  BlogTile,
+  BlogTile,
+  BlogTile
+];
+
 const PostsPage: React.FC = () => {
+  const [posts, setPosts] = useState(POSTS);
+  const fetchMostPosts = () => {
+    setTimeout(() => {
+      setPosts([
+        ...posts,
+        ...[
+          BlogTile,
+          BlogTile,
+          BlogTile,
+          BlogTile,
+          BlogTile,
+          BlogTile,
+          BlogTile,
+          BlogTile
+        ]
+      ]);
+    }, 2000);
+  };
+
   return (
-    <Page>
-      <PageHeader
-        title="Posts"
-        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi doloribus laudantium nostrum cum atque dolores id sitod voluptate."
-      />
-      <PageBody>
-        <motion.div
-          className="flex flex-wrap justify-start -mx-4"
-          variants={postsContainerVariants}>
-          <BlogTile />
-          <BlogTile />
-          <BlogTile />
-          <BlogTile />
-          <BlogTile />
-          <BlogTile />
-          <BlogTile />
-          <BlogTile />
-        </motion.div>
-      </PageBody>
-    </Page>
+    <>
+      <Page>
+        <PageHeader
+          title="Posts"
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi doloribus laudantium nostrum cum atque dolores id sitod voluptate."
+        />
+        <PageBody>
+          <motion.div variants={postsContainerVariants}>
+            <InfiniteScroll
+              className="flex flex-wrap justify-start -mx-4"
+              dataLength={posts.length}
+              next={fetchMostPosts}
+              hasMore={posts.length < 25}
+              loader={null}>
+              {posts.map((Post, index) => (
+                <Post key={index} />
+              ))}
+            </InfiniteScroll>
+          </motion.div>
+        </PageBody>
+      </Page>
+    </>
   );
 };
 
