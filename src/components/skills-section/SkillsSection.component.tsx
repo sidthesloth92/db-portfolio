@@ -45,7 +45,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
   wands = [],
   theme = 'primary'
 }) => {
-  const [ref, inView] = useInView({});
+  const [ref, inView] = useInView({ triggerOnce: true });
   return (
     <motion.div
       ref={ref}
