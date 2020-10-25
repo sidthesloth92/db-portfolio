@@ -6,6 +6,9 @@ import withPageTransition from '../../components/hoc/with-page-transition';
 import MdContent from '../../components/md-content/MdContent';
 import PageBody from '../../components/page-body/PageBody';
 import Page from '../../components/page/Page';
+import ShareIcons from '../../components/share-icons/ShareIcons.component';
+import RelatedPostsSection from '../../posts/related-posts-section/RelatedPostsSection.component';
+import ShareSection from '../../posts/share-section/ShareSection.component';
 
 const post = {
   type_of: 'article',
@@ -132,7 +135,7 @@ const PostPage: React.FC = () => {
         className="text-center mb-8 lg:mb-16 overflow-hidden"
         variants={headerVariants}>
         <motion.h1
-          className="font-black text-primary leading-tight"
+          className="font-black text-primary leading-tight mb-2"
           variants={headerChildrenVariants}>
           {post.title}
         </motion.h1>
@@ -144,7 +147,7 @@ const PostPage: React.FC = () => {
           <span>15 mins</span>
         </motion.div>
         <motion.div
-          className="text-secondary-text text-md lg:text-lg font-bold"
+          className="text-secondary-text text-md lg:text-lg mb-2 font-bold"
           variants={headerChildrenVariants}>
           {post.tag_list.map((tag) => {
             return (
@@ -153,6 +156,11 @@ const PostPage: React.FC = () => {
               </Link>
             );
           })}
+        </motion.div>
+        <motion.div
+          className="flex justify-center"
+          variants={headerChildrenVariants}>
+          <ShareIcons />
         </motion.div>
       </motion.div>
 
@@ -165,6 +173,10 @@ const PostPage: React.FC = () => {
         <motion.div variants={postContentVariants}>
           <MdContent>{post.body_markdown}</MdContent>
         </motion.div>
+
+        <ShareSection tags={post.tag_list} />
+
+        <RelatedPostsSection />
       </PageBody>
     </Page>
   );
