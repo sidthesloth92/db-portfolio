@@ -3,12 +3,20 @@ import Link from 'next/link';
 import React, { useRef } from 'react';
 
 import { addCamelCaseKeys } from '../../lib';
+import { Post } from '../../models/Post';
 import s from './BlogTile.module.scss';
+
+/**
+ * Props for {@link BlogTile}.
+ */
+interface BlogTileProps {
+  post: Post;
+}
 
 /**
  * Tile component to represent each blog post.
  */
-const BlogTile: React.FC = () => {
+const BlogTile: React.FC<BlogTileProps> = ({ post }) => {
   const delay = Math.random() * 1;
   const styles = addCamelCaseKeys(s);
   const ref = useRef(undefined);
@@ -71,25 +79,30 @@ const BlogTile: React.FC = () => {
               <a>
                 <div
                   className={`${styles.textFill} relative text-xl uppercase font-black overflow-hidden`}
-                  title="What does that = this mean in Javascript?">
-                  What does that = this mean in Javascript?
+                  title={post.title}>
+                  {post.title}
                 </div>
               </a>
             </Link>
             <div className="text-xs text-secondary font-black mt-2 mb-4">
               <div className="mb-1">
-                <span>August 7, 2017</span>
+                <span>
+                  {new Date(post.published_timestamp).toLocaleDateString()}
+                </span>
                 <span className="px-2">•</span>
                 <span>15 mins</span>
               </div>
-              <div>#js #web #html</div>
+              <div>
+                {post.tag_list.map((tag) => {
+                  return (
+                    <Link key={tag} href={`/posts/${tag}`}>
+                      <a className="pr-2">#{tag}</a>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem
-              reiciendis accusamus laudantium ducimus magnam molestias, dolorum,
-              minus dolores iste, consequuntur sint tempore sequi officia
-              asperiores totam molestiae veritatis illum soluta.
-            </p>
+            <p>{post.description}</p>
           </motion.div>
         </motion.div>
         <motion.div

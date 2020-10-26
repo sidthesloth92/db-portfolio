@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { GetStaticPropsResult } from 'next';
 import React, { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -7,6 +8,8 @@ import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
+import { Post } from '../../models/Post';
+import { getPosts } from '../api/posts';
 
 /**
  * Animation variants for the posts container element.
@@ -25,42 +28,34 @@ const postsContainerVariants = {
 };
 
 /**
+ * Props for {@link PostsPage}.
+ */
+interface PostsPageProps {
+  posts: Post[];
+}
+
+export const getStaticProps = async (): Promise<
+  GetStaticPropsResult<PostsPageProps>
+> => {
+  try {
+    const posts = await getPosts();
+    return {
+      props: {
+        posts
+      }
+    };
+  } catch (e) {
+    console.error('Error while fetch posts: ', e);
+  }
+};
+
+/**
  * Page that displays a list of blog posts.
  */
-
-const POSTS = [
-  BlogTile,
-  BlogTile,
-  BlogTile,
-  BlogTile,
-  BlogTile,
-  BlogTile,
-  BlogTile,
-  BlogTile,
-  BlogTile,
-  BlogTile,
-  BlogTile,
-  BlogTile
-];
-
-const PostsPage: React.FC = () => {
-  const [posts, setPosts] = useState(POSTS);
+const PostsPage: React.FC<PostsPageProps> = ({ posts: initialPosts = [] }) => {
+  const [posts, setPosts] = useState(initialPosts);
   const fetchMostPosts = () => {
-    setTimeout(() => {
-      setPosts([
-        ...posts,
-        ...[
-          BlogTile,
-          BlogTile,
-          BlogTile,
-          BlogTile,
-          BlogTile,
-          BlogTile,
-          BlogTile,
-          BlogTile
-        ]
-      ]);
-    }, 2000);
+    console.log('FetchingMore Posts');
   };
 
   return (
@@ -78,8 +73,8 @@ const PostsPage: React.FC = () => {
               next={fetchMostPosts}
               hasMore={posts.length < 25}
               loader={null}>
-              {posts.map((Post, index) => (
-                <Post key={index} />
+              {posts.map((post) => (
+                <BlogTile key={post.id} post={post} />
               ))}
             </InfiniteScroll>
           </motion.div>
