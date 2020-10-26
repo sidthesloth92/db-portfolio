@@ -75,7 +75,7 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
             onTouchEnd={handleMouseLeave}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}>
-            <Link href={'/posts/[id]'} as={'/posts/1'}>
+            <Link href={`/posts/${post.id}/${post.slug}`}>
               <a>
                 <div
                   className={`${styles.textFill} relative text-xl uppercase font-black overflow-hidden`}

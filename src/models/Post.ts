@@ -20,6 +20,7 @@ export interface Post {
   body_markdown: string;
   positive_reactions_count: number;
   cover_image?: any;
+  tags: string[];
   tag_list: string[];
   canonical_url: string;
   user: Author;
