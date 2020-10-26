@@ -67,7 +67,7 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
               duration: 0.6
             }
           }}
-          className="bg-dark-tint shadow-md rounded overflow-hidden hover:border-dark hover:border-8`">
+          className="h-full bg-dark-tint shadow-md rounded overflow-hidden hover:border-dark hover:border-8`">
           <motion.div
             ref={ref}
             className="relative p-4 transtition duration-100"
@@ -95,16 +95,17 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
                 <span>15 mins</span>
               </div>
               <div>
-                {post.tag_list.map((tag) => {
-                  return (
-                    <Link
-                      key={tag}
-                      href="/posts/tag/[tag]"
-                      as={`/posts/tag/${tag}`}>
-                      <a className="pr-2">#{tag}</a>
-                    </Link>
-                  );
-                })}
+                {post.tag_list &&
+                  post.tag_list.map((tag) => {
+                    return (
+                      <Link
+                        key={tag}
+                        href="/posts/tag/[tag]"
+                        as={`/posts/tag/${tag}`}>
+                        <a className="pr-2">#{tag}</a>
+                      </Link>
+                    );
+                  })}
               </div>
             </div>
             <p>{post.description}</p>
