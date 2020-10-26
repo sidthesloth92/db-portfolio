@@ -5,7 +5,6 @@ import {
   GetStaticPropsResult
 } from 'next';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
 
 import withPageTransition from '../../../components/hoc/with-page-transition';
 import MdContent from '../../../components/md-content/MdContent';

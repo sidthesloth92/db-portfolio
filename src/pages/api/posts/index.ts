@@ -31,6 +31,8 @@ interface GetPostsProps {
    * The numer of posts per page.
    */
   per_page?: number;
+
+  tag?: string;
 }
 
 /**
@@ -39,7 +41,8 @@ interface GetPostsProps {
  */
 export async function getPosts({
   page = 1,
-  per_page = Number(process.env.POSTS_PER_PAGE)
+  per_page = Number(process.env.POSTS_PER_PAGE),
+  tag = ''
 }: GetPostsProps = {}): Promise<Post[]> {
   const headers = new Headers();
   headers.append('api-key', process.env.DEV_TO_TOKEN);
@@ -58,6 +61,11 @@ export async function getPosts({
   const response = await fetch(url + params, {
     headers
   });
-  const posts: Post[] = await response.json();
+  let posts: Post[] = await response.json();
+
+  if (tag) {
+    posts = posts.filter((post) => post.tags.includes(tag));
+  }
+
   return posts;
 }
