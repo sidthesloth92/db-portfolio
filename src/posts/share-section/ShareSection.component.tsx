@@ -16,7 +16,7 @@ interface ShareSectionProps {
  * Displays a section with share icons, tags with links and post/nugget count.
  * @param param Props of type {@link ShareSectionProps}.
  */
-const ShareSection: React.FC<ShareSectionProps> = ({ tags }) => (
+const ShareSection: React.FC<ShareSectionProps> = ({ tags = [] }) => (
   <div className="flex flex-wrap mt-16 mb-8">
     <div className="w-1/1 md:w-1/3 py-4 pr-4">
       <h3 className="text-primary font-bold mb-2">Share</h3>

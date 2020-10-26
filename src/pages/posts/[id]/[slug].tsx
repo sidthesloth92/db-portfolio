@@ -93,9 +93,9 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<
   GetStaticPathsResult<any>
 > => {
   try {
-    console.debug('Pre-rendering posts..');
+    console.log('\nRunning getStaticPaths for [slug]');
     const posts = await getPosts({
-      per_page: 50
+      per_page: '50'
     });
 
     const paths = posts.map((post) => ({
@@ -105,11 +105,11 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<
       }
     }));
 
-    console.debug('Number of posts pre-rendered: ', posts.length);
+    console.log('\nNumber of posts pre-rendered: ', posts.length);
 
     return {
       paths,
-      fallback: false
+      fallback: true
     };
   } catch (e) {
     console.error('Error while fetching static paths for post: ', e);
@@ -130,7 +130,7 @@ export const getStaticProps = async ({
   params
 }: Record<any, any>): Promise<GetStaticPropsResult<PostPageProps>> => {
   try {
-    console.log('Pre-rendering post: ', params.id);
+    console.log('\nRunning getStaticProps for post with id: ', params.id);
     const post = await getPostById(params.id);
     post.body_markdown = post.body_markdown.substring(
       post.body_markdown.indexOf(post.description.substring(0, 10))
@@ -141,7 +141,11 @@ export const getStaticProps = async ({
       }
     };
   } catch (e) {
-    console.error('Error while fetch posts: ', e);
+    console.error(
+      'Error while fetching getStaticProps post by id: ',
+      params.id,
+      e
+    );
   }
 };
 
@@ -169,13 +173,17 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
         <motion.div
           className="text-secondary-text text-md lg:text-lg mb-2 font-bold"
           variants={headerChildrenVariants}>
-          {post.tags.map((tag) => {
-            return (
-              <Link key={tag} href={`/posts/${tag}`}>
-                <a className="px-2">#{tag}</a>
-              </Link>
-            );
-          })}
+          {post.tag_list &&
+            post.tag_list.map((tag) => {
+              return (
+                <Link
+                  key={tag}
+                  href="/posts/tag/[tag]"
+                  as={`/posts/tag/${tag}`}>
+                  <a className="pr-2">#{tag}</a>
+                </Link>
+              );
+            })}
         </motion.div>
         <motion.div
           className="flex justify-center"
@@ -194,7 +202,7 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
           <MdContent>{post.body_markdown}</MdContent>
         </motion.div>
 
-        <ShareSection tags={post.tags} />
+        <ShareSection tags={post.tag_list} />
 
         <RelatedPostsSection />
       </PageBody>

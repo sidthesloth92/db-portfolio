@@ -4,15 +4,16 @@ import withPageTransition from '../../../components/hoc/with-page-transition';
 import PostsPage from '../../../posts/posts-page/PostsPage.component';
 import { getPosts } from '../../api/posts';
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  console.log(query.tag);
-  const tag = 'web';
-  console.debug('Running getServerSideProps for posts with tag: ', tag);
+export const getServerSideProps: GetServerSideProps = async ({
+  query: { tag }
+}) => {
+  console.log(tag);
+
+  console.log('\nRunning getServerSideProps for posts with tag: ', tag);
 
   try {
     const posts = await getPosts({
-      per_page: 100,
-      tag
+      tag: String(tag)
     });
 
     return {
@@ -21,7 +22,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       }
     };
   } catch (e) {
-    console.error('Error while fetch posts: ', e);
+    console.error(
+      'Error while fetching getServerSideProps for post for tag: ',
+      tag,
+      e
+    );
   }
 };
 

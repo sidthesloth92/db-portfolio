@@ -9,7 +9,7 @@ import { getPosts } from '../api/posts';
 export const getStaticProps = async (): Promise<
   GetStaticPropsResult<PostsPageProps>
 > => {
-  console.debug('Running getStaticProps for posts');
+  console.log('\nRunning getStaticProps for posts');
   try {
     const posts = await getPosts();
     return {
@@ -18,7 +18,7 @@ export const getStaticProps = async (): Promise<
       }
     };
   } catch (e) {
-    console.error('Error while fetch posts: ', e);
+    console.error('Error while fetching getStaticProps posts: ', e);
   }
 };
 
