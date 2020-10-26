@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
 import PostTile from '../../components/post-tile/PostTile.component';
 import { Post } from '../../models/Post';
+import { usePosts } from './PostsPage.hooks';
 
 /**
  * Animation variants for the posts container element.
@@ -36,10 +37,11 @@ export interface PostsPageProps {
  * Page that displays a list of blog posts.
  */
 const PostsPage: React.FC<PostsPageProps> = ({ posts: initialPosts = [] }) => {
-  const [posts, setPosts] = useState(initialPosts);
-  const fetchMostPosts = () => {
-    console.log('FetchingMore Posts');
-  };
+  const {
+    query: { tag = '' }
+  } = useRouter();
+
+  const [posts, hasMore, fetchMorePosts] = usePosts(initialPosts, String(tag));
 
   return (
     <>
@@ -53,11 +55,11 @@ const PostsPage: React.FC<PostsPageProps> = ({ posts: initialPosts = [] }) => {
             <InfiniteScroll
               className="flex flex-wrap justify-start -mx-4"
               dataLength={posts.length}
-              next={fetchMostPosts}
-              hasMore={posts.length < 25}
+              next={fetchMorePosts}
+              hasMore={hasMore}
               loader={null}>
               {posts.map((post) => (
-                <PostTile key={post.id} post={post} />
+                <PostTile key={post.slug} post={post} />
               ))}
             </InfiniteScroll>
           </motion.div>

@@ -23,16 +23,21 @@ export default async (
  * @param param of type {@link GetPostsProps}.
  */
 export async function getPostById(id: string): Promise<Post> {
+  console.log('\nGetting post by id', id);
   const headers = new Headers();
   headers.append('api-key', process.env.DEV_TO_TOKEN);
 
   const url = `https://dev.to/api/articles/${id}`;
 
-  console.debug(url);
+  console.log(url);
 
   const response = await fetch(url, {
     headers
   });
   const post: Post = await response.json();
+
+  // This endpoints give tag_list as string,
+  // So populating it from tags which is an array.
+  post.tag_list = post.tags;
   return post;
 }
