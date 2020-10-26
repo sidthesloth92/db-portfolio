@@ -3,11 +3,11 @@ import { GetStaticPropsResult } from 'next';
 import React, { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import BlogTile from '../../components/blog-tile/BlogTile';
 import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
+import PostTile from '../../components/post-tile/PostTile.component';
 import { Post } from '../../models/Post';
 import { getPosts } from '../api/posts';
 
@@ -74,7 +74,7 @@ const PostsPage: React.FC<PostsPageProps> = ({ posts: initialPosts = [] }) => {
               hasMore={posts.length < 25}
               loader={null}>
               {posts.map((post) => (
-                <BlogTile key={post.id} post={post} />
+                <PostTile key={post.id} post={post} />
               ))}
             </InfiniteScroll>
           </motion.div>

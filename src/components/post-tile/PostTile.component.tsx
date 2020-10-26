@@ -4,19 +4,19 @@ import React, { useRef } from 'react';
 
 import { addCamelCaseKeys } from '../../lib';
 import { Post } from '../../models/Post';
-import s from './BlogTile.module.scss';
+import s from './PostTile.module.scss';
 
 /**
- * Props for {@link BlogTile}.
+ * Props for {@link PostTile}.
  */
-interface BlogTileProps {
+interface PostTileProps {
   post: Post;
 }
 
 /**
  * Tile component to represent each blog post.
  */
-const BlogTile: React.FC<BlogTileProps> = ({ post }) => {
+const PostTile: React.FC<PostTileProps> = ({ post }) => {
   const delay = Math.random() * 1;
   const styles = addCamelCaseKeys(s);
   const ref = useRef(undefined);
@@ -67,7 +67,7 @@ const BlogTile: React.FC<BlogTileProps> = ({ post }) => {
               duration: 0.6
             }
           }}
-          className={`${styles.blogTile} bg-dark-tint shadow-md rounded overflow-hidden hover:border-dark hover:border-8`}>
+          className="bg-dark-tint shadow-md rounded overflow-hidden hover:border-dark hover:border-8`">
           <motion.div
             ref={ref}
             className="relative p-4 transtition duration-100"
@@ -128,4 +128,4 @@ const BlogTile: React.FC<BlogTileProps> = ({ post }) => {
   );
 };
 
-export default BlogTile;
+export default PostTile;
