@@ -75,7 +75,9 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
             onTouchEnd={handleMouseLeave}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}>
-            <Link href={`/posts/${post.id}/${post.slug}`}>
+            <Link
+              href="/posts/[id]/[slug]"
+              as={`/posts/${post.id}/${post.slug}`}>
               <a>
                 <div
                   className={`${styles.textFill} relative text-xl uppercase font-black overflow-hidden`}
@@ -95,7 +97,10 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
               <div>
                 {post.tag_list.map((tag) => {
                   return (
-                    <Link key={tag} href={`/posts/${tag}`}>
+                    <Link
+                      key={tag}
+                      href="/posts/tag/[tag]"
+                      as={`/posts/tag/${tag}`}>
                       <a className="pr-2">#{tag}</a>
                     </Link>
                   );
