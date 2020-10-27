@@ -18,7 +18,8 @@ export const getStaticProps = async (): Promise<
     return {
       props: {
         nuggets
-      }
+      },
+      revalidate: 300
     };
   } catch (e) {
     console.error('Error while fetching getStaticProps nuggets: ', e);
