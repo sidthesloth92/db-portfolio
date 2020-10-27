@@ -180,7 +180,7 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
                   key={tag}
                   href="/posts/tag/[tag]"
                   as={`/posts/tag/${tag}`}>
-                  <a className="pr-2">#{tag}</a>
+                  <a className="ul-hover-effect mr-2">#{tag}</a>
                 </Link>
               );
             })}

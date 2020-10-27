@@ -182,7 +182,7 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget }) => {
                   key={tag}
                   href="/nuggets/tag/[tag]"
                   as={`/nuggets/tag/${tag}`}>
-                  <a className="inline-block pr-2">#{tag}</a>
+                  <a className="inline-block ul-hover-effect mr-2">#{tag}</a>
                 </Link>
               );
             })}
