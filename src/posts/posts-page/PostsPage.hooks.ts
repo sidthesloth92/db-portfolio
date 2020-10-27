@@ -26,7 +26,7 @@ export const usePosts = (
       tag
     });
 
-    const url = `${API_URLS}?${params}`;
+    const url = `${API_URLS.POSTS}?${params}`;
 
     console.log('Fetching more posts', url);
     const response = await fetch(url);
