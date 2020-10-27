@@ -152,7 +152,7 @@ export const getStaticProps = async ({
 /**
  * Represents a page for a single instance of a nugget.
  */
-const NuggetPage: React.FC<NuggetPageProps> = ({ nugget }) => {
+const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
   return (
     <Page>
       <motion.div
