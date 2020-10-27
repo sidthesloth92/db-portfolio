@@ -28,9 +28,7 @@ const ShareSection: React.FC<ShareSectionProps> = ({ tags = [] }) => (
         {tags.map((tag) => {
           return (
             <Link key={tag} href={`/posts/${tag}`}>
-              <a className="ul-hover-effect inline-block pr-2 first:pl-0">
-                #{tag}
-              </a>
+              <a className="ul-hover-effect inline-block mr-2">#{tag}</a>
             </Link>
           );
         })}
