@@ -93,7 +93,9 @@ const getPostsWithTag = async ({ page, per_page, tag }) => {
 
   let posts: Post[] = await response.json();
 
-  posts = posts.filter((post) => post.tag_list.includes(tag));
+  posts = posts.filter((post) => {
+    return post.tag_list.includes(tag) && !post.tag_list.includes('nuggets');
+  });
 
   const start = (+page - 1) * +per_page;
   const end = start + +per_page;
