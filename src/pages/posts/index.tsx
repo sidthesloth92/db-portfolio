@@ -15,7 +15,8 @@ export const getStaticProps = async (): Promise<
     return {
       props: {
         posts
-      }
+      },
+      revalidate: 300
     };
   } catch (e) {
     console.error('Error while fetching getStaticProps posts: ', e);
