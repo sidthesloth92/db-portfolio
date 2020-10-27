@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
@@ -51,36 +52,38 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
         own."
       />
       <PageBody>
-        <motion.table
-          className="table w-full"
-          variants={tableContainerVariants}>
-          <thead className="hidden md:table-header-group">
-            <tr className="text-primary border-b border-dark-light">
-              <th className="w-3/12 p-4 pb-8">Name</th>
-              <th className="w-5/12 p-4 pb-8">Description</th>
-              <th className="w-2/12 p-4 pb-8">Category</th>
-              <th className="w-2/12 p-4 pb-8">Updated</th>
-            </tr>
-          </thead>
+        <motion.div variants={tableContainerVariants}>
+          <div className="hidden md:block">
+            <div className="flex flex-wrap w-full text-primary border-b border-dark-light">
+              <div className="w-3/12 p-4 pb-8">Name</div>
+              <div className="w-5/12 p-4 pb-8">Description</div>
+              <div className="w-2/12 p-4 pb-8">Category</div>
+              <div className="w-2/12 p-4 pb-8">Updated</div>
+            </div>
+          </div>
 
-          <tbody>
+          <InfiniteScroll
+            dataLength={nuggets.length}
+            next={fetchMoreNuggets}
+            hasMore={hasMore}
+            loader={null}>
             {nuggets &&
               nuggets.map((nugget, index) => {
                 return (
-                  <tr
-                    className="flex flex-wrap md:table-row bg-dark-tint md:bg-dark p-2 md:p-0 my-6 lg:my-0 rounded border-b-2 border-secondary-text md:border-b md:border-dark-light "
+                  <div
+                    className="flex flex-wrap w-full items-center md:flex-row bg-dark-tint md:bg-dark p-2 md:p-0 my-6 md:my-0 rounded border-b-2 border-secondary-text md:border-b md:border-dark-light"
                     key={index}>
-                    <td className="w-full md:w-3/12 p-2 md:py-4 md:px-2 lg:p-4 text-secondary-text md:md:text-primary font-bold text-lg">
+                    <div className="w-full md:w-3/12 p-2 md:py-4 md:px-2 lg:p-4 text-secondary-text md:md:text-primary font-bold text-lg">
                       <Link
                         href="/nuggets/[id]/[slug]"
                         as={`/nuggets/${nugget.id}/${nugget.slug}`}>
                         <a className="ul-hover-effect">{nugget.title}</a>
                       </Link>
-                    </td>
-                    <td className="w-full md:w-5/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4">
+                    </div>
+                    <div className="w-full md:w-5/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4">
                       {nugget.description}
-                    </td>
-                    <td className="w-2/3 md:w-2/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4 text-sm text-secondary font-bold  md:text-center">
+                    </div>
+                    <div className="w-2/3 md:w-2/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4 text-sm text-secondary font-bold  md:text-center">
                       {nugget.tag_list &&
                         nugget.tag_list.map((tag) => {
                           return (
@@ -88,21 +91,23 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
                               key={tag}
                               href="/nuggets/tag/[tag]"
                               as={`/nuggets/tag/${tag}`}>
-                              <a className="inline-block pr-2">#{tag}</a>
+                              <a className="inline-block ul-hover-effect mr-2">
+                                #{tag}
+                              </a>
                             </Link>
                           );
                         })}
-                    </td>
-                    <td className="w-1/3 md:w-2/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4 text-sm text-secondary md:text-white md:text-base font-bold md:font-normal md:text-center ">
+                    </div>
+                    <div className="w-1/3 md:w-2/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4 text-sm text-secondary md:text-white md:text-base font-bold md:font-normal md:text-center">
                       {new Date(
                         nugget.published_timestamp
                       ).toLocaleDateString()}
-                    </td>
-                  </tr>
+                    </div>
+                  </div>
                 );
               })}
-          </tbody>
-        </motion.table>
+          </InfiniteScroll>
+        </motion.div>
       </PageBody>
     </Page>
   );
