@@ -138,7 +138,8 @@ export const getStaticProps = async ({
     return {
       props: {
         nugget
-      }
+      },
+      revalidate: 300
     };
   } catch (e) {
     console.error(

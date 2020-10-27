@@ -138,7 +138,8 @@ export const getStaticProps = async ({
     return {
       props: {
         post
-      }
+      },
+      revalidate: 300
     };
   } catch (e) {
     console.error(
