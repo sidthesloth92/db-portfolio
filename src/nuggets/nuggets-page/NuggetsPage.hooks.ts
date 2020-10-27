@@ -26,7 +26,7 @@ export const useNuggets = (
       tag
     });
 
-    const url = `${API_URLS}?${params}`;
+    const url = `${API_URLS.NUGGETS}?${params}`;
 
     console.log('Fetching more nuggets: ', url);
     const response = await fetch(url);
