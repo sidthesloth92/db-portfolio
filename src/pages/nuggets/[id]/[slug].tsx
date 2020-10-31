@@ -12,6 +12,7 @@ import MdContent from '../../../components/md-content/MdContent';
 import PageBody from '../../../components/page-body/PageBody';
 import Page from '../../../components/page/Page';
 import SocialShare from '../../../components/social-share/SocialShare.component';
+import { formatDate } from '../../../lib';
 import { Nugget } from '../../../models/Nugget';
 import ShareSection from '../../../posts/share-section/ShareSection.component';
 import { getNuggets } from '../../api/nuggets';
@@ -167,9 +168,7 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
         <motion.div
           className="font-bold text-lg lg:text-xl text-secondary"
           variants={headerChildrenVariants}>
-          <span>
-            {new Date(nugget.published_timestamp).toLocaleDateString()}
-          </span>
+          <span>{formatDate(nugget.published_timestamp)}</span>
           <span className="px-2">•</span>
           <span>15 mins</span>
         </motion.div>

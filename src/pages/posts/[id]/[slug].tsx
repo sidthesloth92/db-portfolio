@@ -11,6 +11,7 @@ import MdContent from '../../../components/md-content/MdContent';
 import PageBody from '../../../components/page-body/PageBody';
 import Page from '../../../components/page/Page';
 import SocialShare from '../../../components/social-share/SocialShare.component';
+import { formatDate } from '../../../lib';
 import { Post } from '../../../models/Post';
 import RelatedPostsSection from '../../../posts/related-posts-section/RelatedPostsSection.component';
 import ShareSection from '../../../posts/share-section/ShareSection.component';
@@ -167,7 +168,7 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
         <motion.div
           className="font-bold text-lg lg:text-xl text-secondary"
           variants={headerChildrenVariants}>
-          <span>{new Date(post.published_timestamp).toLocaleDateString()}</span>
+          <span>{formatDate(post.published_timestamp)}</span>
           <span className="px-2">•</span>
           <span>15 mins</span>
         </motion.div>

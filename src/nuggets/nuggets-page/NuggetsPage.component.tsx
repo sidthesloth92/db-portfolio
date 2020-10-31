@@ -7,6 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
+import { formatDate } from '../../lib';
 import { NuggetsPageProps } from '../../pages/nuggets';
 import { useNuggets } from './NuggetsPage.hooks';
 
@@ -99,9 +100,7 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
                         })}
                     </div>
                     <div className="w-1/3 md:w-2/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4 text-sm text-secondary md:text-white md:text-base font-bold md:font-normal md:text-center">
-                      {new Date(
-                        nugget.published_timestamp
-                      ).toLocaleDateString()}
+                      {formatDate(nugget.published_timestamp)}
                     </div>
                   </div>
                 );

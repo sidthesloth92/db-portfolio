@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { useRef } from 'react';
 
-import { addCamelCaseKeys } from '../../lib';
+import { addCamelCaseKeys, formatDate } from '../../lib';
 import { Post } from '../../models/Post';
 import s from './PostTile.module.scss';
 
@@ -88,9 +88,7 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
             </Link>
             <div className="text-xs text-secondary font-black mt-2 mb-4">
               <div className="mb-1">
-                <span>
-                  {new Date(post.published_timestamp).toLocaleDateString()}
-                </span>
+                <span>{formatDate(post.published_timestamp)}</span>
                 <span className="px-2">•</span>
                 <span>15 mins</span>
               </div>
