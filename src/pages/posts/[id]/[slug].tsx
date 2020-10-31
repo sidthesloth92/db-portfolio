@@ -10,7 +10,7 @@ import withPageTransition from '../../../components/hoc/with-page-transition';
 import MdContent from '../../../components/md-content/MdContent';
 import PageBody from '../../../components/page-body/PageBody';
 import Page from '../../../components/page/Page';
-import ShareIcons from '../../../components/share-icons/ShareIcons.component';
+import SocialShare from '../../../components/social-share/SocialShare.component';
 import { Post } from '../../../models/Post';
 import RelatedPostsSection from '../../../posts/related-posts-section/RelatedPostsSection.component';
 import ShareSection from '../../../posts/share-section/ShareSection.component';
@@ -189,7 +189,10 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
         <motion.div
           className="flex justify-center"
           variants={headerChildrenVariants}>
-          <ShareIcons />
+          <SocialShare
+            item={post}
+            url={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/posts/${post.id}/${post.slug}`}
+          />
         </motion.div>
       </motion.div>
 
@@ -203,7 +206,7 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
           <MdContent>{post.body_markdown}</MdContent>
         </motion.div>
 
-        <ShareSection tags={post.tag_list} />
+        <ShareSection item={post} />
 
         <RelatedPostsSection />
       </PageBody>

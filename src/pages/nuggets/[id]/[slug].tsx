@@ -11,7 +11,7 @@ import withPageTransition from '../../../components/hoc/with-page-transition';
 import MdContent from '../../../components/md-content/MdContent';
 import PageBody from '../../../components/page-body/PageBody';
 import Page from '../../../components/page/Page';
-import ShareIcons from '../../../components/share-icons/ShareIcons.component';
+import SocialShare from '../../../components/social-share/SocialShare.component';
 import { Nugget } from '../../../models/Nugget';
 import ShareSection from '../../../posts/share-section/ShareSection.component';
 import { getNuggets } from '../../api/nuggets';
@@ -191,7 +191,10 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
         <motion.div
           className="flex justify-center"
           variants={headerChildrenVariants}>
-          <ShareIcons />
+          <SocialShare
+            item={nugget}
+            url={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/nuggets/${nugget.id}/${nugget.slug}`}
+          />
         </motion.div>
       </motion.div>
 
@@ -205,7 +208,7 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
           <MdContent>{nugget.body_markdown}</MdContent>
         </motion.div>
 
-        <ShareSection tags={nugget.tag_list} />
+        <ShareSection item={nugget} />
       </PageBody>
     </Page>
   );
