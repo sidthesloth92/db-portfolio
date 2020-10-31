@@ -51,7 +51,7 @@ const Footer: React.FC = () => (
           <section className="ml-16 md:ml-24">
             <h5 className="text-primary text-2xl mb-2">Say Hi!</h5>
             <div className="-ml-2">
-              <SocialIcons />
+              <SocialIcons className="text-2xl md:text-3xl text-secondary mx-1" />
             </div>
             <h5 className="text-primary text-2xl mt-4">Email Me</h5>
             <div>
