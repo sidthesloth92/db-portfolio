@@ -5,6 +5,8 @@ import javascript from 'react-syntax-highlighter/dist/cjs/languages/hljs/javascr
 import typescript from 'react-syntax-highlighter/dist/cjs/languages/hljs/typescript';
 import monokaiSublime from 'react-syntax-highlighter/dist/cjs/styles/hljs/monokai-sublime';
 
+import IconCopy from '../../icons/Copy';
+
 SyntaxHighlighter.registerLanguage('javascript', javascript);
 SyntaxHighlighter.registerLanguage('typescript', typescript);
 SyntaxHighlighter.registerLanguage('shell', bash);
@@ -46,7 +48,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
           text={code}
           options={{ message: 'Copied to clipboard' }}>
           <span className="cursor-pointer">
-            <img className="w-4 h-4" src="/icons/copy.svg" alt="copy" />
+            <IconCopy className="text-base" />
           </span>
         </CopyToClipboard>
       </div>

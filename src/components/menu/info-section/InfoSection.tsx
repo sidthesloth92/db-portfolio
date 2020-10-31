@@ -55,7 +55,7 @@ const InfoSection: React.FC = () => {
         Dinesh Balaji
       </motion.div>
       <motion.div variants={variants} initial={false}>
-        <SocialIcons />
+        <SocialIcons className="text-2xl md:text-3xl text-secondary m-1 lg:m-2" />
       </motion.div>
     </motion.div>
   );

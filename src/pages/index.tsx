@@ -27,7 +27,7 @@ const Home: React.FC = () => {
               Dinesh Balaji
             </span>
           </h1>
-          <SocialIcons />
+          <SocialIcons className="text-2xl md:text-3xl text-secondary m-1 lg:m-2" />
         </div>
       </div>
     </>
