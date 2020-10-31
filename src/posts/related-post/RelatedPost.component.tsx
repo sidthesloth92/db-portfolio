@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { formatDate } from '../../lib';
 import { Post } from '../../models/Post';
 
 /**
@@ -24,7 +25,7 @@ const RelatedPost: React.FC<{ post: Post }> = ({ post }) => (
     </Link>
     <div className="text-xs text-secondary font-black mt-2">
       <div className="mb-1">
-        <span>{new Date(post.published_timestamp).toLocaleDateString()}</span>
+        <span>{formatDate(post.published_timestamp)}</span>
         <span className="px-2">•</span>
         <span>15 mins</span>
       </div>

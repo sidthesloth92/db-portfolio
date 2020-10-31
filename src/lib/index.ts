@@ -28,3 +28,16 @@ export function roundToEven(val: number): number {
   }
   return val;
 }
+
+/**
+ * Converts any date string to <month> <day>, <year> format.
+ * @param date Any string valid for {@link Date}.
+ */
+export function formatDate(date: string): string {
+  if (date) {
+    const dateString = new Date(date).toDateString();
+    const [_, month, day, year] = dateString.split(' ');
+    return `${day} ${month}, ${year}`;
+  }
+  return '';
+}
