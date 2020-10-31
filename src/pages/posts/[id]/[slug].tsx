@@ -208,7 +208,7 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
 
         <ShareSection item={post} />
 
-        <RelatedPostsSection />
+        <RelatedPostsSection tag={post.tag_list && post.tag_list[0]} />
       </PageBody>
     </Page>
   );
