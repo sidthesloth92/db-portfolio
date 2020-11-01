@@ -5,6 +5,7 @@ import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
+import CodePenSlider from '../../works/components/codepen-slider/CodePenSlider.component';
 import WorksList, {
   WorksListProps
 } from '../../works/components/works-list/WorksList.component';
@@ -39,32 +40,40 @@ const WorksPage: React.FC = () => {
   const openSourceWorksList: WorksListProps = {
     title: 'Open Source',
     description:
-      'I love doing open source stuff in my spare time. These may be stuff that I create or contributions to existing open source projects.',
+      'I love doing open source stuff in my spare time. These are stuff that I have created as OS projects or contributions to existing ones.',
     works: [
       {
-        name: 'HTML Bolierpate - VS Code Plugin',
-        url: 'http://github.com',
-        description: `This is a plugin for the Microsoft Visual Studio Code editor. It has over <span class="text-secondary">750,000 </span> downloads.`
+        name: 'Responsively App',
+        url: 'https://github.com/responsively-org/responsively-app',
+        description: `I am a <span class="text-secondary">core contributor</span> on this project. It has over <span class="text-secondary">8.5k</span> stars on Github. A must have tool for any front end developer.`
       },
       {
-        name: 'HTML Bolierpate - VS Code Plugin',
-        url: 'http://github.com',
-        description: `This is a plugin for the Microsoft Visual Studio Code editor. It has over <span class="text-secondary">750,000 </span> downloads.`
+        name: 'HTML Boilerpate - VS Code Plugin',
+        url:
+          'https://marketplace.visualstudio.com/items?itemName=sidthesloth.html5-boilerplate',
+        description: `This is a plugin for Microsoft's VS Code. It has over <span class="text-secondary">780,000</span> installs.`
       },
       {
-        name: 'HTML Bolierpate - VS Code Plugin',
-        url: 'http://github.com',
-        description: `This is a plugin for the Microsoft Visual Studio Code editor. It has over <span class="text-secondary">750,000 </span> downloads.`
+        name: 'SVG snippets - VS Code Plugin',
+        url:
+          'https://marketplace.visualstudio.com/items?itemName=sidthesloth.svg-snippets',
+        description: `This is a plugin for Microsoft's VS Code. It has over <span class="text-secondary">13.5k </span> installs.`
       },
       {
-        name: 'HTML Bolierpate - VS Code Plugin',
-        url: 'http://github.com',
-        description: `This is a plugin for the Microsoft Visual Studio Code editor. It has over <span class="text-secondary">750,000 </span> downloads.`
+        name: 'Three Finger Tap JS',
+        url: 'https://sidthesloth92.github.io/three-finger-tap-js/index.html',
+        description: `A micro JS library that opens a small window when a link in a webpage is clicked.`
       },
       {
-        name: 'HTML Bolierpate - VS Code Plugin',
-        url: 'http://github.com',
-        description: `This is a plugin for the Microsoft Visual Studio Code editor. It has over <span class="text-secondary">750,000 </span> downloads.`
+        name: 'PM2',
+        url: 'https://pm2.keymetrics.io/',
+        description: `Contribute to pm2 by adding a flag to PM2's CLI.`
+      },
+      {
+        name: 'Firefox Dev Tools',
+        url:
+          'https://github.com/firefox-devtools/devtools-core/commits?author=sidthesloth92',
+        description: `Added a bunch of Jest test cases to the Firefox devtools core repo.`
       }
     ]
   };
@@ -76,14 +85,30 @@ const WorksPage: React.FC = () => {
       props: openSourceWorksList
     },
     {
-      title: 'Blogs',
-      component: WorksList,
-      props: openSourceWorksList
+      title: 'Codepen',
+      component: CodePenSlider,
+      props: {}
     },
     {
-      title: 'Codepen',
+      title: 'Blogs',
       component: WorksList,
-      props: openSourceWorksList
+      props: {
+        title: 'Blogs',
+        description:
+          'I love to write blogs in my free time. Started out with wordpress and then moved to DEV.to. Now, tyring to combine DEV.to and my personal site.',
+        works: [
+          {
+            name: 'https://dbwriteups.wordpress.com',
+            url: 'https://dbwriteups.wordpress.com',
+            description: `This was my first blog and where most of my writings have happened so far and has over <span class="text-secondary">100,000</span> views.`
+          },
+          {
+            name: 'DEV.to',
+            url: 'https://dev.to/sidthesloth92',
+            description: `I started writing here for better SEO and seems it did work out well. It has a lonely post with over <span class="text-secondary">170,000</span> views. Will definitely have to write more.. :D`
+          }
+        ]
+      }
     }
   ];
 
@@ -91,7 +116,7 @@ const WorksPage: React.FC = () => {
     <Page>
       <PageHeader
         title="Works"
-        description="These are some of the stuff I have done over the years. I love to program and at the same time I love to design too.  So I’ve never managed to hit the full stride in either. Neverthless, bear with me."
+        description="These are some of the stuff I have done over the years. I love to program and at the same time I love to design as well. So it'll be kinda all over the place."
       />
       <PageBody>
         <motion.div variants={sliderContainerVariants} className="mt-32">

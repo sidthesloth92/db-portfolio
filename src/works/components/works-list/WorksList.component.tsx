@@ -75,7 +75,7 @@ const WorksList: React.FC<WorksListProps> = ({ description, works = [] }) => (
           <li key={index} className="mb-4">
             <Link href="/">
               <motion.a
-                className="block text-primary text-2xl lg:text-4xl font-bold leading-tight mb-2"
+                className="ul-hover-effect inline-block text-primary text-2xl lg:text-4xl font-bold leading-tight mb-1"
                 variants={sliderContentChildrenVariants}>
                 {works.name}
               </motion.a>
