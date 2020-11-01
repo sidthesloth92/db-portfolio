@@ -64,12 +64,16 @@ const AboutPage: React.FC = () => {
               className="text-base md:text-2xl mb-4"
               variants={aboutInfoVariants}>
               I am a developer and designer from India
-              <span role="img" aria-label="India">
+              <span role="img" aria-label="India" className="ml-1">
                 🇮🇳
               </span>
               . I have a passion for programming and designing. I&apos;d call
               myself a Jack of all trades but master of none. I am addicted to
-              Cats, Ice cream, JS and anything Open Source.
+              Cats,
+              <span role="img" aria-label="ice-cream">
+                🍦
+              </span>
+              , JS and anything Open Source.
             </motion.p>
             <motion.div className="m-auto lg:mx-0" variants={aboutInfoVariants}>
               <SocialIcons className="text-2xl md:text-3xl m-1 lg:m-2" />
@@ -90,42 +94,63 @@ const AboutPage: React.FC = () => {
         <PageBody>
           <PageHeader
             title="Skills"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nemo, dolores magnam, libero provident optio vero ratione maiores alias vitae, enim ab molestiae blanditiis voluptatem exercitationem quibusdam maxime unde fugiat?"
+            description="These are some of the skills that I have picked up alone the way both in professional life and while simply loitering around the web."
           />
           <SkillsSection
             title="Design"
-            spells={['Designing is exactly not a spell.. :)']}
-            wands={['Sketch', 'Figma', 'Zeplin', 'Good Old Pen and Paper']}
+            spells={['Sketch', 'Figma']}
+            wands={['Zeplin', 'Good Old Pen and Paper']}
           />
           <SkillsSection
             theme="secondary"
             title="Frontend"
             spells={[
               'HTML',
+              'Pug',
               'CSS',
+              'SASS/SCSS',
+              'TailwindCSS',
               'JS',
-              'Typescript',
+              'Typescript'
+            ]}
+            wands={[
               'Angular',
               'React',
-              'Sass',
               'Ionic',
               'NextJS',
-              'Jest'
+              'Apollo Client',
+              'Jest',
+              'Capacitor'
             ]}
-            wands={['VS Code', 'Terminal', 'Bitbucket', 'Github']}
           />
           <SkillsSection
             title="Backend"
             spells={[
               'NodeJS',
               'NestJS',
+              'Apollo Server',
               'Express JS',
-              'Spring Boot',
-              'Spring Security',
-              'Go',
-              'No Sql and SQL'
+              'TypeORM',
+              'Spring Boot'
             ]}
-            wands={['VS Code', 'IntelliJ', 'Eclipse']}
+            wands={[
+              'Spring Security',
+              'JPA',
+              'Spring Consul',
+              'Spring Batch',
+              'Go'
+            ]}
+          />
+          <SkillsSection
+            theme="secondary"
+            title="Databases"
+            spells={['MySQL', 'Couchbase']}
+            wands={['MongoDB', 'Redis']}
+          />
+          <SkillsSection
+            title="Tools"
+            spells={['VS Code', 'IntelliJIDEA', 'Sublime', 'Eclipse']}
+            wands={['Terminal', 'Vi', 'Git', 'Atlassian Tool Suite']}
           />
         </PageBody>
       </Page>
