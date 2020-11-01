@@ -4,8 +4,40 @@
   &:nth-child(2),
   &:nth-child(3) {
     div {
-      @apply text-secondary;
       @apply bg-dark-black;
     }
   }
+}
+
+.text-fill {
+  position: relative;
+}
+
+.text-fill-primary::before {
+  color: var(--color-primary);
+}
+
+.text-fill-secondary::before {
+  color: var(--color-secondary);
+}
+
+.text-fill::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  transform: scale(0);
+
+  transition: all 0.4s;
+
+  content: attr(title);
+}
+
+.text-fill:hover::before {
+  transform: scale(1.1);
 }
