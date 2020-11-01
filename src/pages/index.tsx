@@ -12,8 +12,11 @@ import { useLandingPageCanvasEffect } from '../lib/hooks';
  */
 const helpSectionVariants = {
   open: {
-    duration: 0.5,
-    scale: 1
+    scale: 1,
+    transition: {
+      duration: 0.2,
+      ease: 'circOut'
+    }
   },
   closed: {
     scale: 0
@@ -76,7 +79,7 @@ const Home: React.FC = () => {
               Dinesh Balaji
             </span>
           </h1>
-          <SocialIcons className="text-2xl md:text-3xl text-secondary m-1 lg:m-2" />
+          <SocialIcons className="text-2xl md:text-3xl m-1 lg:m-2" />
         </div>
       </div>
     </>

@@ -72,7 +72,7 @@ const AboutPage: React.FC = () => {
               Cats, Ice cream, JS and anything Open Source.
             </motion.p>
             <motion.div className="m-auto lg:mx-0" variants={aboutInfoVariants}>
-              <SocialIcons className="text-2xl md:text-3xl text-secondary m-1 lg:m-2" />
+              <SocialIcons className="text-2xl md:text-3xl m-1 lg:m-2" />
             </motion.div>
           </motion.div>
         </div>
