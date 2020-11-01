@@ -23,6 +23,7 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
         title="Works"
         subTitle={"Things I've done"}
         url="/works"
+        theme="primary"
         onClick={closeMenu}
       />
       <MenuTile
@@ -30,6 +31,7 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
         title="About"
         subTitle={'Get to know me.'}
         url="/about"
+        theme="secondary"
         onClick={closeMenu}
       />
       <MenuTile
@@ -37,6 +39,7 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
         title="Nuggets"
         subTitle={'Micro posts that teaches you something new.'}
         url="/nuggets"
+        theme="secondary"
         onClick={closeMenu}
       />
       <MenuTile
@@ -44,6 +47,7 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
         title="Posts"
         subTitle={'My rumblings about things that excite me.'}
         url="/posts"
+        theme="primary"
         onClick={closeMenu}
       />
     </motion.div>
