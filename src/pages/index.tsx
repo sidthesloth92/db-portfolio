@@ -61,7 +61,7 @@ const Home: React.FC = () => {
             </span>
           </motion.div>
           <IconHelpCircleFilled
-            className="absolute top-0 left-0 text-3xl"
+            className="absolute top-0 left-0 text-3xl cursor-pointer"
             onClick={() => setIsHelpOpen((isHelpOpen) => !isHelpOpen)}
           />
         </motion.div>
