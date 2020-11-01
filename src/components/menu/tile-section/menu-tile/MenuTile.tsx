@@ -66,6 +66,11 @@ interface MenuTileProps {
   url: string;
 
   /**
+   * The theme of the tile.
+   */
+  theme: 'primary' | 'secondary';
+
+  /**
    * Function to be called menu tile is clicked.
    */
   onClick: () => unknown;
@@ -80,6 +85,7 @@ const MenuTile: React.FC<MenuTileProps> = ({
   title,
   subTitle,
   url,
+  theme,
   onClick = () => ({})
 }) => {
   const styles = useMemo(() => addCamelCaseKeys(s), []);
@@ -129,9 +135,14 @@ const MenuTile: React.FC<MenuTileProps> = ({
         initial={'closed'}>
         <Link href={url}>
           <motion.a
-            className="block text-3xl lg:text-5xl font-black uppercase cursor-pointer"
+            className={`${styles.textFill} ${
+              theme === 'primary'
+                ? styles.textFillSecondary
+                : styles.textFillPrimary
+            } text-${theme} block text-3xl lg:text-5xl font-black uppercase cursor-pointer`}
             variants={contentVariants}
             initial={'closed'}
+            title={title}
             onClick={(event) => {
               onClick();
               setTimeout(() => router.push(url), 300);
@@ -141,7 +152,7 @@ const MenuTile: React.FC<MenuTileProps> = ({
           </motion.a>
         </Link>
         <motion.p
-          className="text-base lg:text-xl"
+          className={`text-base text-${theme} lg:text-xl`}
           variants={contentVariants}
           initial={'closed'}>
           {subTitle}
