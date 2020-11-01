@@ -49,7 +49,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
   return (
     <motion.div
       ref={ref}
-      className={`h-full flex justify-center items-center my-20 lg:my-32`}
+      className={`h-full flex justify-center items-center my-20 lg:my-48 last:mb-0`}
       variants={skillSectionVariants}
       initial="closed"
       animate={inView ? 'open' : 'closed'}>
