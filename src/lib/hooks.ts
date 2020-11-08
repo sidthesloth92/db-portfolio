@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 
-import { roundToEven } from '.';
+import { randomBetween, roundToEven } from '.';
 import { Particle } from './particle';
 import { Vector } from './vector';
 
 /**
  * Custom hook used to draw the face vector on about page.
  */
-
 export function useLandingPageCanvasEffect(): void {
   useEffect(() => {
     /**
@@ -540,4 +539,187 @@ export function useDrawFaceOnCanvas(): void {
       limit = 0;
     };
   }, []);
+}
+
+/**
+ * Custom hook for text effect.
+ * @param id The id of the canvas.
+ * @param text The text to be displayed in the canvas.
+ */
+export function useTextEffect(id: string, text: string): void {
+  /**
+   * The default radius of the particle.
+   */
+  const PARTICLE_RADIUS = 1;
+
+  useEffect(() => {
+    setTimeout(() => {
+      const canvas: HTMLCanvasElement = <HTMLCanvasElement>(
+        document.getElementById(id)
+      );
+      const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
+
+      const {
+        width: canvasWidth,
+        height: canvasHeight
+      } = canvas.getBoundingClientRect();
+
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+
+      const halfCanvasWidth = roundToEven(canvasWidth / 2);
+      const halfCanvasHeight = roundToEven(canvasHeight / 2);
+
+      const particleColors = ['#ff2286', '#eefac9'];
+      let textWidth;
+      const textHeight = 200;
+      let textStartX;
+      let textStartY;
+      let data;
+
+      const positions = getTextPixelPositions();
+
+      const springPairs = [];
+      initializeParticles();
+      render();
+
+      function getTextPixelPositions(): Vector[] {
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.strokeStyle = '#ffffff';
+        ctx.font = '140px Nunito Sans';
+
+        textWidth = roundToEven(ctx.measureText(text).width) + 10;
+        textStartX = halfCanvasWidth - textWidth / 2 - 5;
+        textStartY = halfCanvasHeight - textHeight / 2;
+
+        ctx.strokeText(text, textStartX, halfCanvasHeight + 50);
+        const imgData = ctx.getImageData(
+          textStartX,
+          textStartY,
+          textWidth,
+          textHeight
+        );
+
+        data = imgData.data;
+        const pixelPositions = [];
+
+        // Iterate through each pixel data.
+        for (let i = 0, index = 0; i < data.length; i += 4, index++) {
+          const red = data[i];
+          const green = data[i + 1];
+          const blue = data[i + 2];
+
+          // Initial image is black and white. So, we find all black pixels and find their x and y positions
+          // on the canvas.
+          if (red >= 255 && green >= 255 && blue >= 255) {
+            const x = textStartX + (index % textWidth);
+            const y = textStartY + Math.floor(index / textWidth);
+            const position = new Vector(x, y);
+            pixelPositions.push(position);
+          }
+        }
+
+        // We clear the canvas of the original image.
+        // ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        return pixelPositions;
+      }
+
+      /**
+       * Create the particles and spring points based on the pixel positions in the canvas.
+       */
+      function initializeParticles() {
+        for (let i = 0; i < positions.length; i++) {
+          const velocity = new Vector(0, 0);
+          velocity.setAngle(Math.random() * 2 * Math.PI);
+          velocity.setLength(Math.random() * 2 + 1);
+
+          const springPoint = new Particle({
+            radius: 1,
+            position: new Vector(positions[i].x, positions[i].y),
+            velocity
+          });
+
+          let position;
+          const random = Math.random();
+
+          if (random < 0.2) {
+            position = new Vector(
+              Math.random() * canvasWidth,
+              randomBetween(0, -300)
+            );
+          } else if (random < 0.4) {
+            position = new Vector(
+              Math.random() * canvasWidth,
+              randomBetween(canvasHeight, canvasHeight + 300)
+            );
+          } else if (random < 0.6) {
+            position = new Vector(
+              randomBetween(0, -300),
+              Math.random() * canvasHeight
+            );
+          } else {
+            position = new Vector(
+              randomBetween(canvasWidth, canvasWidth + 300),
+              Math.random() * canvasHeight
+            );
+          }
+
+          const particle = new Particle({
+            radius: PARTICLE_RADIUS,
+            position,
+            velocity,
+            friction: 0.8
+          });
+          springPairs.push({
+            particle,
+            springPoint
+          });
+        }
+      }
+
+      /**
+       * Effect to move the particles to their respective points.
+       */
+      function fixedBeeSwarm() {
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+        for (let i = 0; i < springPairs.length; i++) {
+          const { particle, springPoint } = springPairs[i];
+
+          const angle = particle.angleTo(springPoint);
+          particle.updatePosition();
+
+          ctx.fillStyle = particleColors[i % 3];
+
+          particle.render(ctx);
+
+          if (particle.distanceTo(springPoint) < 5) {
+            particle.update = false;
+          }
+
+          particle.screenWrap(canvasWidth, canvasHeight);
+
+          if (Math.random() > 0.2) {
+            particle.velocity.setAngle(angle);
+          } else {
+            particle.velocity.setAngle(Math.random() * 2 * Math.PI);
+          }
+        }
+      }
+
+      /**
+       * Renders the particles on the screen.
+       */
+      function render() {
+        fixedBeeSwarm();
+        requestAnimationFrame(render);
+      }
+
+      return () => {
+        springPairs.length = 0;
+      };
+    }, 1000);
+  }, [id, text]);
 }

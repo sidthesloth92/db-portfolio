@@ -9,12 +9,12 @@ import { Post } from '../../models/Post';
 const RelatedPost: React.FC<{ post: Post }> = ({ post }) => (
   <div
     key={post.slug}
-    className="m-4 first:ml-0 last:mr-0  p-4 bg-dark-tint"
+    className="m-4 first:ml-0 last:mr-0  p-4 bg-dark-tint border-r-4 border-secondary"
     style={{
       minWidth: '280px',
       maxWidth: '280px'
     }}>
-    <Link href={'/posts/[id]'} as={`/posts/${post.id}/${post.slug}`}>
+    <Link href={'/posts/[id]/[slug]'} as={`/posts/${post.id}/${post.slug}`}>
       <a>
         <div
           className={`relative text-lg uppercase font-black text-secondary-text overflow-hidden hover:text-secondary`}
