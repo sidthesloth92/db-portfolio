@@ -4,9 +4,27 @@ import { API_URLS } from '../../constants';
 import RelatedPost from '../related-post/RelatedPost.component';
 
 /**
+ * Props for {@link RelatedPostsSection} component.
+ */
+interface RelatedPostsSectionProps {
+  /**
+   * The tag to fiter posts by.
+   */
+  tag: string;
+
+  /**
+   * Flag to either or hide the title.
+   */
+  showTitle?: boolean;
+}
+
+/**
  * Displays an horizontally scrollable small post tiles.
  */
-const RelatedPostsSection: React.FC<{ tag: string }> = ({ tag }) => {
+const RelatedPostsSection: React.FC<RelatedPostsSectionProps> = ({
+  tag,
+  showTitle = true
+}) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -30,7 +48,7 @@ const RelatedPostsSection: React.FC<{ tag: string }> = ({ tag }) => {
   }, [tag]);
   return (
     <div>
-      <h3 className="text-primary font-bold">Related</h3>
+      {showTitle && <h3 className="text-primary font-bold">Related</h3>}
       <div className="w-full flex overflow-y-hidden">
         {posts.map((post) => (
           <RelatedPost key={post.slug} post={post} />

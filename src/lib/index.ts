@@ -41,3 +41,16 @@ export function formatDate(date: string): string {
   }
   return '';
 }
+
+/**
+ * Generates a random number between a given range.
+ * @param min The start of the range.
+ * @param max The end of the range.
+ */
+export function randomBetween(min: number, max: number): number {
+  const minimum = Math.min(min, max);
+  const maximum = Math.min(min, max);
+  const range = maximum - minimum;
+
+  return minimum + Math.floor(Math.random() * range);
+}
