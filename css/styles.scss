@@ -83,10 +83,8 @@
 }
 
 .ul-hover-effect::after {
-  bottom: -2px;
-
+  bottom: 0;
   height: 2px;
-
   background: currentColor;
   transform: scale(0);
 
