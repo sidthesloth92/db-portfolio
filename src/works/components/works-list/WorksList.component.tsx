@@ -68,7 +68,7 @@ const WorksList: React.FC<WorksListProps> = ({ description, works = [] }) => {
   const onClick = (value) => {
     trackEvent({
       action: 'click',
-      category: 'Navigattion',
+      category: 'Navigation',
       label: 'Works',
       value
     });
