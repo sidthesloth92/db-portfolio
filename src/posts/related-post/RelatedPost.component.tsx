@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import TrackLink from '../../components/track-link/TrackLink';
 import { formatDate } from '../../lib';
 import { Post } from '../../models/Post';
 
@@ -14,7 +15,11 @@ const RelatedPost: React.FC<{ post: Post }> = ({ post }) => (
       minWidth: '280px',
       maxWidth: '280px'
     }}>
-    <Link href={'/posts/[id]/[slug]'} as={`/posts/${post.id}/${post.slug}`}>
+    <TrackLink
+      href={'/posts/[id]/[slug]'}
+      as={`/posts/${post.id}/${post.slug}`}
+      label="Related Post"
+      value={post.slug}>
       <a>
         <div
           className={`relative text-lg uppercase font-black text-secondary-text overflow-hidden hover:text-secondary`}
@@ -22,7 +27,7 @@ const RelatedPost: React.FC<{ post: Post }> = ({ post }) => (
           {post.title}
         </div>
       </a>
-    </Link>
+    </TrackLink>
     <div className="text-xs text-secondary font-black mt-2">
       <div className="mb-1">
         <span>{formatDate(post.published_timestamp)}</span>
