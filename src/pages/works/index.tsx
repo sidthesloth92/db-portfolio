@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 import React from 'react';
 
 import withPageTransition from '../../components/hoc/with-page-transition';
@@ -114,6 +115,9 @@ const WorksPage: React.FC = () => {
 
   return (
     <Page>
+      <Head>
+        <title>Works</title>
+      </Head>
       <PageHeader
         title="Works"
         description="These are some of the stuff I have done over the years. I love to program and at the same time I love to design as well. So it'll be kinda all over the place."

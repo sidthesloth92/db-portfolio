@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -45,6 +46,9 @@ const PostsPage: React.FC<PostsPageProps> = ({ posts: initialPosts = [] }) => {
 
   return (
     <>
+      <Head>
+        <title>Posts {tag && `| ${tag}`}</title>
+      </Head>
       <Page>
         <PageHeader
           title="Posts"

@@ -4,6 +4,7 @@ import {
   GetStaticPathsResult,
   GetStaticPropsResult
 } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
@@ -157,6 +158,9 @@ export const getStaticProps = async ({
 const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
   return (
     <Page>
+      <Head>
+        <title>{nugget.title}</title>
+      </Head>
       <motion.div
         className="text-center mb-8 lg:mb-16 overflow-hidden"
         variants={headerVariants}>
