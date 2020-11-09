@@ -48,7 +48,7 @@ const RelatedPostsSection: React.FC<RelatedPostsSectionProps> = ({
   }, [tag]);
   return (
     <div>
-      {showTitle && <h3 className="text-primary font-bold">Related</h3>}
+      {showTitle && <h2 className="text-primary font-bold">Related</h2>}
       <div className="w-full flex overflow-y-hidden">
         {posts.map((post) => (
           <RelatedPost key={post.slug} post={post} />
