@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import React from 'react';
+
+import { trackEvent } from '../../../lib/ga';
 
 /**
  * Model class for work.
@@ -64,33 +64,48 @@ const sliderContentChildrenVariants = {
  * Constains a list of works including a title and description.
  * @param workListProps Props of type {@link WorksListProps}
  */
-const WorksList: React.FC<WorksListProps> = ({ description, works = [] }) => (
-  <>
-    <motion.p className="text-lg mb-8" variants={sliderContentChildrenVariants}>
-      {description}
-    </motion.p>
-    <ul>
-      {works.map((works, index) => {
-        return (
-          <li key={index} className="mb-4">
-            <Link href="/">
+const WorksList: React.FC<WorksListProps> = ({ description, works = [] }) => {
+  const onClick = (value) => {
+    trackEvent({
+      action: 'click',
+      category: 'Navigattion',
+      label: 'Works',
+      value
+    });
+  };
+
+  return (
+    <>
+      <motion.p
+        className="text-lg mb-8"
+        variants={sliderContentChildrenVariants}>
+        {description}
+      </motion.p>
+      <ul>
+        {works.map((work, index) => {
+          return (
+            <li key={index} className="mb-4">
               <motion.a
+                onClick={() => onClick(work.name)}
+                href={work.url}
+                target="_blank"
+                rel="noreferrer"
                 className="ul-hover-effect inline-block text-primary text-2xl lg:text-4xl font-bold leading-tight mb-1"
                 variants={sliderContentChildrenVariants}>
-                {works.name}
+                {work.name}
               </motion.a>
-            </Link>
-            <motion.p
-              variants={sliderContentChildrenVariants}
-              dangerouslySetInnerHTML={{
-                __html: works.description
-              }}
-            />
-          </li>
-        );
-      })}
-    </ul>
-  </>
-);
+              <motion.p
+                variants={sliderContentChildrenVariants}
+                dangerouslySetInnerHTML={{
+                  __html: work.description
+                }}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+};
 
 export default WorksList;
