@@ -27,11 +27,12 @@ interface SocialShareProps {
  * Displays a list of share icons. Reports to analytics when clicked.
  */
 const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
-  const onClick = (value) => {
+  const onClick = (label, value) => {
     trackEvent({
       action: 'click',
-      category: 'Social Media',
-      label: value
+      category: 'Social Share',
+      label,
+      value
     });
   };
 
@@ -40,7 +41,8 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
       <FacebookShareButton
         url={url}
         quote={item.title}
-        className="inline-block">
+        className="inline-block"
+        onClick={() => onClick('Facebook', item.id)}>
         <FacebookIcon
           size="1em"
           bgStyle={{
@@ -53,7 +55,8 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
         url={url}
         title={item.title}
         via={'sidthesloth92'}
-        className="inline-block">
+        className="inline-block"
+        onClick={() => onClick('Twitter', item.id)}>
         <TwitterIcon
           size="1em"
           bgStyle={{
@@ -67,7 +70,8 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
         title={item.title}
         summary={item.description}
         source={process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}
-        className="inline-block">
+        className="inline-block"
+        onClick={() => onClick('LinkedIn', item.id)}>
         <LinkedinIcon
           size="1em"
           bgStyle={{
@@ -79,7 +83,8 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
       <WhatsappShareButton
         url={url}
         title={item.title}
-        className="inline-block">
+        className="inline-block"
+        onClick={() => onClick('Whatsapp', item.id)}>
         <WhatsappIcon
           size="1em"
           bgStyle={{
@@ -93,7 +98,8 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
         title={item.title}
         tags={item.tag_list}
         caption={item.description}
-        className="inline-block">
+        className="inline-block"
+        onClick={() => onClick('Tumblr', item.id)}>
         <TumblrIcon
           size="1em"
           bgStyle={{
