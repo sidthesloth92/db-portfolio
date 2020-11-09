@@ -24,4 +24,5 @@ export interface Post {
   tag_list: string[];
   canonical_url: string;
   user: Author;
+  readingTime: string;
 }

@@ -161,7 +161,7 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
         className="text-center mb-8 lg:mb-16 overflow-hidden"
         variants={headerVariants}>
         <motion.h1
-          className="font-black text-primary leading-tight mb-2"
+          className="font-black text-primary leading-tight mb-4"
           variants={headerChildrenVariants}>
           {post.title}
         </motion.h1>
@@ -170,7 +170,7 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
           variants={headerChildrenVariants}>
           <span>{formatDate(post.published_timestamp)}</span>
           <span className="px-2">•</span>
-          <span>15 mins</span>
+          <span>{post.readingTime}</span>
         </motion.div>
         <motion.div
           className="text-secondary-text text-md lg:text-lg mb-2 font-bold"

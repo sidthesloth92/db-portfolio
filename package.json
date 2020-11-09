@@ -28,7 +28,8 @@
     "react-intersection-observer": "8.29.1",
     "react-markdown": "4.3.1",
     "react-share": "4.3.1",
-    "react-syntax-highlighter": "15.1.0"
+    "react-syntax-highlighter": "15.1.0",
+    "reading-time": "1.2.0"
   },
   "devDependencies": {
     "@endemolshinegroup/cz-github": "2.0.0",

@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import readingTime from 'reading-time';
 
 import { Post } from '../../../models/Post';
 
@@ -39,5 +40,8 @@ export async function getPostById(id: string): Promise<Post> {
   // This endpoints give tag_list as string,
   // So populating it from tags which is an array.
   post.tag_list = post.tags;
+
+  post.readingTime = readingTime(post.body_markdown).text;
+
   return post;
 }
