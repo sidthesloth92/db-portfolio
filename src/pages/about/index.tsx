@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 import React from 'react';
 
 import withPageTransition from '../../components/hoc/with-page-transition';
@@ -47,6 +48,9 @@ const AboutPage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>About</title>
+      </Head>
       <div className="flex flex-wrap items-center">
         <div className="order-2 lg:order-1 lg:w-1/2 mt-8 lg:mt-0 mb-16">
           <motion.div

@@ -4,6 +4,7 @@ import {
   GetStaticPathsResult,
   GetStaticPropsResult
 } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
 
 import withPageTransition from '../../../components/hoc/with-page-transition';
@@ -157,6 +158,9 @@ export const getStaticProps = async ({
 const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
   return (
     <Page>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
       <motion.div
         className="text-center mb-8 lg:mb-16 overflow-hidden"
         variants={headerVariants}>
