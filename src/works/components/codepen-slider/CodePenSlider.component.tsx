@@ -123,18 +123,21 @@ const CodePenSlider: React.FC = () => {
         on&nbsp;
         <a
           className="ul-hover-effect text-primary"
+          target="_blank"
+          rel="noreferrer"
           href="http://codepen.io/sidthesloth92">
           Codepen
         </a>
         . My pens collectively have over&nbsp;
-        <span className="text-secondary">7000</span>
+        <span className="text-secondary">20566</span>
+        <span role="img" aria-label="views" className="mx-1">
+          👁
+        </span>
+        &apos;s and over <span className="text-secondary">884</span>
         <span role="img" aria-label="heart" className="mx-1">
           ❤️
         </span>
-        and over <span className="text-secondary">10000</span>
-        <span role="img" aria-label="heart" className="mx-1">
-          👍🏻
-        </span>
+        &apos;s.
       </motion.p>
       <div className="flex flex-no-wrap overflow-x-scroll overflow-y-hidden ">
         {pens.map((pen) => {
