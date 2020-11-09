@@ -161,7 +161,7 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
         className="text-center mb-8 lg:mb-16 overflow-hidden"
         variants={headerVariants}>
         <motion.h1
-          className="font-black text-primary mb-2 leading-tight"
+          className="font-black text-primary mb-4 leading-tight"
           variants={headerChildrenVariants}>
           {nugget.title}
         </motion.h1>
@@ -170,7 +170,7 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
           variants={headerChildrenVariants}>
           <span>{formatDate(nugget.published_timestamp)}</span>
           <span className="px-2">•</span>
-          <span>15 mins</span>
+          <span>{nugget.readingTime}</span>
         </motion.div>
         <motion.div
           className="text-secondary-text text-md lg:text-lg mb-2 font-bold"
