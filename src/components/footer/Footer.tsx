@@ -1,6 +1,5 @@
-import Link from 'next/link';
-
 import SocialIcons from '../social-icons/SocialIcons';
+import TrackLink from '../track-link/TrackLink';
 
 const Footer: React.FC = () => (
   <footer className="bg-dark-shade flex justify-center">
@@ -27,24 +26,24 @@ const Footer: React.FC = () => (
             <h5 className="text-primary text-2xl mb-2">Links</h5>
             <ul>
               <li className="my-2">
-                <Link href="/about">
+                <TrackLink href="/about" label="Footer" value="about">
                   <a className="ul-hover-effect">About</a>
-                </Link>
+                </TrackLink>
               </li>
               <li className="my-2">
-                <Link href="/works">
+                <TrackLink href="/works" label="Footer" value="works">
                   <a className="ul-hover-effect">Works</a>
-                </Link>
+                </TrackLink>
               </li>
               <li className="my-2">
-                <Link href="/posts">
+                <TrackLink href="/posts" label="Footer" value="posts">
                   <a className="ul-hover-effect">Posts</a>
-                </Link>
+                </TrackLink>
               </li>
               <li className="my-2">
-                <Link href="/nuggets">
+                <TrackLink href="/nuggets" label="Footer" value="nuggets">
                   <a className="ul-hover-effect">Nuggets</a>
-                </Link>
+                </TrackLink>
               </li>
             </ul>
           </section>
