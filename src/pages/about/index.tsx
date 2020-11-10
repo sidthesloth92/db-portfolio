@@ -98,7 +98,7 @@ const AboutPage: React.FC = () => {
         <PageBody>
           <PageHeader
             title="Skills"
-            description="These are some of the skills that I have picked up alone the way both in professional life and while simply loitering around the web."
+            description="These are some of the skills that I picked up along the way in both professional life and also while simply loitering around the web."
           />
           <SkillsSection
             title="Design"

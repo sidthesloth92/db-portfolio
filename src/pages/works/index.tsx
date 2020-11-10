@@ -96,7 +96,7 @@ const WorksPage: React.FC = () => {
       props: {
         title: 'Blogs',
         description:
-          'I love to write blogs in my free time. Started out with wordpress and then moved to DEV.to. Now, tyring to combine DEV.to and my personal site.',
+          'I love to write blogs in my free time. Started out with wordpress and then moved to DEV.to. Now, trying to combine DEV.to and my personal site.',
         works: [
           {
             name: 'https://dbwriteups.wordpress.com',

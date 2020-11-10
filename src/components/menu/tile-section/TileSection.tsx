@@ -45,7 +45,7 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
       <MenuTile
         direction="top"
         title="Posts"
-        subTitle={'My rumblings about things that excite me.'}
+        subTitle={'My ramblings about things that excite me.'}
         url="/posts"
         theme="primary"
         onClick={closeMenu}

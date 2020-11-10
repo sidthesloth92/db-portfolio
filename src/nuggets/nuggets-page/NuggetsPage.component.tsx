@@ -53,8 +53,7 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
       </Head>
       <PageHeader
         title="Nuggets"
-        description="A collection of copy paste times that do some standalone work on their
-        own."
+        description="Tiny bite-sized posts that teach you something new without taking much time of yours."
       />
       <PageBody>
         <motion.div variants={tableContainerVariants}>

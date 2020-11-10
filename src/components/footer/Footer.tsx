@@ -10,8 +10,7 @@ const Footer: React.FC = () => (
             Dinesh Balaji
           </h5>
           <p>
-            Thank You for visiting my website. Hopefully you learned something
-            new..
+            Thank You for visiting my website. I really appreciate that..
             <span role="img" aria-label="celebrate" aria-labelledby="celebrate">
               🎉
             </span>{' '}
