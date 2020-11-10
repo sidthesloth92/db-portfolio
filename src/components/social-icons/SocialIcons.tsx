@@ -20,36 +20,48 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
   return (
     <div className="flex items-center">
       <a
+        target="_blank"
+        rel="noreferrer"
         href="https://github.com/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Github')}>
         <IconGithub />
       </a>
       <a
+        target="_blank"
+        rel="noreferrer"
         href="https://codepen.io/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Codepen')}>
         <IconCodepen />
       </a>
       <a
+        target="_blank"
+        rel="noreferrer"
         href="https://twitter.com/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Twitter')}>
         <IconTwitter />
       </a>
       <a
+        target="_blank"
+        rel="noreferrer"
         href="https://linkedin.com/in/dineshbalajiv"
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Linkedin')}>
         <IconLinkedin />
       </a>
       <a
+        target="_blank"
+        rel="noreferrer"
         href="https://instagram.com/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Instagram')}>
         <IconInstagram />
       </a>
       <a
+        target="_blank"
+        rel="noreferrer"
         href="https://www.behance.net/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Behance')}>
