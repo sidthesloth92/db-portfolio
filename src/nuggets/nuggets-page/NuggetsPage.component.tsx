@@ -50,6 +50,27 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
     <Page>
       <Head>
         <title>Nuggets {tag && `| ${tag}`}</title>
+
+        <meta
+          property="og:title"
+          content={`Nuggets ${tag ? '| - Tiny posts about' + tag : ''}`}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/nuggets/tag/${
+            tag ? tag : ''
+          }}`}
+        />
+
+        <meta
+          name="twitter:title"
+          content={`Nuggets ${tag ? '| - Tiny posts about' + tag : ''}`}
+        />
+        <meta
+          name="twitter:description"
+          content="Tiny bite-sized posts that teach you something new without taking much time of yours."
+        />
       </Head>
       <PageHeader
         title="Nuggets"

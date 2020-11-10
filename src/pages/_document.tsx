@@ -18,13 +18,29 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content="Dinesh Balaji's portfolio website"
-          />
-          <meta
-            name="keywords"
-            content="HTML, CSS, JavaScript, Portfolio, React, Angular, Next, Web"
+            content="Dinesh Balaji's portfolio and blog where you can get to know about him, what he is upto and pick up a trick or two from his blog posts which are mostly about web development."
           />
           <meta name="author" content="Dinesh Balaji Venkataraj" />
+
+          {/* Open Graph */}
+          <meta
+            property="og:site_name"
+            content={process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}
+          />
+          <meta
+            property="og:image"
+            content={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/img/logo-social.png`}
+          />
+          <meta
+            property="article:author"
+            content="https://twitter.com/sidthesloth92"
+          />
+
+          {/* Twitter Card */}
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@sidthesloth92" />
+
+          {/* Google Analytics */}
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -42,6 +58,7 @@ class MyDocument extends Document {
             }}
           />
 
+          {/* MS Clarity */}
           <script
             dangerouslySetInnerHTML={{
               __html: `

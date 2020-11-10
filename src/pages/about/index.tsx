@@ -49,7 +49,20 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>About</title>
+        <title>About - Get to know me</title>
+
+        <meta property="og:title" content="About - Get to know me" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/about}`}
+        />
+
+        <meta name="twitter:title" content="About - Get to know me" />
+        <meta
+          name="twitter:description"
+          content="These are some of the skills that I picked up along the way in both professional life and also while simply loitering around the web."
+        />
       </Head>
       <div className="flex flex-wrap items-center">
         <div className="order-2 lg:order-1 lg:w-1/2 mt-8 lg:mt-0 mb-16">

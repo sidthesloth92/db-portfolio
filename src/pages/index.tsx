@@ -1,4 +1,4 @@
-import { motion, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Head from 'next/head';
 import React, { useState } from 'react';
 
@@ -33,7 +33,25 @@ const Home: React.FC = () => {
   return (
     <>
       <Head>
-        <title>DB Portfolio</title>
+        <title>Dinesh Balaji&apos;s Portfolio and Blog</title>
+        <meta
+          property="og:title"
+          content="Dinesh Balaji's Portfolio and Blog"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}}`}
+        />
+
+        <meta
+          name="twitter:title"
+          content="Dinesh Balaji's Portfolio and Blog"
+        />
+        <meta
+          name="twitter:description"
+          content="Dinesh Balaji's portfolio and blog where you can get to know about him, what he is upto and pick up a trick or two from his blog posts which are mostly about web development."
+        />
       </Head>
       <div className="home-container w-screen h-screen bg-dark-black flex justify-center items-center -mt-20">
         <motion.div

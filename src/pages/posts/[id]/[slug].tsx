@@ -160,6 +160,15 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
     <Page>
       <Head>
         <title>{post.title}</title>
+        <meta property="og:title" content={post.title} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/posts/${post.id}/${post.slug}`}
+        />
+
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.description} />
       </Head>
       <motion.div
         className="text-center mb-8 lg:mb-16 overflow-hidden"

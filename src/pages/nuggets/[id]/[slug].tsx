@@ -160,6 +160,15 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
     <Page>
       <Head>
         <title>{nugget.title}</title>
+        <meta property="og:title" content={nugget.title} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/nuggets/${nugget.id}/${nugget.slug}`}
+        />
+
+        <meta name="twitter:title" content={nugget.title} />
+        <meta name="twitter:description" content={nugget.description} />
       </Head>
       <motion.div
         className="text-center mb-8 lg:mb-16 overflow-hidden"

@@ -116,7 +116,20 @@ const WorksPage: React.FC = () => {
   return (
     <Page>
       <Head>
-        <title>Works</title>
+        <title>Works - Things I&apos;ve done.</title>
+
+        <meta property="og:title" content="Works - Things I've done." />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/works}`}
+        />
+
+        <meta name="twitter:title" content="Works - Things I've done." />
+        <meta
+          name="twitter:description"
+          content="These are some of the stuff I have done over the years."
+        />
       </Head>
       <PageHeader
         title="Works"

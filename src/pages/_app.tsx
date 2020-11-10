@@ -3,7 +3,6 @@ import '../../css/styles.scss';
 
 import { AnimatePresence } from 'framer-motion';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 

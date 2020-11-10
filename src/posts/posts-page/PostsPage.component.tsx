@@ -47,12 +47,33 @@ const PostsPage: React.FC<PostsPageProps> = ({ posts: initialPosts = [] }) => {
   return (
     <>
       <Head>
-        <title>Posts {tag && `| ${tag}`}</title>
+        <title>Posts {tag && `| - Articles about${tag}`}</title>
+
+        <meta
+          property="og:title"
+          content={`Posts ${tag ? '| - Articles about' + tag : ''}`}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/posts/tag/${
+            tag ? tag : ''
+          }}`}
+        />
+
+        <meta
+          name="twitter:title"
+          content={`Posts ${tag ? '| - Articles about' + tag : ''}`}
+        />
+        <meta
+          name="twitter:description"
+          content="My ramblings about things that exite me. Might take some time to read but will definitely be worth your time."
+        />
       </Head>
       <Page>
         <PageHeader
           title="Posts"
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi doloribus laudantium nostrum cum atque dolores id sitod voluptate."
+          description="My ramblings about things that exite me. Might take some time to read but will definitely be worth your time."
         />
         <PageBody>
           <motion.div variants={postsContainerVariants}>
