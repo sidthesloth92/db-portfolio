@@ -86,7 +86,7 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
         className="inline-block"
         onClick={() => onClick('Whatsapp', item.id)}>
         <WhatsappIcon
-          size="1em"
+          size=".85em"
           bgStyle={{
             fill: 'none'
           }}
