@@ -5,8 +5,7 @@ import { getNuggets } from './nuggets';
 import { getPosts } from './posts';
 
 /**
- * Serverless funciton for /api/posts.
- * Fetches posts from DEV.to with given params.
+ * Serverless function that generate sitemap for the website.
  */
 export default async (
   req: NextApiRequest,
@@ -37,7 +36,7 @@ export default async (
       changefreq: 'daily'
     });
 
-    // List of posts
+    // List of posts.
     const posts = await getPosts({
       page: '1',
       per_page: '100'
@@ -51,7 +50,7 @@ export default async (
       });
     });
 
-    // List of posts
+    // List of nuggets.
     const nuggets = await getNuggets({
       page: '1',
       per_page: '100'
@@ -65,18 +64,18 @@ export default async (
       });
     });
 
-    // End sitemap stream
+    // End sitemap stream.
     smStream.end();
 
-    // XML sitemap string
+    // XML sitemap string.
     const sitemapOutput = (await streamToPromise(smStream)).toString();
 
-    // Change headers
+    // Change headers.
     res.writeHead(200, {
       'Content-Type': 'application/xml'
     });
 
-    // Display output to user
+    // Display output to user.
     res.end(sitemapOutput);
   } catch (e) {
     console.error(e);
