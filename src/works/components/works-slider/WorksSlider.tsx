@@ -66,6 +66,7 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
           exit="exit"
           className="absolute top-0 left-0 w-full h-full">
           <motion.div
+            aria-label="Move to previous slide"
             role="button"
             tabIndex={0}
             className="absolute top-0 left-0 border-l-8 border-t-8 border-secondary"
@@ -75,6 +76,7 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
             variants={sliderPreviousButtonVariants}
           />
           <motion.div
+            aria-label="Move to next slide"
             role="button"
             tabIndex={0}
             className="absolute bottom-0 right-0 border-b-8 border-r-8 border-secondary"

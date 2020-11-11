@@ -23,6 +23,7 @@ const Menu: React.FC = () => {
   return (
     <>
       <button
+        aria-label="Menu"
         className={`${styles.menuButton} fixed z-30`}
         onClick={() => setIsMenuOpen((isMenuOpen) => !isMenuOpen)}>
         <motion.div

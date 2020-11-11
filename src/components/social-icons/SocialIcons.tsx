@@ -20,6 +20,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
   return (
     <div className="flex items-center">
       <a
+        aria-label="View my profile on Github"
         target="_blank"
         rel="noreferrer"
         href="https://github.com/sidthesloth92"
@@ -28,6 +29,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         <IconGithub />
       </a>
       <a
+        aria-label="View my profile on Codepen"
         target="_blank"
         rel="noreferrer"
         href="https://codepen.io/sidthesloth92"
@@ -36,6 +38,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         <IconCodepen />
       </a>
       <a
+        aria-label="View my profile on Twitter"
         target="_blank"
         rel="noreferrer"
         href="https://twitter.com/sidthesloth92"
@@ -44,6 +47,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         <IconTwitter />
       </a>
       <a
+        aria-label="View my profile on Linkedin"
         target="_blank"
         rel="noreferrer"
         href="https://linkedin.com/in/dineshbalajiv"
@@ -52,6 +56,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         <IconLinkedin />
       </a>
       <a
+        aria-label="View my profile on Instagram"
         target="_blank"
         rel="noreferrer"
         href="https://instagram.com/sidthesloth92"
@@ -60,6 +65,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         <IconInstagram />
       </a>
       <a
+        aria-label="View my profile on Behance"
         target="_blank"
         rel="noreferrer"
         href="https://www.behance.net/sidthesloth92"
