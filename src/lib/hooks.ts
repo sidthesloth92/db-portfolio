@@ -60,13 +60,13 @@ export function useLandingPageCanvasEffect(): void {
     );
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
-    canvas.addEventListener('mousedown', handleMouseDown);
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseup', handleMouseUp);
-    canvas.addEventListener('touchstart', handleMouseDown);
-    canvas.addEventListener('touchmove', handleMouseMove);
-    canvas.addEventListener('touchend', handleMouseUp);
-    canvas.addEventListener('dblclick', handleDoubleClick);
+    canvas.addEventListener('mousedown', handleMouseDown, { passive: true });
+    canvas.addEventListener('mousemove', handleMouseMove, { passive: true });
+    canvas.addEventListener('mouseup', handleMouseUp, { passive: true });
+    canvas.addEventListener('touchstart', handleMouseDown, { passive: true });
+    canvas.addEventListener('touchmove', handleMouseMove, { passive: true });
+    canvas.addEventListener('touchend', handleMouseUp, { passive: true });
+    canvas.addEventListener('dblclick', handleDoubleClick, { passive: true });
 
     const {
       width: canvasWidth,
@@ -251,12 +251,12 @@ export function useLandingPageCanvasEffect(): void {
     }
 
     return () => {
-      canvas.addEventListener('mousedown', handleMouseDown);
-      canvas.addEventListener('mousemove', handleMouseMove);
-      canvas.addEventListener('mouseup', handleMouseUp);
-      canvas.addEventListener('touchstart', handleMouseDown);
-      canvas.addEventListener('touchmove', handleMouseMove);
-      canvas.addEventListener('touchend', handleMouseUp);
+      canvas.addEventListener('mousedown', handleMouseDown, { passive: true });
+      canvas.addEventListener('mousemove', handleMouseMove, { passive: true });
+      canvas.addEventListener('mouseup', handleMouseUp, { passive: true });
+      canvas.addEventListener('touchstart', handleMouseDown, { passive: true });
+      canvas.addEventListener('touchmove', handleMouseMove, { passive: true });
+      canvas.addEventListener('touchend', handleMouseUp, { passive: true });
       smallFishes.length = 0;
       foods.length = 0;
       cancelAnimationFrame(animationId);
@@ -309,10 +309,14 @@ export function useDrawFaceOnCanvas(): void {
     );
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('touchstart', handleTouchStartAndEnd);
-    canvas.addEventListener('touchmove', handleMouseMove);
-    canvas.addEventListener('touchEnd', handleTouchStartAndEnd);
+    canvas.addEventListener('mousemove', handleMouseMove, { passive: true });
+    canvas.addEventListener('touchstart', handleTouchStartAndEnd, {
+      passive: true
+    });
+    canvas.addEventListener('touchmove', handleMouseMove, { passive: true });
+    canvas.addEventListener('touchEnd', handleTouchStartAndEnd, {
+      passive: true
+    });
 
     const canvasDimensions = canvas.getBoundingClientRect();
     const { left: canvasStartX, top: canvasStartY } = canvasDimensions;

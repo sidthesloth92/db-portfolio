@@ -3,24 +3,28 @@
 @layer base {
   @font-face {
     font-weight: normal;
+    font-display: swap;
     font-family: 'Adinda Melia';
     src: url('/fonts/adinda-melia.regular.otf');
   }
 
   @font-face {
     font-weight: normal;
+    font-display: swap;
     font-family: 'Nunito Sans';
     src: url('/fonts/NunitoSans-Regular.ttf');
   }
 
   @font-face {
     font-weight: bold;
+    font-display: swap;
     font-family: 'Nunito Sans';
     src: url('/fonts/NunitoSans-Bold.ttf');
   }
 
   @font-face {
     font-weight: 900;
+    font-display: swap;
     font-family: 'Nunito Sans';
     src: url('/fonts/NunitoSans-Black.ttf');
   }
