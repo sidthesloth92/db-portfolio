@@ -1,0 +1,6 @@
+Sitemap: https://dineshbalaji.in/api/sitemap
+
+User-agent: *
+Allow: /*
+
+Disallow: /api/*
