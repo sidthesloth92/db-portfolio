@@ -67,13 +67,13 @@ const PostsPage: React.FC<PostsPageProps> = ({ posts: initialPosts = [] }) => {
         />
         <meta
           name="twitter:description"
-          content="My ramblings about things that exite me. Might take some time to read but will definitely be worth your time."
+          content="My ramblings about things that excite me. Might take some time to read but will definitely be worth your time."
         />
       </Head>
       <Page>
         <PageHeader
           title="Posts"
-          description="My ramblings about things that exite me. Might take some time to read but will definitely be worth your time."
+          description="My ramblings about things that excite me. Might take some time to read but will definitely be worth your time."
         />
         <PageBody>
           <motion.div variants={postsContainerVariants}>
