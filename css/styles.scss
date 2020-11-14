@@ -180,8 +180,11 @@
       @apply mb-4;
       p {
         display: inline;
-        @apply pl-4;
       }
+    }
+
+    li::marker {
+      content: '\2022  ';
     }
   }
 }
