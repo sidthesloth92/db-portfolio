@@ -13,12 +13,7 @@ const PageNotFoundPage: React.FC = () => {
   return (
     <Page>
       <PageBody>
-        <div
-          className="flex justify-center items-center flex-col"
-          style={{
-            minHeight: 'calc(100vh - 80px) '
-          }}>
-          {/* <h1 className="text-8xl font-black text-primary">404</h1> */}
+        <div>
           <canvas
             id="404-canvas"
             style={{
