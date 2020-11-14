@@ -69,8 +69,14 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
             aria-label="Move to previous slide"
             role="button"
             tabIndex={0}
-            className="absolute top-0 left-0 border-l-8 border-t-8 border-secondary"
-            style={{ width: '50px', height: '50px', zIndex: -1 }}
+            className="absolute border-l-4 border-t-4 border-secondary"
+            style={{
+              top: '50%',
+              left: '-20px',
+              width: '30px',
+              height: '30px',
+              zIndex: -1
+            }}
             onClick={() => changeSlide(-1)}
             onKeyPress={() => changeSlide(-1)}
             variants={sliderPreviousButtonVariants}
@@ -79,8 +85,14 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
             aria-label="Move to next slide"
             role="button"
             tabIndex={0}
-            className="absolute bottom-0 right-0 border-b-8 border-r-8 border-secondary"
-            style={{ width: '50px', height: '50px', zIndex: -1 }}
+            className="absolute border-b-4 border-r-4 border-secondary"
+            style={{
+              top: '50%',
+              right: '-20px',
+              width: '30px',
+              height: '30px',
+              zIndex: -1
+            }}
             onClick={() => changeSlide(+1)}
             onKeyPress={() => changeSlide(+1)}
             variants={sliderNextButtonVariants}

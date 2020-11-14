@@ -35,11 +35,11 @@ export const sliderVariants = {
 export const sliderPreviousButtonVariants = {
   initial: {
     opacity: 0,
-    transform: `translate(30%, 30%)`
+    transform: `translate(10%, -50%) rotate(-45deg)`
   },
   enter: {
     opacity: 1,
-    transform: `translate(-40%, -40%)`,
+    transform: `translate(-30%, -50%) rotate(-45deg)`,
     transition: {
       delay: 1.2,
       duration: 1,
@@ -59,11 +59,11 @@ export const sliderPreviousButtonVariants = {
 export const sliderNextButtonVariants = {
   initial: {
     opacity: 0,
-    transform: `translate(-30%, -30%)`
+    transform: `translate(-100%, -50%) rotate(-45deg)`
   },
   enter: {
     opacity: 1,
-    transform: `translate(40%, 40%)`,
+    transform: `translate(20%, -50%) rotate(-45deg)`,
     transition: {
       delay: 1.2,
       duration: 1,
