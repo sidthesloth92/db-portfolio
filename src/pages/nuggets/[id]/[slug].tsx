@@ -135,7 +135,7 @@ export const getStaticProps = async ({
     console.log('\nRunning getStaticProps for nugget with id: ', params.id);
     const nugget = await getNuggetById(params.id);
     nugget.body_markdown = nugget.body_markdown.substring(
-      nugget.body_markdown.indexOf(nugget.description.substring(0, 10))
+      nugget.body_markdown.lastIndexOf(nugget.description.substring(0, 10))
     );
     return {
       props: {

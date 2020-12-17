@@ -138,7 +138,6 @@ export const getStaticProps = async ({
       post.body_markdown.lastIndexOf(post.description.substring(0, 10))
     );
 
-    console.log(post.body_markdown);
     return {
       props: {
         post
