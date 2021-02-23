@@ -80,17 +80,10 @@ const AboutPage: React.FC = () => {
             <motion.p
               className="text-base md:text-2xl mb-4"
               variants={aboutInfoVariants}>
-              I am a developer and designer from India
-              <span role="img" aria-label="India" className="ml-1">
-                🇮🇳
-              </span>
-              . I have a passion for programming and designing. I&apos;d call
-              myself a Jack of all trades but master of none. I am addicted to
-              Cats,
-              <span role="img" aria-label="ice-cream">
-                🍦
-              </span>
-              , JS and anything Open Source.
+              I'm a 3rd-year Computer Science student at the University of Toronto. 
+              Specializing in the entrepreneurial stream, computer science really has grown on me, 
+              and I like learning abstract concepts and the rigorous mathematical reasoning behind them. 
+              Scroll down to see some of my other interests. 
             </motion.p>
             <motion.div className="m-auto lg:mx-0" variants={aboutInfoVariants}>
               <SocialIcons className="text-2xl md:text-3xl m-1 lg:m-2" />
@@ -110,64 +103,42 @@ const AboutPage: React.FC = () => {
       <Page>
         <PageBody>
           <PageHeader
-            title="Skills"
-            description="These are some of the skills that I picked up along the way in both professional life and also while simply loitering around the web."
+            title="Interests"
+            description="I've always been curious and a little adventurous, so I'm into a lot of wildly different things. I spend a lot time watching and reading about these topic, so I've attached some of my favourite YouTube for each."
           />
           <SkillsSection
-            title="Design"
-            spells={['Sketch', 'Figma']}
-            wands={['Zeplin', 'Good Old Pen and Paper']}
-          />
-          <SkillsSection
-            theme="secondary"
-            title="Frontend"
-            spells={[
-              'HTML',
-              'Pug',
-              'CSS',
-              'SASS/SCSS',
-              'TailwindCSS',
-              'JS',
-              'Typescript'
-            ]}
-            wands={[
-              'Angular',
-              'React',
-              'Ionic',
-              'NextJS',
-              'Apollo Client',
-              'Jest',
-              'Capacitor'
-            ]}
-          />
-          <SkillsSection
-            title="Backend"
-            spells={[
-              'NodeJS',
-              'NestJS',
-              'Apollo Server',
-              'Express JS',
-              'TypeORM',
-              'Spring Boot'
-            ]}
-            wands={[
-              'Spring Security',
-              'JPA',
-              'Spring Consul',
-              'Spring Batch',
-              'Go'
-            ]}
+            title="Zoology"
+            spells={['Killer Whales Beaching Themsevles', 'Lions vs Hyenas']}
+            wands={['Cute Dogs', 'Cute Cats', "Cute Bears"]}
           />
           <SkillsSection
             theme="secondary"
-            title="Databases"
-            spells={['MySQL', 'Couchbase']}
-            wands={['MongoDB', 'Redis']}
+            title="History"
+            spells={[
+              "Napoleon's rise",
+              "Caesar's rise",
+              "Alexander The Great's story",
+              "The Prince"
+            ]}
+            wands={[
+              'Greatest Raid of All Time',
+              "Nepal's Communist Revolution",
+              "Margaret Thatcher's Life"
+            ]}
           />
           <SkillsSection
-            title="Tools"
-            spells={['VS Code', 'IntelliJIDEA', 'Sublime', 'Eclipse']}
-            wands={['Terminal', 'Vi', 'Git', 'Atlassian Tool Suite']}
+            title="Philosophy And Life"
+            spells={[
+              'Sadhguru on Seriousness',
+              "Steve Job's on experinces",
+              "Buddhism"
+            ]}
+            wands={[
+              
+              "Logical Reason to Love Yourself",
+              'Stephen Fry on Confidence',
+              'Importance of Being Active',
+            ]}
           />
         </PageBody>
       </Page>
