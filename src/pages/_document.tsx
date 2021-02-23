@@ -33,12 +33,12 @@ class MyDocument extends Document {
           />
           <meta
             property="article:author"
-            content="https://twitter.com/sidthesloth92"
+            content="https://twitter.com/hiimgoogle"
           />
 
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@sidthesloth92" />
+          <meta name="twitter:site" content="@hiimgoogle" />
 
           {/* Google Analytics */}
           <script

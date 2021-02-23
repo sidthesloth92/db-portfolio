@@ -54,7 +54,7 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
       <TwitterShareButton
         url={url}
         title={item.title}
-        via={'sidthesloth92'}
+        via={'hiimgoogle'}
         className="inline-block"
         onClick={() => onClick('Twitter', item.id)}>
         <TwitterIcon
