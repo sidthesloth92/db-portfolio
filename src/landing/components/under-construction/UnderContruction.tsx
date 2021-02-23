@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 
 import { addCamelCaseKeys } from '../../../lib';
 import s from './UnderConstruction.module.scss';
+import { motion } from 'framer-motion';
 
 /**
  * The under construction animation on the landing page.
@@ -39,6 +40,11 @@ const UnderConstruction: React.FC = () => {
           <div className={styles.keyboard}></div>
         </div>
       </div>
+
+      <motion.h5
+          className="text-center title text-secondary text-3xl md:text-5xl font-black leading-none mb-24">
+          Sorry, Under Construction :/
+        </motion.h5>
     </>
   );
 };
