@@ -73,7 +73,7 @@ export function useLandingPageCanvasEffect(): void {
 
     setTimeout(function() {
       started = false;
-    }, 45000);
+    }, 47000);
 
     //canvas.addEventListener('mousedown', handleMouseDown, { passive: true });
     //canvas.addEventListener('mouseup', handleMouseUp, { passive: true });
@@ -138,7 +138,7 @@ export function useLandingPageCanvasEffect(): void {
         let attractedFood = false;
 
         // Attract to mouse pointer only if not attracted to food to avoid deadlock.
-        if (!attractedFood && mouseX && mouseY && i % 2 == 0) {
+        if (!attractedFood && mouseX && mouseY) {
           const mousePoint = new Particle({
             radius: 1,
             position: new Vector(mouseX, mouseY)
@@ -156,15 +156,15 @@ export function useLandingPageCanvasEffect(): void {
         } else {
           let randomSeed = Math.random();
           let randomBias = 0;
-          if (i % 2 == 0 && started) {
+          if ( started) {
             if (0 <= randomSeed && randomSeed <= 0.005) {
               randomBias = (1 - randomSeed) * Math.PI/2;
-            } else if (0.01 < randomSeed && randomSeed <= 0.015) {
-              randomBias = -0.5 * (1 - randomSeed) * Math.PI/2;
+            } else if (0.005 < randomSeed && randomSeed <= 0.01) {
+              randomBias = -1 * (1 - randomSeed) * Math.PI/2;
             }
             currentSmallFishAngle = currentSmallFishAngle + randomBias
           } else {
-            currentSmallFishAngle = currentSmallFishAngle*1.04
+            currentSmallFishAngle = currentSmallFishAngle*1.03
           }
           
           
