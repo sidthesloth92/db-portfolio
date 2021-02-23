@@ -18,9 +18,9 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content="Dinesh Balaji's portfolio and blog where you can get to know about him, what he is upto and pick up a trick or two from his blog posts which are mostly about web development."
+            content="Anand Karki's portfolio and blog where you can get to know about him, what he is upto and pick up a trick or two from his blog posts which are mostly about web development."
           />
-          <meta name="author" content="Dinesh Balaji Venkataraj" />
+          <meta name="author" content="Anand Karki" />
 
           {/* Open Graph */}
           <meta

@@ -74,7 +74,7 @@ const AboutPage: React.FC = () => {
                 Hi! I&apos;m
               </span>
               <span className="text-5xl md:text-5xl lg:text-6xl font-cursive text-primary">
-                Dinesh Balaji
+              Anand Karki
               </span>
             </motion.div>
             <motion.p

@@ -33,10 +33,10 @@ const Home: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Dinesh Balaji&apos;s Portfolio and Blog</title>
+        <title>Anand Karki&apos;s Portfolio and Blog</title>
         <meta
           property="og:title"
-          content="Dinesh Balaji's Portfolio and Blog"
+          content="Anand Karki's Portfolio and Blog"
         />
         <meta property="og:type" content="website" />
         <meta
@@ -46,11 +46,11 @@ const Home: React.FC = () => {
 
         <meta
           name="twitter:title"
-          content="Dinesh Balaji's Portfolio and Blog"
+          content="Anand Karki's Portfolio and Blog"
         />
         <meta
           name="twitter:description"
-          content="Dinesh Balaji's portfolio and blog where you can get to know about him, what he is upto and pick up a trick or two from his blog posts which are mostly about web development."
+          content="Anand Karki's portfolio and blog where you can get to know about him, what he is upto and pick up a trick or two from his blog posts which are mostly about web development."
         />
       </Head>
       <div className="home-container w-screen h-screen bg-dark-black flex justify-center items-center -mt-20">
@@ -94,7 +94,7 @@ const Home: React.FC = () => {
           <h1 className="text-2xl md:text-3xl lg:text-4xl">
             Hi, I&apos;m
             <span className="font-cursive text-4xl md:text-6xl lg:text-8xl text-primary">
-              Dinesh Balaji
+              Anand Karki
             </span>
           </h1>
           <SocialIcons className="text-2xl md:text-3xl m-1 lg:m-2" />

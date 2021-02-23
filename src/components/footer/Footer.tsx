@@ -7,7 +7,7 @@ const Footer: React.FC = () => (
       <div className="flex flex-wrap w-full justify-between mb-4">
         <section className="w-full sm:w-4/12 mb-8 sm:mb-0">
           <h1 className="text-primary font-cursive text-2xl mb-4">
-            Dinesh Balaji
+            Anand Karki
           </h1>
           <p>
             Thank You for visiting my website. I really appreciate that..
@@ -69,7 +69,7 @@ const Footer: React.FC = () => (
           <span className="align-middle text-lg" role="img" aria-label="coding">
             &nbsp;❤️&nbsp;
           </span>
-          by <span className="text-primary font-cursive">Dinesh Balaji</span>
+          by <span className="text-primary font-cursive">Anand Karki</span>
         </p>
       </div>
     </div>
