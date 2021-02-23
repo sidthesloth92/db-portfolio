@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { trackEvent } from '../../../lib/ga';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 /**
  * Model class for work.
@@ -77,33 +78,54 @@ const WorksList: React.FC<WorksListProps> = ({ description, works = [] }) => {
   return (
     <>
       <motion.p
-        className="text-lg mb-8"
+        className="text-lg"
+        style={{ textAlign: "center" }}
         variants={sliderContentChildrenVariants}>
-        {description}
+
+        <motion.p
+          className="text-secondary text-3xl lg:text-5xl font-bold leading-tight mb-1 mr-2">
+          {"Who"}
+        </motion.p>
+        MPAC valuates all of the properties in Ontario. They deal with an enormous amount of data. 
+
+        <motion.p
+          className="text-secondary text-3xl lg:text-5xl font-bold leading-tight mb-1 mt-4 mr-2">
+          {"What"}
+        </motion.p>
+        I got to spend 8 months with an amazing team working on applications that processed business requests. 
+        <motion.p
+          className="text-secondary text-3xl lg:text-5xl font-bold leading-tight mb-1 mt-4 mr-2">
+          {"Technologies"}
+        </motion.p>
       </motion.p>
-      <ul>
-        {works.map((work, index) => {
-          return (
-            <li key={index} className="mb-4">
-              <motion.a
-                onClick={() => onClick(work.name)}
-                href={work.url}
-                target="_blank"
-                rel="noreferrer"
-                className="ul-hover-effect inline-block text-primary text-2xl lg:text-4xl font-bold leading-tight mb-1"
-                variants={sliderContentChildrenVariants}>
-                {work.name}
-              </motion.a>
-              <motion.p
-                variants={sliderContentChildrenVariants}
-                dangerouslySetInnerHTML={{
-                  __html: work.description
-                }}
-              />
-            </li>
-          );
-        })}
-      </ul>
+
+      <InfiniteScroll
+        className="flex flex-wrap justify-start -mx-4"
+        dataLength={works.length}
+        next={() => console.log('helo')}
+        hasMore={false}
+        loader={null}
+        style={{ margin: "auto", padding: '1rem', paddingTop: "0rem" }}
+        >
+            {works.map((work,index) => (
+              <div className={`my-2 ml-2 p-2 pr-3`}>
+                <motion.a
+                  onClick={() => onClick(work.name)}
+                  href={work.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ul-hover-effect inline-block text-primary text-3xl lg:text-5xl font-bold leading-tight mb-1"
+                  variants={sliderContentChildrenVariants}>
+                  {work.name}
+                </motion.a>
+                <motion.p
+                  variants={sliderContentChildrenVariants}
+                  dangerouslySetInnerHTML={{
+                    __html: work.description
+                  }}
+                />
+              </div>))}
+      </InfiniteScroll>
     </>
   );
 };

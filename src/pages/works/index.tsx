@@ -40,7 +40,7 @@ const WorksPage: React.FC = () => {
   const openSourceWorksList: WorksListProps = {
     title: 'MPAC',
     description:
-      'My first internship. MPAC evaluates all of the properties in Ontario. They deal with an enormous amount of data. I got to spend 8 months with an amazing team working on applications that processed business requests. Here are some technologies I got to learn and use:',
+      'My first internship. MPAC valuates all of the properties in Ontario. They deal with an enormous amount of data. I got to spend 8 months with an amazing team working on applications that processed business requests. Here are some technologies I got to learn and use:',
     works: [
       {
         name: 'React',
@@ -73,7 +73,22 @@ const WorksPage: React.FC = () => {
         name: 'AWS',
         url: 'https://aws.amazon.com/',
         description: ``
-      }
+      },
+      {
+        name: 'Gitlab CI/CD',
+        url: 'https://docs.gitlab.com/ee/ci/',
+        description: ``
+      },
+      {
+        name: 'JIRA',
+        url: 'https://www.atlassian.com/software/jira',
+        description: ``
+      },
+      {
+        name: 'Flowable',
+        url: 'https://flowable.com/',
+        description: ``
+      },
     ]
   };
 
