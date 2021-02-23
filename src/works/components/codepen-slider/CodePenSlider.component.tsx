@@ -125,7 +125,7 @@ const CodePenSlider: React.FC = () => {
           className="ul-hover-effect text-primary"
           target="_blank"
           rel="noreferrer"
-          href="http://codepen.io/sidthesloth92">
+          href="http://codepen.io/hiimgoogle">
           Codepen
         </a>
         . My pens collectively have over&nbsp;
@@ -164,7 +164,7 @@ const CodePenSlider: React.FC = () => {
                 }}
                 scrolling="no"
                 title="Simple CSS Loader"
-                src={`https://codepen.io/sidthesloth92/embed/preview/${pen.id}?height=300&theme-id=dark&default-tab=result`}
+                src={`https://codepen.io/hiimgoogle/embed/preview/${pen.id}?height=300&theme-id=dark&default-tab=result`}
                 allowFullScreen
               />
             </div>
