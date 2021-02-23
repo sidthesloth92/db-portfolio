@@ -6,7 +6,6 @@ import withPageTransition from '../../components/hoc/with-page-transition';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
 import Page from '../../components/page/Page';
-import CodePenSlider from '../../works/components/codepen-slider/CodePenSlider.component';
 import WorksList, {
   WorksListProps
 } from '../../works/components/works-list/WorksList.component';
@@ -39,77 +38,50 @@ const sliderContainerVariants = {
  */
 const WorksPage: React.FC = () => {
   const openSourceWorksList: WorksListProps = {
-    title: 'Open Source',
+    title: 'MPAC',
     description:
-      'I love doing open source stuff in my spare time. These are stuff that I have created as OS projects or contributions to existing ones.',
+      'My first internship. MPAC evaluates all of the properties in Ontario. They deal with an enormous amount of data. I got to spend 8 months with an amazing team working on applications that processed business requests. Here are some technologies I got to learn and use:',
     works: [
       {
-        name: 'Responsively App',
-        url: 'https://github.com/responsively-org/responsively-app',
-        description: `I am a <span class="text-secondary">core contributor</span> on this project. It has over <span class="text-secondary">8.5k</span> stars on Github. A must have tool for any front end developer.`
+        name: 'React',
+        url: 'https://reactjs.org/',
+        description: ``
       },
       {
-        name: 'HTML Boilerpate - VS Code Plugin',
+        name: 'Redux Saga',
+        url: 'https://redux-saga.js.org/',
+        description: ``
+      },
+      {
+        name: 'Spring',
         url:
-          'https://marketplace.visualstudio.com/items?itemName=sidthesloth.html5-boilerplate',
-        description: `This is a plugin for Microsoft's VS Code. It has over <span class="text-secondary">780,000</span> installs.`
+          'https://spring.io/',
+        description: ``
       },
       {
-        name: 'SVG snippets - VS Code Plugin',
+        name: 'Flask',
         url:
-          'https://marketplace.visualstudio.com/items?itemName=sidthesloth.svg-snippets',
-        description: `This is a plugin for Microsoft's VS Code. It has over <span class="text-secondary">13.5k </span> installs.`
+          'https://flask.palletsprojects.com/en/1.1.x/',
+        description: ``
       },
       {
-        name: 'Three Finger Tap JS',
-        url: 'https://sidthesloth92.github.io/three-finger-tap-js/index.html',
-        description: `A micro JS library that opens a small window when a link in a webpage is clicked.`
+        name: 'Angular',
+        url: 'https://angular.io/',
+        description: ``
       },
       {
-        name: 'PM2',
-        url: 'https://pm2.keymetrics.io/',
-        description: `Contribute to pm2 by adding a flag to PM2's CLI.`
-      },
-      {
-        name: 'Firefox Dev Tools',
-        url:
-          'https://github.com/firefox-devtools/devtools-core/commits?author=sidthesloth92',
-        description: `Added a bunch of Jest test cases to the Firefox devtools core repo.`
+        name: 'AWS',
+        url: 'https://aws.amazon.com/',
+        description: ``
       }
     ]
   };
 
   const worksSliderItems: WorkSliderItem[] = [
     {
-      title: 'Open Source',
+      title: 'MPAC',
       component: WorksList,
       props: openSourceWorksList
-    },
-    {
-      title: 'Codepen',
-      component: CodePenSlider,
-      props: {}
-    },
-    {
-      title: 'Blogs',
-      component: WorksList,
-      props: {
-        title: 'Blogs',
-        description:
-          'I love to write blogs in my free time. Started out with wordpress and then moved to DEV.to. Now, trying to combine DEV.to and my personal site.',
-        works: [
-          {
-            name: 'https://dbwriteups.wordpress.com',
-            url: 'https://dbwriteups.wordpress.com',
-            description: `This was my first blog and where most of my writings have happened so far and has over <span class="text-secondary">100,000</span> views.`
-          },
-          {
-            name: 'DEV.to',
-            url: 'https://dev.to/sidthesloth92',
-            description: `I started writing here for better SEO and seems it did work out well. It has a lonely post with over <span class="text-secondary">170,000</span> views. Will definitely have to write more.. :D`
-          }
-        ]
-      }
     }
   ];
 
@@ -133,7 +105,7 @@ const WorksPage: React.FC = () => {
       </Head>
       <PageHeader
         title="Works"
-        description="These are some of the stuff I have done over the years. I love to program and at the same time I love to design as well. So it'll be kinda all over the place."
+        description="These are places I've worked at. Still early into my career, so there's not a whole lot of places but you can bet your bottom dollar there will be more soon."
       />
       <PageBody>
         <motion.div variants={sliderContainerVariants} className="mt-32">
