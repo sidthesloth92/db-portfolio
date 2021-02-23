@@ -4,6 +4,8 @@ import { randomBetween, roundToEven } from '.';
 import { Particle } from './particle';
 import { Vector } from './vector';
 
+var started = false;
+
 /**
  * Custom hook used to draw the face vector on about page.
  */
@@ -36,7 +38,7 @@ export function useLandingPageCanvasEffect(): void {
       /**
        * The distance to which the small fish are attracted to mouse pointer.
        */
-      MOUSE_ATTRACTION_RADIUS: 100
+      MOUSE_ATTRACTION_RADIUS: 1000
     };
 
     /**
@@ -60,13 +62,31 @@ export function useLandingPageCanvasEffect(): void {
     );
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
-    canvas.addEventListener('mousedown', handleMouseDown, { passive: true });
-    canvas.addEventListener('mousemove', handleMouseMove, { passive: true });
-    canvas.addEventListener('mouseup', handleMouseUp, { passive: true });
+
+    if (canvas.getAttribute('listener') !== 'true') {
+      setTimeout(function() {
+        canvas.addEventListener('mouseover', handleMouseDown, { passive: true });
+      canvas.addEventListener('mousemove', handleMouseMove, { passive: true });
+      }, 5000);
+      
+    }
+
+    setTimeout(function() {
+      started = false;
+    }, 45000);
+
+    //canvas.addEventListener('mousedown', handleMouseDown, { passive: true });
+    //canvas.addEventListener('mouseup', handleMouseUp, { passive: true });
+    const interval = setInterval(function() {
+      // method to be executed;
+      handleMouseUp();
+    }, 25000);
+   
+
     canvas.addEventListener('touchstart', handleMouseDown, { passive: true });
     canvas.addEventListener('touchmove', handleMouseMove, { passive: true });
     canvas.addEventListener('touchend', handleMouseUp, { passive: true });
-    canvas.addEventListener('dblclick', handleDoubleClick, { passive: true });
+    //canvas.addEventListener('dblclick', handleDoubleClick, { passive: true });
 
     const {
       width: canvasWidth,
@@ -115,31 +135,10 @@ export function useLandingPageCanvasEffect(): void {
 
         let currentSmallFishAngle = smallFish.velocity.angle;
 
-        let attractedFood;
-
-        // For each food particle.
-        for (let fi = 0, closestFoodDistance = 20000; fi < foods.length; fi++) {
-          const distanceToFood = foods[fi].distanceTo(smallFish);
-
-          // If the food is within the food attraction raidus.
-          if (distanceToFood < SMALL_FISH.FOOD_ATTRACTION_RADIUS) {
-            // If the distance to the current food is less than an already known distance to food,
-            // then make it as the attracted food since it is the closest. Closest food is always
-            // consumed first.
-            if (distanceToFood < closestFoodDistance) {
-              closestFoodDistance = distanceToFood;
-              attractedFood = foods[fi];
-            } else if (distanceToFood - closestFoodDistance < 1) {
-              // This is for a case where deadlock might happen between to food particles at same distance.
-              // In that case we take the first one in the food array.
-              attractedFood = foods[fi];
-              break;
-            }
-          }
-        }
+        let attractedFood = false;
 
         // Attract to mouse pointer only if not attracted to food to avoid deadlock.
-        if (!attractedFood && mouseX && mouseY) {
+        if (!attractedFood && mouseX && mouseY && i % 2 == 0) {
           const mousePoint = new Particle({
             radius: 1,
             position: new Vector(mouseX, mouseY)
@@ -152,31 +151,29 @@ export function useLandingPageCanvasEffect(): void {
           ) {
             // Set the fish's angle to point to the mouse point.
             currentSmallFishAngle = smallFish.angleTo(mousePoint);
+            started = true
           }
+        } else {
+          let randomSeed = Math.random();
+          let randomBias = 0;
+          if (i % 2 == 0 && started) {
+            if (0 <= randomSeed && randomSeed <= 0.005) {
+              randomBias = (1 - randomSeed) * Math.PI/2;
+            } else if (0.01 < randomSeed && randomSeed <= 0.015) {
+              randomBias = -0.5 * (1 - randomSeed) * Math.PI/2;
+            }
+            currentSmallFishAngle = currentSmallFishAngle + randomBias
+          } else {
+            currentSmallFishAngle = currentSmallFishAngle*1.04
+          }
+          
+          
+           
         }
 
-        // If the fish is within attraction distance to a food.
-        if (attractedFood) {
-          // Find the angle of the fish to the food.
-          currentSmallFishAngle = smallFish.angleTo(attractedFood);
-
-          // If the fish has reached the food, remove the food from the food array.
-          if (
-            Math.trunc(attractedFood.position.x) ==
-              Math.trunc(smallFish.position.x) &&
-            Math.trunc(attractedFood.position.y) ==
-              Math.trunc(smallFish.position.y)
-          ) {
-            const index = foods.indexOf(attractedFood);
-            foods.splice(index, 1);
-          }
-        }
 
         // Add some randomess to avoid straight line movement to the food.
-        const nextSmallFishAngle =
-          Math.random() > 0.5
-            ? currentSmallFishAngle + 0.2
-            : currentSmallFishAngle - 0.2;
+        const nextSmallFishAngle = currentSmallFishAngle;
 
         smallFish.velocity.setAngle(nextSmallFishAngle);
         smallFish.updatePosition();
@@ -186,12 +183,6 @@ export function useLandingPageCanvasEffect(): void {
         smallFish.render(ctx);
 
         smallFish.screenWrap(canvasWidth, canvasHeight);
-      }
-
-      // Render food particles.
-      for (let i = 0; i < foods.length; i++) {
-        ctx.fillStyle = FOOD_COLOR;
-        foods[i].render(ctx);
       }
 
       animationId = requestAnimationFrame(render);
@@ -230,25 +221,10 @@ export function useLandingPageCanvasEffect(): void {
      */
     function handleMouseUp() {
       mouseX = mouseY = undefined;
+      canvas.removeEventListener('mousemove', handleMouseMove, { capture: false });
+      canvas.removeEventListener("mouseover", handleMouseDown, { capture: false }); 
     }
 
-    /**
-     * Handles doubletap events on the canvas.
-     * Create a new food particle at the touch location.
-     */
-    function handleDoubleClick() {
-      for (let i = 0; i < FOOD_DROP_COUNT; i++) {
-        const food = new Particle({
-          radius: 1,
-          position: new Vector(
-            Math.random() * canvasWidth,
-            Math.random() * canvasHeight
-          )
-        });
-
-        foods.push(food);
-      }
-    }
 
     return () => {
       canvas.addEventListener('mousedown', handleMouseDown, { passive: true });

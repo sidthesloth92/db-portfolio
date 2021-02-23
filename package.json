@@ -49,7 +49,6 @@
     "eslint-plugin-react": "7.21.3",
     "eslint-plugin-react-hooks": "4.1.2",
     "eslint-plugin-simple-import-sort": "5.0.3",
-    "husky": "4.3.0",
     "lint-staged": "10.4.0",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-import": "12.0.1",
@@ -68,12 +67,6 @@
   "config": {
     "commitizen": {
       "path": "@endemolshinegroup/cz-github"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
