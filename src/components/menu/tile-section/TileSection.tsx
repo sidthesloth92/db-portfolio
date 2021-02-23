@@ -20,8 +20,8 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
     <motion.div className="lg:w-1/2 h-3/5 lg:h-full flex flex-wrap">
       <MenuTile
         direction="bottom"
-        title="Works"
-        subTitle={"Things I've done."}
+        title="Experience"
+        subTitle={"Places I've worked."}
         url="/works"
         theme="primary"
         onClick={closeMenu}
@@ -36,16 +36,16 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
       />
       <MenuTile
         direction="right"
-        title="Nuggets"
-        subTitle={'Bite sized posts that teach you something new.'}
+        title="Clubs"
+        subTitle={`Organizations that I'm a part of.`}
         url="/nuggets"
         theme="secondary"
         onClick={closeMenu}
       />
       <MenuTile
         direction="top"
-        title="Posts"
-        subTitle={'My ramblings about things that excite me.'}
+        title="Projects"
+        subTitle={`Some things I've worked on.`}
         url="/posts"
         theme="primary"
         onClick={closeMenu}
