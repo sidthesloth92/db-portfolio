@@ -35,7 +35,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
         className="pt-20"
         style={{
           maxWidth: '100vw',
-          width: '100vw',
+          // width: '99.9vw',
           overflow: 'hidden'
         }}>
         <AnimatePresence initial={false} exitBeforeEnter>
