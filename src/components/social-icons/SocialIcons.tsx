@@ -23,25 +23,16 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         aria-label="View my profile on Github"
         target="_blank"
         rel="noreferrer"
-        href="https://github.com/sidthesloth92"
+        href="https://github.com/karkonium"
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Github')}>
         <IconGithub />
       </a>
       <a
-        aria-label="View my profile on Codepen"
-        target="_blank"
-        rel="noreferrer"
-        href="https://codepen.io/sidthesloth92"
-        className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Codepen')}>
-        <IconCodepen />
-      </a>
-      <a
         aria-label="View my profile on Twitter"
         target="_blank"
         rel="noreferrer"
-        href="https://twitter.com/sidthesloth92"
+        href="https://twitter.com/hiimgoogle"
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Twitter')}>
         <IconTwitter />
@@ -50,28 +41,10 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         aria-label="View my profile on Linkedin"
         target="_blank"
         rel="noreferrer"
-        href="https://linkedin.com/in/dineshbalajiv"
+        href="https://linkedin.com/in/anand-karki"
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Linkedin')}>
         <IconLinkedin />
-      </a>
-      <a
-        aria-label="View my profile on Instagram"
-        target="_blank"
-        rel="noreferrer"
-        href="https://instagram.com/sidthesloth92"
-        className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Instagram')}>
-        <IconInstagram />
-      </a>
-      <a
-        aria-label="View my profile on Behance"
-        target="_blank"
-        rel="noreferrer"
-        href="https://www.behance.net/sidthesloth92"
-        className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Behance')}>
-        <IconBehance />
       </a>
     </div>
   );

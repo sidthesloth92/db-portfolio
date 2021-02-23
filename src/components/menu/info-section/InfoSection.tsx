@@ -52,7 +52,7 @@ const InfoSection: React.FC = () => {
         className="font-cursive text-5xl lg:text-6xl text-primary mt-4 lg:mt-16"
         variants={variants}
         initial={false}>
-        Dinesh Balaji
+        Anand Karki
       </motion.div>
       <motion.div variants={variants} initial={false}>
         <SocialIcons className="text-2xl md:text-3xl m-1 lg:m-2" />
