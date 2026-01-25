@@ -4,20 +4,20 @@
 export const contentVariants = {
   initial: {
     opacity: 0,
-    transform: 'translateX(100px)'
+    x: '100px'
   },
   enter: {
     opacity: 1,
-    transform: 'translateX(0px)',
+    x: '0px',
     transition: {
       delay: 0.2,
-      type: 'spring',
+      type: 'spring' as const,
       bounce: 0,
       damping: 20
     }
   },
   exit: {
-    transform: 'translateX(-5%)',
+    x: '-5%',
     transition: {
       duration: 0.6
     }
@@ -35,7 +35,7 @@ export const enterFillerVariants = {
     transform: 'scaleX(0)',
     transition: {
       duration: 0.6,
-      ease: [0.25, 1, 0.5, 1]
+      ease: [0.25, 1, 0.5, 1] as const
     }
   }
 };
@@ -54,7 +54,7 @@ export const exitFillerVariants = {
     transform: 'scaleX(1)',
     transition: {
       duration: 0.6,
-      ease: [0.65, 0, 0.35, 1]
+      ease: [0.65, 0, 0.35, 1] as const
     }
   }
 };
@@ -86,6 +86,6 @@ export const pathVariants = {
   },
   exit: {
     pathLength: 1,
-    transition: { duration: 0.7, ease: [0.65, 0, 0.35, 1] }
+    transition: { duration: 0.7, ease: [0.65, 0, 0.35, 1] as const }
   }
 };

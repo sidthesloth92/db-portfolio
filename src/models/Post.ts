@@ -25,4 +25,5 @@ export interface Post {
   canonical_url: string;
   user: Author;
   readingTime: string;
+  readable_publish_date: string;
 }

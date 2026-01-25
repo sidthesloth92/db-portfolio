@@ -41,14 +41,14 @@ const headerVariants = {
 export const headerChildrenVariants = {
   initial: {
     opacity: 0,
-    transform: 'translateY(50%)'
+    y: '50%'
   },
   enter: {
     opacity: 1,
-    transform: 'translateY(0%)',
+    y: '0%',
     transition: {
       duration: 0.8,
-      ease: 'easeOut'
+      ease: 'easeOut' as const
     }
   }
 };
@@ -67,7 +67,7 @@ const hrVariants = {
     transition: {
       delay: 1.2,
       duration: 1,
-      ease: 'easeOut'
+      ease: 'easeOut' as const
     }
   }
 };
@@ -78,15 +78,15 @@ const hrVariants = {
 const postContentVariants = {
   initial: {
     opacity: 0,
-    transform: 'translateY(2%)'
+    y: '2%'
   },
   enter: {
     opacity: 1,
-    transform: 'translateY(0%)',
+    y: '0%',
     transition: {
       delay: 1.2,
       duration: 1,
-      ease: 'easeOut'
+      ease: 'easeOut' as const
     }
   }
 };
@@ -156,7 +156,10 @@ export const getStaticProps = async ({
 /**
  * Represents the page for an instance of a blog post.
  */
-const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
+const PostPage: React.FC<PostPageProps> = ({ post }) => {
+  if (!post || !post.title) {
+    return null;
+  }
   return (
     <Page>
       <Head>
@@ -189,13 +192,14 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
         <motion.div
           className="text-secondary-text text-md lg:text-lg mb-2 font-bold"
           variants={headerChildrenVariants}>
-          {post.tag_list &&
+          {Array.isArray(post.tag_list) &&
             post.tag_list.map((tag) => {
               return (
                 <Link
                   key={tag}
                   href="/posts/tag/[tag]"
-                  as={`/posts/tag/${tag}`}>
+                  as={`/posts/tag/${tag}`}
+                  legacyBehavior>
                   <a className="ul-hover-effect mr-2">#{tag}</a>
                 </Link>
               );

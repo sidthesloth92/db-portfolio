@@ -56,7 +56,7 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
     <motion.div
       className="relative m-auto sm:mt-24 lg:mt-32"
       style={{ height: '70vh', width: 'calc(100% - 40px)', minHeight: '70vh' }}>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         <motion.div
           key={item.title}
           custom={direction}
@@ -69,13 +69,13 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
             aria-label="Move to previous slide"
             role="button"
             tabIndex={0}
-            className="absolute border-l-4 border-t-4 border-secondary"
+            className="absolute border-l-4 border-t-4 border-secondary cursor-pointer"
             style={{
               top: '50%',
               left: '-20px',
               width: '30px',
               height: '30px',
-              zIndex: -1
+              zIndex: 10
             }}
             onClick={() => changeSlide(-1)}
             onKeyPress={() => changeSlide(-1)}
@@ -85,13 +85,13 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
             aria-label="Move to next slide"
             role="button"
             tabIndex={0}
-            className="absolute border-b-4 border-r-4 border-secondary"
+            className="absolute border-b-4 border-r-4 border-secondary cursor-pointer"
             style={{
               top: '50%',
               right: '-20px',
               width: '30px',
               height: '30px',
-              zIndex: -1
+              zIndex: 10
             }}
             onClick={() => changeSlide(+1)}
             onKeyPress={() => changeSlide(+1)}
@@ -112,7 +112,6 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
             </motion.div>
           </motion.div>
         </motion.div>
-        );
       </AnimatePresence>
     </motion.div>
   );

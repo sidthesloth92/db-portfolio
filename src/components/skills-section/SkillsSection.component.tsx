@@ -46,6 +46,20 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
   theme = 'primary'
 }) => {
   const [ref, inView] = useInView({ triggerOnce: true });
+
+  const themeClasses = {
+    primary: {
+      border: 'border-primary',
+      text: 'text-primary',
+      bg: 'bg-primary'
+    },
+    secondary: {
+      border: 'border-secondary',
+      text: 'text-secondary',
+      bg: 'bg-secondary'
+    }
+  };
+
   return (
     <motion.div
       ref={ref}
@@ -54,15 +68,15 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
       initial="closed"
       animate={inView ? 'open' : 'closed'}>
       <div
-        className={`relative w-full border-4 border-${theme} flex justify-center lg:justify-end items-center pt-16 pb-8 lg:py-16`}>
+        className={`relative w-full border-4 ${themeClasses[theme].border} flex justify-center lg:justify-end items-center pt-16 pb-8 lg:py-16`}>
         <motion.div
           variants={headerVariants}
           style={{ left: '5%' }}
-          className={`absolute top-0 text-4xl lg:text-6xl font-black bg-dark text-${theme} overflow-hidden px-1 py-1`}>
+          className={`absolute top-0 text-4xl lg:text-6xl font-black bg-dark ${themeClasses[theme].text} overflow-hidden px-1 py-1`}>
           {title}
           <motion.div
             variants={headerContentVariants}
-            className={`absolute top-0 left-0 text-4xl lg:text-6xl text-dark bg-${theme} h-full overflow-hidden px-1 py-1`}>
+            className={`absolute top-0 left-0 text-4xl lg:text-6xl text-dark ${themeClasses[theme].bg} h-full overflow-hidden px-1 py-1`}>
             {title}
           </motion.div>
         </motion.div>

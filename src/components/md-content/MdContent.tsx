@@ -6,9 +6,20 @@ import CodeSnippet from '../code-snippet/CodeSnippet';
 /**
  * Renderers for the {@link ReactMarkdown} component.
  */
-const renderers = {
-  code: function CS({ language, value }) {
-    return <CodeSnippet language={language} code={value} />;
+const components = {
+  code({ node, inline, className, children, ...props }: any) {
+    const match = /language-(\w+)/.exec(className || '');
+    return !inline && match ? (
+      <CodeSnippet
+        language={match[1] as any}
+        code={String(children).replace(/\n$/, '')}
+        {...props}
+      />
+    ) : (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    );
   }
 };
 
@@ -16,14 +27,13 @@ const renderers = {
  * Renders markdown as HTML using {@link ReactMarkdown}
  * @param children Markdown content to be rendered.
  */
-const MdContent: React.FC = ({ children }) => {
+const MdContent: React.FC<React.PropsWithChildren<any>> = ({ children }) => {
   return (
-    <ReactMarkdown
-      className="md-content"
-      renderers={renderers}
-      linkTarget="_blank">
-      {children}
-    </ReactMarkdown>
+    <div className="md-content">
+      <ReactMarkdown components={components as any}>
+        {children as string}
+      </ReactMarkdown>
+    </div>
   );
 };
 

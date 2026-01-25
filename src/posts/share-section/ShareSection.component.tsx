@@ -34,10 +34,10 @@ const ShareSection: React.FC<ShareSectionProps> = ({ item = {} }) => {
       <div className="w-full md:w-1/2 py-4 pr-4">
         <h2 className="text-primary font-bold mb-2">Tags</h2>
         <div className="text-secondary-text font-bold">
-          {item.tag_list &&
+          {Array.isArray(item.tag_list) &&
             item.tag_list.map((tag) => {
               return (
-                <Link key={tag} href={`/posts/${tag}`}>
+                <Link key={tag} href={`/posts/${tag}`} legacyBehavior>
                   <a className="ul-hover-effect inline-block mr-2">#{tag}</a>
                 </Link>
               );

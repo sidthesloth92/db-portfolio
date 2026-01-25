@@ -1,9 +1,12 @@
-@import 'tailwindcss/base';
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
 
 @layer base {
   @font-face {
     font-weight: normal;
     font-display: swap;
+
     font-family: 'Adinda Melia';
     src: url('/fonts/adinda-melia.regular.otf');
   }
@@ -11,6 +14,7 @@
   @font-face {
     font-weight: normal;
     font-display: swap;
+
     font-family: 'Nunito Sans';
     src: url('/fonts/NunitoSans-Regular.ttf');
   }
@@ -18,6 +22,7 @@
   @font-face {
     font-weight: bold;
     font-display: swap;
+
     font-family: 'Nunito Sans';
     src: url('/fonts/NunitoSans-Bold.ttf');
   }
@@ -25,6 +30,7 @@
   @font-face {
     font-weight: 900;
     font-display: swap;
+
     font-family: 'Nunito Sans';
     src: url('/fonts/NunitoSans-Black.ttf');
   }
@@ -88,7 +94,9 @@
 
 .ul-hover-effect::after {
   bottom: 0;
+
   height: 2px;
+
   background: currentColor;
   transform: scale(0);
 
@@ -103,9 +111,6 @@
   transform: scale(1);
 }
 
-@import 'tailwindcss/components';
-
-@import 'tailwindcss/utilities';
 
 /* Styling for the MdContent Component */
 .md-content {

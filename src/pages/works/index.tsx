@@ -20,16 +20,16 @@ import WorksSlider, {
 const sliderContainerVariants = {
   initial: {
     opacity: 0,
-    transform: 'translateY(100%)'
+    y: '100%'
   },
   enter: {
     opacity: 1,
-    transform: 'translateY(0px)',
+    y: '0px',
     transition: {
       when: 'beforeChildren',
       delay: 0.6,
       duration: 1,
-      ease: 'easeOut'
+      ease: 'easeOut' as const
     }
   }
 };

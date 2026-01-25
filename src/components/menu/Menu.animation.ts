@@ -7,7 +7,7 @@ export const navVariants = {
     scale: 1,
     transition: {
       duration: 0.8,
-      ease: [0.65, 0, 0.35, 1],
+      ease: [0.65, 0, 0.35, 1] as const,
       when: 'beforeChildren'
     }
   },
@@ -16,7 +16,7 @@ export const navVariants = {
     scale: 0.8,
     transition: {
       duration: 0.5,
-      ease: [0.5, 0, 0.75, 0]
+      ease: [0.5, 0, 0.75, 0] as const
     }
   }
 };
@@ -34,10 +34,10 @@ export const menuButtonVariants = {
  */
 export const barOneVariants = {
   open: {
-    transform: 'rotate(45deg)'
+    rotate: '45deg'
   },
   closed: {
-    transform: 'rotate(0deg)'
+    rotate: '0deg'
   }
 };
 
@@ -46,11 +46,11 @@ export const barOneVariants = {
  */
 export const barTwoVariants = {
   open: {
-    transform: 'rotate(-45deg)',
+    rotate: '-45deg',
     width: '36px'
   },
   closed: {
-    transform: 'rotate(0deg)',
+    rotate: '0deg',
     width: '40px'
   }
 };
@@ -60,11 +60,11 @@ export const barTwoVariants = {
  */
 export const barThreeVariants = {
   open: {
-    transform: 'rotate(45deg)',
+    rotate: '45deg',
     marginLeft: '15px'
   },
   closed: {
-    transform: 'rotate(0deg)',
+    rotate: '0deg',
     marginLeft: '20px'
   }
 };

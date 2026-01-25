@@ -21,6 +21,10 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
   const styles = addCamelCaseKeys(s);
   const ref = useRef(undefined);
 
+  if (!post) {
+    return null;
+  }
+
   const handleMouseMove = (event) => {
     let x, y;
 
@@ -52,7 +56,7 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
         exit={{
           transition: {
             duration: 0.3,
-            ease: 'circIn'
+            ease: 'circIn' as const
           },
           scale: 0
         }}>
@@ -77,7 +81,8 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
             onMouseLeave={handleMouseLeave}>
             <Link
               href="/posts/[id]/[slug]"
-              as={`/posts/${post.id}/${post.slug}`}>
+              as={`/posts/${post.id}/${post.slug}`}
+              legacyBehavior>
               <a>
                 <div
                   className={`${styles.textFill} relative text-xl uppercase font-black overflow-hidden`}
@@ -93,13 +98,14 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
                 <span>15 mins</span>
               </div>
               <div>
-                {post.tag_list &&
+                {Array.isArray(post.tag_list) &&
                   post.tag_list.map((tag) => {
                     return (
                       <Link
                         key={tag}
                         href="/posts/tag/[tag]"
-                        as={`/posts/tag/${tag}`}>
+                        as={`/posts/tag/${tag}`}
+                        legacyBehavior>
                         <a className="ul-hover-effect mr-2">#{tag}</a>
                       </Link>
                     );
@@ -123,7 +129,7 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
             transition: {
               delay,
               duration: 1.5,
-              ease: 'easeInOut'
+              ease: 'easeInOut' as const
             }
           }}
         />

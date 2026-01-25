@@ -5,25 +5,28 @@ export const sliderVariants = {
   initial: (direction: number): any => {
     const initialTranslate = direction > 0 ? 100 : -100;
     return {
-      transform: `translate(${initialTranslate}%, ${initialTranslate}%)`
+      x: `${initialTranslate}%`,
+      y: `${initialTranslate}%`
     };
   },
   enter: {
-    transform: `translate(0%, 0%)`,
+    x: '0%',
+    y: '0%',
     transition: {
       duration: 0.6,
-      ease: [0.79, -0.01, 0, 0.99],
+      ease: [0.79, -0.01, 0, 0.99] as const,
       when: 'beforeChildren'
     }
   },
   exit: (direction: number): any => {
     const initialTranslate = direction < 0 ? 100 : -100;
     return {
-      transform: `translate(${initialTranslate}%, ${initialTranslate}%)`,
+      x: `${initialTranslate}%`,
+      y: `${initialTranslate}%`,
       transition: {
         delay: 0.7,
         duration: 0.6,
-        ease: [0.79, -0.01, 0, 0.99]
+        ease: [0.79, -0.01, 0, 0.99] as const
       }
     };
   }
@@ -35,15 +38,19 @@ export const sliderVariants = {
 export const sliderPreviousButtonVariants = {
   initial: {
     opacity: 0,
-    transform: `translate(10%, -50%) rotate(-45deg)`
+    x: '10%',
+    y: '-50%',
+    rotate: '-45deg'
   },
   enter: {
     opacity: 1,
-    transform: `translate(-30%, -50%) rotate(-45deg)`,
+    x: '-30%',
+    y: '-50%',
+    rotate: '-45deg',
     transition: {
       delay: 1.2,
       duration: 1,
-      type: 'spring',
+      type: 'spring' as const,
       repeat: Infinity,
       repeatDelay: 3
     }
@@ -59,15 +66,19 @@ export const sliderPreviousButtonVariants = {
 export const sliderNextButtonVariants = {
   initial: {
     opacity: 0,
-    transform: `translate(-100%, -50%) rotate(-45deg)`
+    x: '-100%',
+    y: '-50%',
+    rotate: '-45deg'
   },
   enter: {
     opacity: 1,
-    transform: `translate(20%, -50%) rotate(-45deg)`,
+    x: '20%',
+    y: '-50%',
+    rotate: '-45deg',
     transition: {
       delay: 1.2,
       duration: 1,
-      type: 'spring',
+      type: 'spring' as const,
       repeat: Infinity,
       repeatDelay: 3
     }
@@ -84,25 +95,28 @@ export const sliderHeaderVariants = {
   initial: {
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)'
+    x: '-50%',
+    y: '-50%'
   },
   enter: {
     top: '0%',
     left: '50%',
-    transform: `translate(-50%, -50%)`,
+    x: '-50%',
+    y: '-50%',
     transition: {
       delay: 0.2,
       duration: 0.6,
-      ease: [0.79, -0.01, 0, 0.99]
+      ease: [0.79, -0.01, 0, 0.99] as const
     }
   },
   exit: {
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
+    x: '-50%',
+    y: '-50%',
     transition: {
       duration: 0.6,
-      ease: [0.79, -0.01, 0, 0.99]
+      ease: [0.79, -0.01, 0, 0.99] as const
     }
   }
 };
@@ -120,14 +134,14 @@ export const sliderContentContainerVariants = {
       when: 'beforeChildren',
       delay: 0.2,
       duration: 0.6,
-      ease: [0.79, -0.01, 0, 0.99]
+      ease: [0.79, -0.01, 0, 0.99] as const
     }
   },
   exit: {
     scale: 0,
     transition: {
       duration: 0.6,
-      ease: [0.79, -0.01, 0, 0.99]
+      ease: [0.79, -0.01, 0, 0.99] as const
     }
   }
 };

@@ -16,15 +16,21 @@ interface TrackLinkProps extends LinkProps {
    * The value for GA tracking.
    */
   value?: string;
+
+  /**
+   * Optional class name.
+   */
+  className?: string;
 }
 
 /**
  * HOC for NextJS's link that reports to Google analytics.
  * @param param Props of type {@link TrackLinkProps}.
  */
-const TrackLink: React.FC<TrackLinkProps> = ({
+const TrackLink: React.FC<React.PropsWithChildren<TrackLinkProps>> = ({
   label,
   value = '',
+  children,
   ...rest
 }) => {
   const onClick = () => {
@@ -37,13 +43,9 @@ const TrackLink: React.FC<TrackLinkProps> = ({
   };
 
   return (
-    <div
-      role="link"
-      tabIndex={-1}
-      onClick={() => onClick()}
-      onKeyPress={() => onClick()}>
-      <Link {...rest} />
-    </div>
+    <Link {...rest} onClick={onClick}>
+      {children}
+    </Link>
   );
 };
 
