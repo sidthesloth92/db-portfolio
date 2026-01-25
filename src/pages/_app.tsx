@@ -14,7 +14,7 @@ import { trackPageView } from '../lib/ga';
 /**
  * This is the root page that envelops the page being navigated to.
  */
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   const router = useRouter();
 
   useEffect(() => {
@@ -37,9 +37,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           maxWidth: '100vw',
           width: '100vw',
           overflow: 'hidden'
-        }}
-      >
-        <AnimatePresence initial={false} mode="wait">
+        }}>
+        <AnimatePresence initial={false} exitBeforeEnter>
           <Component key={router.asPath} {...pageProps} one={'one'} />
         </AnimatePresence>
         {router.pathname.length > 1 && <Footer />}

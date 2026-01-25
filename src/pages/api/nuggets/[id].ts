@@ -7,7 +7,7 @@ import { getPostById } from '../posts/[id]';
  * Serverless funciton for /api/nuggets.
  * Fetches articles from DEV.to with given params.
  */
-const handler = async (
+export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -18,8 +18,6 @@ const handler = async (
     res.status(500).send('Internal Server Error.');
   }
 };
-
-export default handler;
 
 /**
  * Retrieves the article from DEV.to with the given id.

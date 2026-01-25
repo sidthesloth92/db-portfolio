@@ -7,25 +7,17 @@ import { Post } from '../../../models/Post';
  * Serverless funciton for /api/posts.
  * Fetches posts from DEV.to with given params.
  */
-const handler = async (
+export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
   try {
-    const { id } = req.query;
-    if (!id || Array.isArray(id)) {
-      res.status(400).send('Invalid post ID.');
-      return;
-    }
-
-    const post = await getPostById(id);
+    const post = await getPostById('');
     res.status(200).json(post);
   } catch (e) {
     res.status(500).send('Internal Server Error.');
   }
 };
-
-export default handler;
 
 /**
  * Retrieves a list of articles from DEV.to for matching query params.
@@ -44,11 +36,6 @@ export async function getPostById(id: string): Promise<Post> {
     headers
   });
   const post: Post = await response.json();
-
-  if (!post || (post as any).error) {
-    console.error('getPostById: Expected post but received:', post);
-    return null;
-  }
 
   // This endpoints give tag_list as string,
   // So populating it from tags which is an array.

@@ -55,9 +55,8 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
   return (
     <motion.div
       className="relative m-auto sm:mt-24 lg:mt-32"
-      style={{ height: '70vh', width: 'calc(100% - 40px)', minHeight: '70vh' }}
-    >
-      <AnimatePresence mode="wait">
+      style={{ height: '70vh', width: 'calc(100% - 40px)', minHeight: '70vh' }}>
+      <AnimatePresence exitBeforeEnter>
         <motion.div
           key={item.title}
           custom={direction}
@@ -65,8 +64,7 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
           initial="initial"
           animate="enter"
           exit="exit"
-          className="absolute top-0 left-0 w-full h-full"
-        >
+          className="absolute top-0 left-0 w-full h-full">
           <motion.div
             aria-label="Move to previous slide"
             role="button"
@@ -101,18 +99,15 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
           />
           <motion.div
             className="absolute text-4xl lg:text-6xl font-black text-dark bg-secondary px-4 py-2 transform z-10 text-center"
-            variants={sliderHeaderVariants}
-          >
+            variants={sliderHeaderVariants}>
             {item.title}
           </motion.div>
           <motion.div
             className="w-full h-full flex flex-col px-4 lg:px-8 pt-16 lg:pt-24 pb-4 lg:pb-8 border-4 transform origin-center border-secondary bg-dark-shade"
-            variants={sliderContentContainerVariants}
-          >
+            variants={sliderContentContainerVariants}>
             <motion.div
               className="h-full overflow-scroll"
-              variants={sliderContentVariants}
-            >
+              variants={sliderContentVariants}>
               <item.component {...item.props} />
             </motion.div>
           </motion.div>

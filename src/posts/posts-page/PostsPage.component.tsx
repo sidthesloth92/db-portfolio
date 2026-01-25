@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import Page from '../../components/page/Page';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
+import Page from '../../components/page/Page';
 import PostTile from '../../components/post-tile/PostTile.component';
 import { Post } from '../../models/Post';
 import { usePosts } from './PostsPage.hooks';
@@ -82,8 +82,7 @@ const PostsPage: React.FC<PostsPageProps> = ({ posts: initialPosts = [] }) => {
               dataLength={posts.length}
               next={fetchMorePosts}
               hasMore={hasMore}
-              loader={null}
-            >
+              loader={null}>
               {posts.map((post) => (
                 <PostTile key={post.slug} post={post} />
               ))}

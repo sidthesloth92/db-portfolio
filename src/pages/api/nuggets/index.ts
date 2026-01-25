@@ -6,7 +6,7 @@ import { Nugget } from '../../../models/Nugget';
  * Serverless funciton for /api/nuggets.
  * Fetches nuggets from DEV.to with given params.
  */
-const handler = async (
+export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -22,8 +22,6 @@ const handler = async (
     res.status(500).send('Internal Server Error.');
   }
 };
-
-export default handler;
 
 /**
  * Props for {@link getNuggets}.
@@ -51,7 +49,7 @@ interface GetNuggetsProps {
  */
 export async function getNuggets({
   page = '1',
-  per_page = process.env.NUGGETS_PER_PAGE || '10',
+  per_page = process.env.NUGGETS_PER_PAGE,
   tag = ''
 }: GetNuggetsProps = {}): Promise<Nugget[]> {
   console.log('Getting nuggets: ', page, per_page, tag);
@@ -72,11 +70,6 @@ export async function getNuggets({
   });
 
   let nuggets: Nugget[] = await response.json();
-
-  if (!Array.isArray(nuggets)) {
-    console.error('getNuggets: Expected array but received:', nuggets);
-    return [];
-  }
 
   nuggets = nuggets.filter((nugget) => {
     return (

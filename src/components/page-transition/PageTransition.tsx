@@ -12,17 +12,14 @@ import {
  * Component that add page transtions to a page.
  * @param children The child page to be rendered.
  */
-export const PageTransition: React.FC<React.PropsWithChildren> = ({
-  children
-}) => {
+export const PageTransition: React.FC = ({ children }) => {
   return (
     <>
       <motion.div
         variants={contentVariants}
         initial="initial"
         animate="enter"
-        exit="exit"
-      >
+        exit="exit">
         {children}
       </motion.div>
       <motion.div
@@ -50,8 +47,7 @@ export const PageTransition: React.FC<React.PropsWithChildren> = ({
         variants={svgVariants}
         initial="initial"
         animate="enter"
-        exit="exit"
-      >
+        exit="exit">
         <motion.path
           className="b text-secondary stroke-current"
           strokeWidth={Math.round(80 * 0.2)}

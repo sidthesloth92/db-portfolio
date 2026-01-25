@@ -21,11 +21,12 @@ const NavBar: React.FC = () => {
             transition: {
               delay: 0.6
             }
-          }}
-        >
+          }}>
           <div className="flex w-full max-w-screen-lg h-full justify-between items-center px-8">
-            <Link href="/" className="font-cursive text-3xl text-primary">
-              Dinesh Balaji
+            <Link href="/">
+              <a className="font-cursive text-3xl text-primary">
+                Dinesh Balaji
+              </a>
             </Link>
           </div>
         </motion.header>

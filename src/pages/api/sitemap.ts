@@ -7,7 +7,7 @@ import { getPosts } from './posts';
 /**
  * Serverless function that generate sitemap for the website.
  */
-const handler = async (
+export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -82,5 +82,3 @@ const handler = async (
     res.send(JSON.stringify(e));
   }
 };
-
-export default handler;

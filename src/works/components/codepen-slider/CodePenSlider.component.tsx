@@ -118,16 +118,14 @@ const CodePenSlider: React.FC = () => {
     <motion.div className="flex flex-col">
       <motion.p
         className="text-lg mb-8"
-        variants={sliderContentChildrenVariants}
-      >
+        variants={sliderContentChildrenVariants}>
         I love bringing animations to life through code and regularly post
         on&nbsp;
         <a
           className="ul-hover-effect text-primary"
           target="_blank"
           rel="noreferrer"
-          href="http://codepen.io/sidthesloth92"
-        >
+          href="http://codepen.io/sidthesloth92">
           Codepen
         </a>
         . My pens collectively have over&nbsp;
@@ -153,8 +151,7 @@ const CodePenSlider: React.FC = () => {
                   width: 'calc(100% - 75px)',
                   height: '50px',
                   background: '#111111'
-                }}
-              >
+                }}>
                 {pen.title}
               </div>
               <iframe

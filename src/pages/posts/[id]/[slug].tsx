@@ -9,8 +9,8 @@ import Link from 'next/link';
 
 import withPageTransition from '../../../components/hoc/with-page-transition';
 import MdContent from '../../../components/md-content/MdContent';
-import Page from '../../../components/page/Page';
 import PageBody from '../../../components/page-body/PageBody';
+import Page from '../../../components/page/Page';
 import SocialShare from '../../../components/social-share/SocialShare.component';
 import { formatDate } from '../../../lib';
 import { Post } from '../../../models/Post';
@@ -173,44 +173,37 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
       </Head>
       <motion.div
         className="text-center mb-8 lg:mb-16 overflow-hidden"
-        variants={headerVariants}
-      >
+        variants={headerVariants}>
         <motion.h1
           className="font-black text-primary leading-tight mb-4"
-          variants={headerChildrenVariants}
-        >
+          variants={headerChildrenVariants}>
           {post.title}
         </motion.h1>
         <motion.div
           className="font-bold text-lg lg:text-xl text-secondary"
-          variants={headerChildrenVariants}
-        >
+          variants={headerChildrenVariants}>
           <span>{formatDate(post.published_timestamp)}</span>
           <span className="px-2">•</span>
           <span>{post.readingTime}</span>
         </motion.div>
         <motion.div
           className="text-secondary-text text-md lg:text-lg mb-2 font-bold"
-          variants={headerChildrenVariants}
-        >
+          variants={headerChildrenVariants}>
           {post.tag_list &&
             post.tag_list.map((tag) => {
               return (
                 <Link
                   key={tag}
                   href="/posts/tag/[tag]"
-                  as={`/posts/tag/${tag}`}
-                  className="ul-hover-effect mr-2"
-                >
-                  #{tag}
+                  as={`/posts/tag/${tag}`}>
+                  <a className="ul-hover-effect mr-2">#{tag}</a>
                 </Link>
               );
             })}
         </motion.div>
         <motion.div
           className="flex justify-center"
-          variants={headerChildrenVariants}
-        >
+          variants={headerChildrenVariants}>
           <SocialShare
             item={post}
             url={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/posts/${post.id}/${post.slug}`}

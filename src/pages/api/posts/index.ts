@@ -6,7 +6,7 @@ import { Post } from '../../../models/Post';
  * Serverless funciton for /api/posts.
  * Fetches posts from DEV.to with given params.
  */
-const handler = async (
+export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -22,8 +22,6 @@ const handler = async (
     res.status(500).send('Internal Server Error.');
   }
 };
-
-export default handler;
 
 /**
  * Props for {@link getPosts}.
@@ -51,13 +49,13 @@ interface GetPostsProps {
  */
 export async function getPosts({
   page = '1',
-  per_page = process.env.POSTS_PER_PAGE || '10',
+  per_page = process.env.POSTS_PER_PAGE,
   tag = ''
 }: GetPostsProps = {}): Promise<Post[]> {
   const url = `https://dev.to/api/articles/me/published?`;
 
   const params = new URLSearchParams({
-    page,
+    page: '1',
     per_page: '100'
   });
 
@@ -71,11 +69,6 @@ export async function getPosts({
   });
 
   let posts: Post[] = await response.json();
-
-  if (!Array.isArray(posts)) {
-    console.error('getPosts: Expected array but received:', posts);
-    return [];
-  }
 
   posts = posts.filter((post) => {
     return (

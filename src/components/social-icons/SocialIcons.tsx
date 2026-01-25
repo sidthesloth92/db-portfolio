@@ -25,8 +25,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         rel="noreferrer"
         href="https://github.com/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Github')}
-      >
+        onClick={() => onClick('Github')}>
         <IconGithub />
       </a>
       <a
@@ -35,8 +34,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         rel="noreferrer"
         href="https://codepen.io/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Codepen')}
-      >
+        onClick={() => onClick('Codepen')}>
         <IconCodepen />
       </a>
       <a
@@ -45,8 +43,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         rel="noreferrer"
         href="https://twitter.com/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Twitter')}
-      >
+        onClick={() => onClick('Twitter')}>
         <IconTwitter />
       </a>
       <a
@@ -55,8 +52,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         rel="noreferrer"
         href="https://linkedin.com/in/dineshbalajiv"
         className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Linkedin')}
-      >
+        onClick={() => onClick('Linkedin')}>
         <IconLinkedin />
       </a>
       <a
@@ -65,8 +61,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         rel="noreferrer"
         href="https://instagram.com/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Instagram')}
-      >
+        onClick={() => onClick('Instagram')}>
         <IconInstagram />
       </a>
       <a
@@ -75,8 +70,7 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         rel="noreferrer"
         href="https://www.behance.net/sidthesloth92"
         className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Behance')}
-      >
+        onClick={() => onClick('Behance')}>
         <IconBehance />
       </a>
     </div>

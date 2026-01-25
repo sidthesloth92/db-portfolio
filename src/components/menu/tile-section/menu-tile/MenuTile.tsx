@@ -132,8 +132,8 @@ const MenuTile: React.FC<MenuTileProps> = ({
       <motion.div
         className={`flex h-full flex-col justify-end px-4 py-8 bg-dark-shade text-primary`}
         variants={variants}
-      >
-        <Link href={url} legacyBehavior>
+        initial={'closed'}>
+        <Link href={url}>
           <motion.a
             className={`${styles.textFill} ${
               theme === 'primary'
@@ -141,20 +141,20 @@ const MenuTile: React.FC<MenuTileProps> = ({
                 : styles.textFillPrimary
             } text-${theme} block text-3xl lg:text-5xl font-black uppercase cursor-pointer`}
             variants={contentVariants}
+            initial={'closed'}
             title={title}
             onClick={(event) => {
               onClick();
               setTimeout(() => router.push(url), 300);
               event.preventDefault();
-            }}
-          >
+            }}>
             {title}
           </motion.a>
         </Link>
         <motion.p
           className={`text-base text-${theme} lg:text-xl`}
           variants={contentVariants}
-        >
+          initial={'closed'}>
           {subTitle}
         </motion.p>
       </motion.div>

@@ -3,9 +3,9 @@ import Head from 'next/head';
 import React from 'react';
 
 import withPageTransition from '../../components/hoc/with-page-transition';
-import Page from '../../components/page/Page';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
+import Page from '../../components/page/Page';
 import SkillsSection from '../../components/skills-section/SkillsSection.component';
 import SocialIcons from '../../components/social-icons/SocialIcons';
 import { useDrawFaceOnCanvas } from '../../lib/hooks';
@@ -68,8 +68,7 @@ const AboutPage: React.FC = () => {
         <div className="order-2 lg:order-1 lg:w-1/2 mt-8 lg:mt-0 mb-16">
           <motion.div
             className="lg:max-w-xl flex flex-col justify-center align-center m-auto p-4 text-center lg:text-left"
-            variants={aboutInfoContainerVariants}
-          >
+            variants={aboutInfoContainerVariants}>
             <motion.div className="mb-4" variants={aboutInfoVariants}>
               <span className="text-3xl md:text-4xl lg:text-5xl ">
                 Hi! I&apos;m
@@ -80,8 +79,7 @@ const AboutPage: React.FC = () => {
             </motion.div>
             <motion.p
               className="text-base md:text-2xl mb-4"
-              variants={aboutInfoVariants}
-            >
+              variants={aboutInfoVariants}>
               I am a developer and designer from India
               <span role="img" aria-label="India" className="ml-1">
                 🇮🇳
@@ -106,8 +104,7 @@ const AboutPage: React.FC = () => {
             style={{
               width: '100%',
               height: '100%'
-            }}
-          ></canvas>
+            }}></canvas>
         </div>
       </div>
       <Page>

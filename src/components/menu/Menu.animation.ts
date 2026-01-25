@@ -34,10 +34,10 @@ export const menuButtonVariants = {
  */
 export const barOneVariants = {
   open: {
-    rotate: 45
+    transform: 'rotate(45deg)'
   },
   closed: {
-    rotate: 0
+    transform: 'rotate(0deg)'
   }
 };
 
@@ -46,11 +46,11 @@ export const barOneVariants = {
  */
 export const barTwoVariants = {
   open: {
-    rotate: -45,
+    transform: 'rotate(-45deg)',
     width: '36px'
   },
   closed: {
-    rotate: 0,
+    transform: 'rotate(0deg)',
     width: '40px'
   }
 };
@@ -60,11 +60,11 @@ export const barTwoVariants = {
  */
 export const barThreeVariants = {
   open: {
-    rotate: 45,
+    transform: 'rotate(45deg)',
     marginLeft: '15px'
   },
   closed: {
-    rotate: 0,
+    transform: 'rotate(0deg)',
     marginLeft: '20px'
   }
 };

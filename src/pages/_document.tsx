@@ -6,7 +6,7 @@ import { GA_TRACKING_ID } from '../lib/ga';
  * The document of the application.
  */
 class MyDocument extends Document {
-  render() {
+  render(): JSX.Element {
     return (
       <Html lang="en">
         <Head>

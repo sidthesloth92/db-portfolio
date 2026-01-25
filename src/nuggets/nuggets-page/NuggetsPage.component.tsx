@@ -5,9 +5,9 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import Page from '../../components/page/Page';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
+import Page from '../../components/page/Page';
 import { formatDate } from '../../lib';
 import { NuggetsPageProps } from '../../pages/nuggets';
 import { useNuggets } from './NuggetsPage.hooks';
@@ -91,22 +91,18 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
             dataLength={nuggets.length}
             next={fetchMoreNuggets}
             hasMore={hasMore}
-            loader={null}
-          >
+            loader={null}>
             {nuggets &&
               nuggets.map((nugget, index) => {
                 return (
                   <div
                     className="flex flex-wrap w-full items-center md:flex-row bg-dark-tint md:bg-dark p-2 md:p-0 my-6 md:my-0 rounded border-b-2 border-secondary-text md:border-b md:border-dark-light"
-                    key={index}
-                  >
+                    key={index}>
                     <div className="w-full md:w-3/12 p-2 md:py-4 md:px-2 lg:p-4 text-secondary-text md:md:text-primary font-bold text-lg">
                       <Link
                         href="/nuggets/[id]/[slug]"
-                        as={`/nuggets/${nugget.id}/${nugget.slug}`}
-                        className="ul-hover-effect"
-                      >
-                        {nugget.title}
+                        as={`/nuggets/${nugget.id}/${nugget.slug}`}>
+                        <a className="ul-hover-effect">{nugget.title}</a>
                       </Link>
                     </div>
                     <div className="w-full md:w-5/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4">
@@ -119,10 +115,10 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
                             <Link
                               key={tag}
                               href="/nuggets/tag/[tag]"
-                              as={`/nuggets/tag/${tag}`}
-                              className="inline-block ul-hover-effect mr-2"
-                            >
-                              #{tag}
+                              as={`/nuggets/tag/${tag}`}>
+                              <a className="inline-block ul-hover-effect mr-2">
+                                #{tag}
+                              </a>
                             </Link>
                           );
                         })}

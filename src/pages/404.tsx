@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Page from '../components/page/Page';
 import PageBody from '../components/page-body/PageBody';
+import Page from '../components/page/Page';
 import { useTextEffect } from '../lib/hooks';
 import RelatedPostsSection from '../posts/related-posts-section/RelatedPostsSection.component';
 
@@ -19,8 +19,7 @@ const PageNotFoundPage: React.FC = () => {
             style={{
               width: '100%',
               height: '200px'
-            }}
-          ></canvas>
+            }}></canvas>
           <p className="text-lg mt-2 mb-8">
             We couldn&apos;t find what you were looking for. May be you&apos;ll
             find something you like from the stuff below..
