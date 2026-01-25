@@ -75,6 +75,7 @@ $border-color: $dark-shade;
         height: 20px;
 
         transform: translateX(-50%);
+
         .ear {
           position: relative;
 
@@ -109,9 +110,11 @@ $border-color: $dark-shade;
             transform: translate(-6px, 4px) rotate(19deg);
           }
         }
+
         .ear--left {
           transform: translateY(-50%) rotate(-41deg) translate(-28px, -11px);
         }
+
         .ear--right {
           transform: translateY(-50%) rotate(41deg) translate(28px, -11px);
         }
@@ -129,6 +132,7 @@ $border-color: $dark-shade;
         height: 20px;
 
         transform: translateX(-50%);
+
         .eye {
           position: relative;
 
@@ -172,6 +176,7 @@ $border-color: $dark-shade;
         transform: translate(-50%);
       }
     }
+
     .body {
       position: absolute;
       bottom: 0;
@@ -308,6 +313,7 @@ $border-color: $dark-shade;
         transform-origin: center bottom;
       }
     }
+
     &.lap--right {
       top: 50%;
       right: 0;

@@ -78,7 +78,8 @@ const WorksList: React.FC<WorksListProps> = ({ description, works = [] }) => {
     <>
       <motion.p
         className="text-lg mb-8"
-        variants={sliderContentChildrenVariants}>
+        variants={sliderContentChildrenVariants}
+      >
         {description}
       </motion.p>
       <ul>
@@ -91,7 +92,8 @@ const WorksList: React.FC<WorksListProps> = ({ description, works = [] }) => {
                 target="_blank"
                 rel="noreferrer"
                 className="ul-hover-effect inline-block text-primary text-2xl lg:text-4xl font-bold leading-tight mb-1"
-                variants={sliderContentChildrenVariants}>
+                variants={sliderContentChildrenVariants}
+              >
                 {work.name}
               </motion.a>
               <motion.p

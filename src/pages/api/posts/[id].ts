@@ -7,7 +7,7 @@ import { Post } from '../../../models/Post';
  * Serverless funciton for /api/posts.
  * Fetches posts from DEV.to with given params.
  */
-export default async (
+const handler = async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -18,6 +18,8 @@ export default async (
     res.status(500).send('Internal Server Error.');
   }
 };
+
+export default handler;
 
 /**
  * Retrieves a list of articles from DEV.to for matching query params.

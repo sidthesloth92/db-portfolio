@@ -52,41 +52,49 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
       className={`h-full flex justify-center items-center my-20 lg:my-48 last:mb-0`}
       variants={skillSectionVariants}
       initial="closed"
-      animate={inView ? 'open' : 'closed'}>
+      animate={inView ? 'open' : 'closed'}
+    >
       <div
-        className={`relative w-full border-4 border-${theme} flex justify-center lg:justify-end items-center pt-16 pb-8 lg:py-16`}>
+        className={`relative w-full border-4 border-${theme} flex justify-center lg:justify-end items-center pt-16 pb-8 lg:py-16`}
+      >
         <motion.div
           variants={headerVariants}
           style={{ left: '5%' }}
-          className={`absolute top-0 text-4xl lg:text-6xl font-black bg-dark text-${theme} overflow-hidden px-1 py-1`}>
+          className={`absolute top-0 text-4xl lg:text-6xl font-black bg-dark text-${theme} overflow-hidden px-1 py-1`}
+        >
           {title}
           <motion.div
             variants={headerContentVariants}
-            className={`absolute top-0 left-0 text-4xl lg:text-6xl text-dark bg-${theme} h-full overflow-hidden px-1 py-1`}>
+            className={`absolute top-0 left-0 text-4xl lg:text-6xl text-dark bg-${theme} h-full overflow-hidden px-1 py-1`}
+          >
             {title}
           </motion.div>
         </motion.div>
 
         <motion.ul
           className="w-1/2 mx-2 lg:mx-4 text-center"
-          variants={skillsListVariants}>
+          variants={skillsListVariants}
+        >
           {spells.map((spell) => (
             <motion.li
               key={spell}
               className="m-4"
-              variants={skillsListItemVariants}>
+              variants={skillsListItemVariants}
+            >
               {spell}
             </motion.li>
           ))}
         </motion.ul>
         <motion.ul
           className="w-1/2 mx-2 lg:mx-4 text-center"
-          variants={skillsListVariants}>
+          variants={skillsListVariants}
+        >
           {wands.map((wand) => (
             <motion.li
               key={wand}
               className="m-4"
-              variants={skillsListItemVariants}>
+              variants={skillsListItemVariants}
+            >
               {wand}
             </motion.li>
           ))}

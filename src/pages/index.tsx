@@ -57,7 +57,8 @@ const Home: React.FC = () => {
         <motion.div
           className="fixed top-0 left-0 z-10 m-6"
           initial="closed"
-          animate={isHelpOpen ? 'open' : 'closed'}>
+          animate={isHelpOpen ? 'open' : 'closed'}
+        >
           <motion.div
             className="absolute p-4 transform origin-top-left bg-dark border-2 border-secondary-text select-none"
             style={{
@@ -65,7 +66,8 @@ const Home: React.FC = () => {
               left: '15px',
               width: '260px'
             }}
-            variants={helpSectionVariants}>
+            variants={helpSectionVariants}
+          >
             The
             <span role="img" aria-label="fish" className="ml-1">
               🐟
@@ -89,7 +91,8 @@ const Home: React.FC = () => {
 
         <canvas
           className="absolute top-0 left-0 w-full h-full"
-          id="landing-canvas"></canvas>
+          id="landing-canvas"
+        ></canvas>
         <div className="flex flex-col items-center z-10 p-4 select-none">
           <h1 className="text-2xl md:text-3xl lg:text-4xl">
             Hi, I&apos;m

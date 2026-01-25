@@ -40,9 +40,9 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
     <div className="flex items-center text-secondary text-5xl">
       <FacebookShareButton
         url={url}
-        quote={item.title}
         className="inline-block"
-        onClick={() => onClick('Facebook', item.id)}>
+        onClick={() => onClick('Facebook', item.id)}
+      >
         <FacebookIcon
           size="1em"
           bgStyle={{
@@ -56,7 +56,8 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
         title={item.title}
         via={'sidthesloth92'}
         className="inline-block"
-        onClick={() => onClick('Twitter', item.id)}>
+        onClick={() => onClick('Twitter', item.id)}
+      >
         <TwitterIcon
           size="1em"
           bgStyle={{
@@ -67,11 +68,9 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
       </TwitterShareButton>
       <LinkedinShareButton
         url={url}
-        title={item.title}
-        summary={item.description}
-        source={process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}
         className="inline-block"
-        onClick={() => onClick('LinkedIn', item.id)}>
+        onClick={() => onClick('LinkedIn', item.id)}
+      >
         <LinkedinIcon
           size="1em"
           bgStyle={{
@@ -84,7 +83,8 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
         url={url}
         title={item.title}
         className="inline-block"
-        onClick={() => onClick('Whatsapp', item.id)}>
+        onClick={() => onClick('Whatsapp', item.id)}
+      >
         <WhatsappIcon
           size=".85em"
           bgStyle={{
@@ -99,7 +99,8 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
         tags={item.tag_list}
         caption={item.description}
         className="inline-block"
-        onClick={() => onClick('Tumblr', item.id)}>
+        onClick={() => onClick('Tumblr', item.id)}
+      >
         <TumblrIcon
           size="1em"
           bgStyle={{

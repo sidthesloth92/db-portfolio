@@ -6,7 +6,7 @@ import { Post } from '../../../models/Post';
  * Serverless funciton for /api/posts.
  * Fetches posts from DEV.to with given params.
  */
-export default async (
+const handler = async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -22,6 +22,8 @@ export default async (
     res.status(500).send('Internal Server Error.');
   }
 };
+
+export default handler;
 
 /**
  * Props for {@link getPosts}.
@@ -69,6 +71,11 @@ export async function getPosts({
   });
 
   let posts: Post[] = await response.json();
+
+  if (!Array.isArray(posts)) {
+    console.error('getPosts: Expected array but received:', posts);
+    return [];
+  }
 
   posts = posts.filter((post) => {
     return (

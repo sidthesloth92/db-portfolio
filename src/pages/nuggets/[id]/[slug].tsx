@@ -10,8 +10,8 @@ import React from 'react';
 
 import withPageTransition from '../../../components/hoc/with-page-transition';
 import MdContent from '../../../components/md-content/MdContent';
-import PageBody from '../../../components/page-body/PageBody';
 import Page from '../../../components/page/Page';
+import PageBody from '../../../components/page-body/PageBody';
 import SocialShare from '../../../components/social-share/SocialShare.component';
 import { formatDate } from '../../../lib';
 import { Nugget } from '../../../models/Nugget';
@@ -172,37 +172,44 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
       </Head>
       <motion.div
         className="text-center mb-8 lg:mb-16 overflow-hidden"
-        variants={headerVariants}>
+        variants={headerVariants}
+      >
         <motion.h1
           className="font-black text-primary mb-4 leading-tight"
-          variants={headerChildrenVariants}>
+          variants={headerChildrenVariants}
+        >
           {nugget.title}
         </motion.h1>
         <motion.div
           className="font-bold text-lg lg:text-xl text-secondary"
-          variants={headerChildrenVariants}>
+          variants={headerChildrenVariants}
+        >
           <span>{formatDate(nugget.published_timestamp)}</span>
           <span className="px-2">•</span>
           <span>{nugget.readingTime}</span>
         </motion.div>
         <motion.div
           className="text-secondary-text text-md lg:text-lg mb-2 font-bold"
-          variants={headerChildrenVariants}>
+          variants={headerChildrenVariants}
+        >
           {nugget.tag_list &&
             nugget.tag_list.map((tag) => {
               return (
                 <Link
                   key={tag}
                   href="/nuggets/tag/[tag]"
-                  as={`/nuggets/tag/${tag}`}>
-                  <a className="inline-block ul-hover-effect mr-2">#{tag}</a>
+                  as={`/nuggets/tag/${tag}`}
+                  className="inline-block ul-hover-effect mr-2"
+                >
+                  #{tag}
                 </Link>
               );
             })}
         </motion.div>
         <motion.div
           className="flex justify-center"
-          variants={headerChildrenVariants}>
+          variants={headerChildrenVariants}
+        >
           <SocialShare
             item={nugget}
             url={`${process.env.NEXT_PUBLIC_FRONT_END_DOMAIN}/nuggets/${nugget.id}/${nugget.slug}`}

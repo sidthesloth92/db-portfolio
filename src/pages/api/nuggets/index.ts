@@ -6,7 +6,7 @@ import { Nugget } from '../../../models/Nugget';
  * Serverless funciton for /api/nuggets.
  * Fetches nuggets from DEV.to with given params.
  */
-export default async (
+const handler = async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -22,6 +22,8 @@ export default async (
     res.status(500).send('Internal Server Error.');
   }
 };
+
+export default handler;
 
 /**
  * Props for {@link getNuggets}.
@@ -70,6 +72,11 @@ export async function getNuggets({
   });
 
   let nuggets: Nugget[] = await response.json();
+
+  if (!Array.isArray(nuggets)) {
+    console.error('getNuggets: Expected array but received:', nuggets);
+    return [];
+  }
 
   nuggets = nuggets.filter((nugget) => {
     return (

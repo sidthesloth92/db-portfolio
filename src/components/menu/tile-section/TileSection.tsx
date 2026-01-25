@@ -17,7 +17,10 @@ interface TileSectionProps {
  */
 const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
   return (
-    <motion.div className="lg:w-1/2 h-3/5 lg:h-full flex flex-wrap">
+    <motion.div
+      className="lg:w-1/2 h-3/5 lg:h-full flex flex-wrap"
+      variants={{ open: {}, closed: {} }}
+    >
       <MenuTile
         direction="bottom"
         title="Works"

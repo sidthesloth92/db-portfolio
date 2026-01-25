@@ -68,10 +68,8 @@ export function useLandingPageCanvasEffect(): void {
     canvas.addEventListener('touchend', handleMouseUp, { passive: true });
     canvas.addEventListener('dblclick', handleDoubleClick, { passive: true });
 
-    const {
-      width: canvasWidth,
-      height: canvasHeight
-    } = canvas.getBoundingClientRect();
+    const { width: canvasWidth, height: canvasHeight } =
+      canvas.getBoundingClientRect();
 
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
@@ -320,10 +318,8 @@ export function useDrawFaceOnCanvas(): void {
 
     const canvasDimensions = canvas.getBoundingClientRect();
     const { left: canvasStartX, top: canvasStartY } = canvasDimensions;
-    let {
-      width: canvasWidth,
-      height: canvasHeight
-    } = canvas.getBoundingClientRect();
+    let { width: canvasWidth, height: canvasHeight } =
+      canvas.getBoundingClientRect();
 
     canvasWidth = canvas.width = roundToEven(canvasWidth);
     canvasHeight = canvas.height = roundToEven(canvasHeight);
@@ -563,10 +559,8 @@ export function useTextEffect(id: string, text: string): void {
       );
       const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
-      const {
-        width: canvasWidth,
-        height: canvasHeight
-      } = canvas.getBoundingClientRect();
+      const { width: canvasWidth, height: canvasHeight } =
+        canvas.getBoundingClientRect();
 
       canvas.width = canvasWidth;
       canvas.height = canvasHeight;

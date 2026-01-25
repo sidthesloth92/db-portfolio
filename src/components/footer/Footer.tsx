@@ -25,23 +25,43 @@ const Footer: React.FC = () => (
             <h1 className="text-primary text-2xl mb-2">Links</h1>
             <ul>
               <li className="my-2">
-                <TrackLink href="/about" label="Footer" value="about">
-                  <a className="ul-hover-effect">About</a>
+                <TrackLink
+                  href="/about"
+                  label="Footer"
+                  value="about"
+                  className="ul-hover-effect"
+                >
+                  About
                 </TrackLink>
               </li>
               <li className="my-2">
-                <TrackLink href="/works" label="Footer" value="works">
-                  <a className="ul-hover-effect">Works</a>
+                <TrackLink
+                  href="/works"
+                  label="Footer"
+                  value="works"
+                  className="ul-hover-effect"
+                >
+                  Works
                 </TrackLink>
               </li>
               <li className="my-2">
-                <TrackLink href="/posts" label="Footer" value="posts">
-                  <a className="ul-hover-effect">Posts</a>
+                <TrackLink
+                  href="/posts"
+                  label="Footer"
+                  value="posts"
+                  className="ul-hover-effect"
+                >
+                  Posts
                 </TrackLink>
               </li>
               <li className="my-2">
-                <TrackLink href="/nuggets" label="Footer" value="nuggets">
-                  <a className="ul-hover-effect">Nuggets</a>
+                <TrackLink
+                  href="/nuggets"
+                  label="Footer"
+                  value="nuggets"
+                  className="ul-hover-effect"
+                >
+                  Nuggets
                 </TrackLink>
               </li>
             </ul>
@@ -55,7 +75,8 @@ const Footer: React.FC = () => (
             <div>
               <a
                 className="ul-hover-effect"
-                href="mailto:www.sidthesloth@gmail.com">
+                href="mailto:www.sidthesloth@gmail.com"
+              >
                 www.sidthesloth@gmail.com
               </a>
             </div>

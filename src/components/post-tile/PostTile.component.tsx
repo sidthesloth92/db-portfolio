@@ -55,7 +55,8 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
             ease: 'circIn'
           },
           scale: 0
-        }}>
+        }}
+      >
         <motion.div
           initial={{
             opacity: 0
@@ -67,24 +68,23 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
               duration: 0.6
             }
           }}
-          className="h-full bg-dark-tint shadow-md rounded overflow-hidden hover:border-dark hover:border-8`">
+          className="h-full bg-dark-tint shadow-md rounded overflow-hidden hover:border-dark hover:border-8`"
+        >
           <motion.div
             ref={ref}
             className="relative p-4 transtition duration-100"
             onTouchMove={handleMouseMove}
             onTouchEnd={handleMouseLeave}
             onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}>
+            onMouseLeave={handleMouseLeave}
+          >
             <Link
               href="/posts/[id]/[slug]"
-              as={`/posts/${post.id}/${post.slug}`}>
-              <a>
-                <div
-                  className={`${styles.textFill} relative text-xl uppercase font-black overflow-hidden`}
-                  title={post.title}>
-                  {post.title}
-                </div>
-              </a>
+              as={`/posts/${post.id}/${post.slug}`}
+              className={`${styles.textFill} relative text-xl uppercase font-black overflow-hidden`}
+              title={post.title}
+            >
+              {post.title}
             </Link>
             <div className="text-xs text-secondary font-black mt-2 mb-4">
               <div className="mb-1">
@@ -99,8 +99,10 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
                       <Link
                         key={tag}
                         href="/posts/tag/[tag]"
-                        as={`/posts/tag/${tag}`}>
-                        <a className="ul-hover-effect mr-2">#{tag}</a>
+                        as={`/posts/tag/${tag}`}
+                        className="ul-hover-effect mr-2"
+                      >
+                        #{tag}
                       </Link>
                     );
                   })}

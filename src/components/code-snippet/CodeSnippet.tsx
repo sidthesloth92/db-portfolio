@@ -46,7 +46,8 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
         <div className="flex-grow font-mono text-base">{fileName}</div>
         <CopyToClipboard
           text={code}
-          options={{ message: 'Copied to clipboard' }}>
+          options={{ message: 'Copied to clipboard' }}
+        >
           <span className="cursor-pointer">
             <IconCopy className="text-base" />
           </span>
@@ -60,7 +61,8 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
           wrapLines
           customStyle={{
             background: 'var(--color-dark-tint)'
-          }}>
+          }}
+        >
           {code}
         </SyntaxHighlighter>
       </div>

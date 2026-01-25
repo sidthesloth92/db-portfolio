@@ -41,13 +41,12 @@ const Logo: React.FC<LogoProps> = ({ side = 150 }) => {
       viewBox={`0 0 150 150`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      initial="closed"
-      variants={svgVariants}>
+      variants={svgVariants}
+    >
       <motion.path
         className="b text-secondary stroke-current"
         strokeWidth={Math.round(side * 0.2)}
         strokeLinecap="round"
-        initial="closed"
         variants={variants}
         d="M 10 10 L 10 75 Q 10 98 33 98 L 75 98 Q 97 98 98 75 Q 97 53 75 53 L 52 53"
       />
@@ -56,7 +55,6 @@ const Logo: React.FC<LogoProps> = ({ side = 150 }) => {
         strokeWidth={Math.round(side * 0.2)}
         strokeLinecap="round"
         d="M 10 140 L 75 140 Q 140 140 140 75 Q 140 10 75 10 L 10 10"
-        initial="closed"
         variants={variants}
       />
     </motion.svg>

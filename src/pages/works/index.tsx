@@ -3,9 +3,9 @@ import Head from 'next/head';
 import React from 'react';
 
 import withPageTransition from '../../components/hoc/with-page-transition';
+import Page from '../../components/page/Page';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
-import Page from '../../components/page/Page';
 import CodePenSlider from '../../works/components/codepen-slider/CodePenSlider.component';
 import WorksList, {
   WorksListProps
@@ -50,14 +50,12 @@ const WorksPage: React.FC = () => {
       },
       {
         name: 'HTML Boilerpate - VS Code Plugin',
-        url:
-          'https://marketplace.visualstudio.com/items?itemName=sidthesloth.html5-boilerplate',
+        url: 'https://marketplace.visualstudio.com/items?itemName=sidthesloth.html5-boilerplate',
         description: `This is a plugin for Microsoft's VS Code. It has over <span class="text-secondary">780,000</span> installs.`
       },
       {
         name: 'SVG snippets - VS Code Plugin',
-        url:
-          'https://marketplace.visualstudio.com/items?itemName=sidthesloth.svg-snippets',
+        url: 'https://marketplace.visualstudio.com/items?itemName=sidthesloth.svg-snippets',
         description: `This is a plugin for Microsoft's VS Code. It has over <span class="text-secondary">13.5k </span> installs.`
       },
       {
@@ -72,8 +70,7 @@ const WorksPage: React.FC = () => {
       },
       {
         name: 'Firefox Dev Tools',
-        url:
-          'https://github.com/firefox-devtools/devtools-core/commits?author=sidthesloth92',
+        url: 'https://github.com/firefox-devtools/devtools-core/commits?author=sidthesloth92',
         description: `Added a bunch of Jest test cases to the Firefox devtools core repo.`
       }
     ]
