@@ -51,7 +51,7 @@ interface GetNuggetsProps {
  */
 export async function getNuggets({
   page = '1',
-  per_page = process.env.NUGGETS_PER_PAGE,
+  per_page = process.env.NUGGETS_PER_PAGE || '10',
   tag = ''
 }: GetNuggetsProps = {}): Promise<Nugget[]> {
   console.log('Getting nuggets: ', page, per_page, tag);

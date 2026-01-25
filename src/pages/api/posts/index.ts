@@ -51,13 +51,13 @@ interface GetPostsProps {
  */
 export async function getPosts({
   page = '1',
-  per_page = process.env.POSTS_PER_PAGE,
+  per_page = process.env.POSTS_PER_PAGE || '10',
   tag = ''
 }: GetPostsProps = {}): Promise<Post[]> {
   const url = `https://dev.to/api/articles/me/published?`;
 
   const params = new URLSearchParams({
-    page: '1',
+    page,
     per_page: '100'
   });
 
