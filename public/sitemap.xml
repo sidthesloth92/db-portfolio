@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+   xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+   xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+   xmlns:xhtml="http://www.w3.org/1999/xhtml">
    <url>
-      <loc>https://dineshbalaji.in/about</loc>
+      <loc>https://dineshbalajiv.com/about</loc>
       <changefreq>monthly</changefreq>
    </url>
    <url>
-      <loc>https://dineshbalaji.in/works</loc>
+      <loc>https://dineshbalajiv.com/works</loc>
       <changefreq>monthly</changefreq>
    </url>
    <url>
-      <loc>https://dineshbalaji.in/posts</loc>
+      <loc>https://dineshbalajiv.com/posts</loc>
       <changefreq>daily</changefreq>
    </url>
    <url>
-      <loc>https://dineshbalaji.in/nuggets</loc>
+      <loc>https://dineshbalajiv.com/nuggets</loc>
       <changefreq>daily</changefreq>
    </url>
    <url>
-      <loc>https://dineshbalaji.in/posts/553358/react-server-components-initial-thoughts-3lml</loc>
-      <changefreq>daily</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://dineshbalaji.in/posts/512477/story-of-how-i-built-my-portfolio-and-blog-using-dev-to-and-nextjs-3j85</loc>
+      <loc>https://dineshbalajiv.com/posts/553358/react-server-components-initial-thoughts-3lml</loc>
       <changefreq>daily</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
-      <loc>https://dineshbalaji.in/posts/41329/understanding-html-form-encoding-url-encoded-and-multipart-forms-3lpa</loc>
+      <loc>https://dineshbalajiv.com/posts/512477/story-of-how-i-built-my-portfolio-and-blog-using-dev-to-and-nextjs-3j85</loc>
       <changefreq>daily</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
-      <loc>https://dineshbalaji.in/nuggets/528230/typescript-quirks-string-or-string-which-one-should-i-use-13n6</loc>
+      <loc>https://dineshbalajiv.com/posts/41329/understanding-html-form-encoding-url-encoded-and-multipart-forms-3lpa</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://dineshbalajiv.com/nuggets/528230/typescript-quirks-string-or-string-which-one-should-i-use-13n6</loc>
       <changefreq>daily</changefreq>
       <priority>0.9</priority>
    </url>

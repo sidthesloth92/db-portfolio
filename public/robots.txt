@@ -1,4 +1,4 @@
-Sitemap: https://dineshbalaji.in/api/sitemap
+Sitemap: https://dineshbalajiv.com/api/sitemap
 
 User-agent: *
 Allow: /*
