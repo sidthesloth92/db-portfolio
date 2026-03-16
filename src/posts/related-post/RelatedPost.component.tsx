@@ -19,7 +19,8 @@ const RelatedPost: React.FC<{ post: Post }> = ({ post }) => (
       href={'/posts/[id]/[slug]'}
       as={`/posts/${post.id}/${post.slug}`}
       label="Related Post"
-      value={post.slug}>
+      value={post.slug}
+      legacyBehavior>
       <a>
         <div
           className={`relative text-lg uppercase font-black text-secondary-text overflow-hidden hover:text-secondary`}
@@ -35,10 +36,14 @@ const RelatedPost: React.FC<{ post: Post }> = ({ post }) => (
         <span>15 mins</span>
       </div>
       <div>
-        {post.tag_list &&
+        {Array.isArray(post.tag_list) &&
           post.tag_list.map((tag) => {
             return (
-              <Link key={tag} href="/posts/tag/[tag]" as={`/posts/tag/${tag}`}>
+              <Link
+                key={tag}
+                href="/posts/tag/[tag]"
+                as={`/posts/tag/${tag}`}
+                legacyBehavior>
                 <a className="ul-hover-effect mr-2">#{tag}</a>
               </Link>
             );

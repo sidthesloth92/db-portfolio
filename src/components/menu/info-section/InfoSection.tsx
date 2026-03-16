@@ -13,7 +13,7 @@ const InfoSection: React.FC = () => {
       transition: {
         when: 'beforeChildren',
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
         staggerChildren: 0.3
       }
     },
@@ -31,7 +31,7 @@ const InfoSection: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.9,
-        ease: [0.22, 1, 0.36, 1]
+        ease: [0.22, 1, 0.36, 1] as const
       }
     },
     closed: {

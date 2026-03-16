@@ -99,7 +99,7 @@ const MenuTile: React.FC<MenuTileProps> = ({
         when: 'beforeChildren',
         staggerChildren: 0.2,
         duration: 0.6,
-        ease: [0.83, 0, 0.17, 1]
+        ease: [0.83, 0, 0.17, 1] as const
       }
     },
     closed: {
@@ -118,7 +118,7 @@ const MenuTile: React.FC<MenuTileProps> = ({
       transition: {
         duration: 0.9,
         bounce: 0.1,
-        ease: [0.22, 1, 0.36, 1]
+        ease: [0.22, 1, 0.36, 1] as const
       }
     },
     closed: {
@@ -131,9 +131,8 @@ const MenuTile: React.FC<MenuTileProps> = ({
     <div className={`${styles.tile} w-1/2 overflow-hidden`}>
       <motion.div
         className={`flex h-full flex-col justify-end px-4 py-8 bg-dark-shade text-primary`}
-        variants={variants}
-        initial={'closed'}>
-        <Link href={url}>
+        variants={variants}>
+        <Link href={url} legacyBehavior>
           <motion.a
             className={`${styles.textFill} ${
               theme === 'primary'
@@ -141,7 +140,6 @@ const MenuTile: React.FC<MenuTileProps> = ({
                 : styles.textFillPrimary
             } text-${theme} block text-3xl lg:text-5xl font-black uppercase cursor-pointer`}
             variants={contentVariants}
-            initial={'closed'}
             title={title}
             onClick={(event) => {
               onClick();
@@ -153,8 +151,7 @@ const MenuTile: React.FC<MenuTileProps> = ({
         </Link>
         <motion.p
           className={`text-base text-${theme} lg:text-xl`}
-          variants={contentVariants}
-          initial={'closed'}>
+          variants={contentVariants}>
           {subTitle}
         </motion.p>
       </motion.div>

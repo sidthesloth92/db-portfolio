@@ -41,14 +41,14 @@ const headerVariants = {
 export const headerChildrenVariants = {
   initial: {
     opacity: 0,
-    transform: 'translateY(50%)'
+    y: '50%'
   },
   enter: {
     opacity: 1,
-    transform: 'translateY(0%)',
+    y: '0%',
     transition: {
       duration: 0.8,
-      ease: 'easeOut'
+      ease: 'easeOut' as const
     }
   }
 };
@@ -67,7 +67,7 @@ const hrVariants = {
     transition: {
       delay: 1.2,
       duration: 1,
-      ease: 'easeOut'
+      ease: 'easeOut' as const
     }
   }
 };
@@ -78,15 +78,15 @@ const hrVariants = {
 const nuggetContentVariants = {
   initial: {
     opacity: 0,
-    transform: 'translateY(2%)'
+    y: '2%'
   },
   enter: {
     opacity: 1,
-    transform: 'translateY(0%)',
+    y: '0%',
     transition: {
       delay: 1.2,
       duration: 1,
-      ease: 'easeOut'
+      ease: 'easeOut' as const
     }
   }
 };
@@ -155,7 +155,10 @@ export const getStaticProps = async ({
 /**
  * Represents a page for a single instance of a nugget.
  */
-const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
+const NuggetPage: React.FC<NuggetPageProps> = ({ nugget }) => {
+  if (!nugget || !nugget.title) {
+    return null;
+  }
   return (
     <Page>
       <Head>
@@ -188,13 +191,14 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
         <motion.div
           className="text-secondary-text text-md lg:text-lg mb-2 font-bold"
           variants={headerChildrenVariants}>
-          {nugget.tag_list &&
+          {Array.isArray(nugget.tag_list) &&
             nugget.tag_list.map((tag) => {
               return (
                 <Link
                   key={tag}
                   href="/nuggets/tag/[tag]"
-                  as={`/nuggets/tag/${tag}`}>
+                  as={`/nuggets/tag/${tag}`}
+                  legacyBehavior>
                   <a className="inline-block ul-hover-effect mr-2">#{tag}</a>
                 </Link>
               );

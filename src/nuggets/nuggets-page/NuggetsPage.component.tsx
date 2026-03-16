@@ -17,16 +17,16 @@ import { useNuggets } from './NuggetsPage.hooks';
  */
 const tableContainerVariants = {
   initial: {
-    transform: 'translateY(100%)',
+    y: '100%',
     opacity: 0
   },
   enter: {
-    transform: 'translateY(0px)',
+    y: '0px',
     opacity: 1,
     transition: {
       delay: 0.8,
       duration: 1,
-      ease: 'easeOut'
+      ease: 'easeOut' as const
     }
   }
 };
@@ -101,7 +101,8 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
                     <div className="w-full md:w-3/12 p-2 md:py-4 md:px-2 lg:p-4 text-secondary-text md:md:text-primary font-bold text-lg">
                       <Link
                         href="/nuggets/[id]/[slug]"
-                        as={`/nuggets/${nugget.id}/${nugget.slug}`}>
+                        as={`/nuggets/${nugget.id}/${nugget.slug}`}
+                        legacyBehavior>
                         <a className="ul-hover-effect">{nugget.title}</a>
                       </Link>
                     </div>
@@ -109,13 +110,14 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
                       {nugget.description}
                     </div>
                     <div className="w-2/3 md:w-2/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4 text-sm text-secondary font-bold  md:text-center">
-                      {nugget.tag_list &&
+                      {Array.isArray(nugget.tag_list) &&
                         nugget.tag_list.map((tag) => {
                           return (
                             <Link
                               key={tag}
                               href="/nuggets/tag/[tag]"
-                              as={`/nuggets/tag/${tag}`}>
+                              as={`/nuggets/tag/${tag}`}
+                              legacyBehavior>
                               <a className="inline-block ul-hover-effect mr-2">
                                 #{tag}
                               </a>

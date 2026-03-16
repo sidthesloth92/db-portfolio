@@ -12,7 +12,9 @@ import {
  * Component that add page transtions to a page.
  * @param children The child page to be rendered.
  */
-export const PageTransition: React.FC = ({ children }) => {
+export const PageTransition: React.FC<React.PropsWithChildren<any>> = ({
+  children
+}) => {
   return (
     <>
       <motion.div

@@ -15,7 +15,7 @@ const helpSectionVariants = {
     scale: 1,
     transition: {
       duration: 0.2,
-      ease: 'circOut'
+      ease: 'circOut' as const
     }
   },
   closed: {

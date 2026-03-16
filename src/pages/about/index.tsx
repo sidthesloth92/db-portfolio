@@ -28,14 +28,14 @@ const aboutInfoContainerVariants = {
 const aboutInfoVariants = {
   initial: {
     opacity: 0,
-    transform: 'translateY(50%)'
+    y: '50%'
   },
   enter: {
     opacity: 1,
-    transform: 'translateY(0%)',
+    y: '0%',
     transition: {
       duration: 1,
-      ease: 'easeOut'
+      ease: 'easeOut' as const
     }
   }
 };

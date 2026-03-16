@@ -10,7 +10,7 @@ export const skillSectionVariants = {
     transition: {
       when: 'beforeChildren',
       duration: 0.6,
-      ease: [0.79, -0.01, 0, 0.99]
+      ease: [0.79, -0.01, 0, 0.99] as const
     }
   }
 };
@@ -37,11 +37,11 @@ export const skillsListVariants = {
 export const skillsListItemVariants = {
   closed: {
     opacity: 0,
-    transform: 'translateY(100%)'
+    y: '100%'
   },
   open: {
     opacity: 1,
-    transform: 'translateY(0%)',
+    y: '0%',
     transition: {}
   }
 };
@@ -51,10 +51,14 @@ export const skillsListItemVariants = {
  */
 export const headerVariants = {
   closed: {
-    transform: 'translate(0%, -50%) scaleY(0)'
+    x: '0%',
+    y: '-50%',
+    scaleY: 0
   },
   open: {
-    transform: 'translate(0%, -50%) scaleY(1)'
+    x: '0%',
+    y: '-50%',
+    scaleY: 1
   }
 };
 
@@ -69,7 +73,7 @@ export const headerContentVariants = {
     width: '100%',
     transition: {
       duration: 0.6,
-      ease: [0.79, -0.01, 0, 0.99]
+      ease: [0.79, -0.01, 0, 0.99] as const
     }
   }
 };
@@ -79,14 +83,14 @@ export const headerContentVariants = {
  */
 export const headerContentBackgroundVariants = {
   closed: {
-    transform: 'translateX(-100%)'
+    x: '-100%'
   },
   open: {
     delay: 1,
-    transform: 'translateX(0%)',
+    x: '0%',
     transition: {
       duration: 0.6,
-      ease: [0.79, -0.01, 0, 0.99]
+      ease: [0.79, -0.01, 0, 0.99] as const
     }
   }
 };

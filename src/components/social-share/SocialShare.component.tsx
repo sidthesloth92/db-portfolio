@@ -26,13 +26,13 @@ interface SocialShareProps {
 /**
  * Displays a list of share icons. Reports to analytics when clicked.
  */
-const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
+const SocialShare: React.FC<SocialShareProps> = ({ item = {} as any, url }) => {
   const onClick = (label, value) => {
     trackEvent({
       action: 'click',
       category: 'Social Share',
       label,
-      value
+      value: String(value)
     });
   };
 
@@ -40,7 +40,6 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
     <div className="flex items-center text-secondary text-5xl">
       <FacebookShareButton
         url={url}
-        quote={item.title}
         className="inline-block"
         onClick={() => onClick('Facebook', item.id)}>
         <FacebookIcon
@@ -96,7 +95,7 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
       <TumblrShareButton
         url={url}
         title={item.title}
-        tags={item.tag_list}
+        tags={Array.isArray(item.tag_list) ? item.tag_list : []}
         caption={item.description}
         className="inline-block"
         onClick={() => onClick('Tumblr', item.id)}>

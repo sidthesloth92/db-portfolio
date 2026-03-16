@@ -4,7 +4,7 @@
   &:nth-child(2),
   &:nth-child(3) {
     div {
-      @apply bg-dark-black;
+      background-color: var(--color-dark-black);
     }
   }
 }
